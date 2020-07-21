@@ -263,18 +263,31 @@
       
         <h3 id="1、终端设置"><a href="#1、终端设置" class="headerlink" title="1、终端设置"></a>1、终端设置</h3><p>编辑-首选项 100*30 字体大小 15</p>
 <h3 id="2、软件更新"><a href="#2、软件更新" class="headerlink" title="2、软件更新"></a>2、软件更新</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
+
 <h3 id="3、创建应用程序图标"><a href="#3、创建应用程序图标" class="headerlink" title="3、创建应用程序图标"></a>3、创建应用程序图标</h3><p>1、创建文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /usr/share/applications/应用程序名.desktop</span><br></pre></td></tr></table></figure>
+
 <p>2、文件中输入下面内容</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=图标名称</span><br><span class="line">Comment=描述</span><br><span class="line">Exec=可运行文件路径</span><br><span class="line">Icon=图标路径</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;Development;</span><br></pre></td></tr></table></figure>
+
 <p>3、修改权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod u+x /usr/share/applications/应用程序名.desktop</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="4、安装-TopIcons-Plus"><a href="#4、安装-TopIcons-Plus" class="headerlink" title="4、安装 TopIcons Plus"></a>4、安装 TopIcons Plus</h3><p>软件中心搜索 TopIcons Plus 。</p>
 <h3 id="5、为Ubuntu-Dock启用“最小化点击”"><a href="#5、为Ubuntu-Dock启用“最小化点击”" class="headerlink" title="5、为Ubuntu Dock启用“最小化点击”"></a>5、为Ubuntu Dock启用“最小化点击”</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings <span class="built_in">set</span> org.gnome.shell.extensions.dash-to-dock click-action <span class="string">'minimize'</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="6、安装-GNOME-Tweak-Tool"><a href="#6、安装-GNOME-Tweak-Tool" class="headerlink" title="6、安装 GNOME Tweak Tool"></a>6、安装 GNOME Tweak Tool</h3><p><a href="apt://gnome-tweak-tool/">点击安装</a></p>
 <h3 id="7、添加SSH"><a href="#7、添加SSH" class="headerlink" title="7、添加SSH"></a>7、添加SSH</h3><p>将SSH放到<code>~/.ssh</code>目录下，并执行下列语句。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add</span><br></pre></td></tr></table></figure>
+
+
+
 
     </div>
 

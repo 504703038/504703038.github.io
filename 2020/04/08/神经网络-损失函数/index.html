@@ -242,7 +242,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>346</span>
+              <span>357</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -270,12 +270,10 @@
 </li>
 </ul>
 <a id="more"></a>
+
 <h3 id="2、常见损失函数"><a href="#2、常见损失函数" class="headerlink" title="2、常见损失函数"></a>2、常见损失函数</h3><h4 id="1、0-1损失函数-zero-one-loss"><a href="#1、0-1损失函数-zero-one-loss" class="headerlink" title="1、0-1损失函数(zero-one loss)"></a>1、0-1损失函数(zero-one loss)</h4><p>0-1损失是指预测值和目标值不相等为1， 否则为0:</p>
-<script type="math/tex; mode=display">L(Y,f(X))=
-\begin{cases}
- 1, & Y = f(X) \\ 
- 0, & Y \neq f(X) 
-\end{cases}</script><p>特点：</p>
+<p>$$L(Y,f(X))=<br>\begin{cases}<br> 1, &amp; Y = f(X) \<br> 0, &amp; Y \neq f(X)<br>\end{cases}$$</p>
+<p>特点：</p>
 <ul>
 <li>0-1损失函数直接对应分类判断错误的个数，是非凸函数。</li>
 <li>感知机就是用这种损失函数，但条件相对宽松。满足 $Y-f(x)&lt;T$ 时就认为相等。</li>

@@ -257,21 +257,32 @@
       
         <h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><p><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">官网下载地址</a></p>
 <a id="more"></a>
+
 <h3 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h3><p>直接解压</p>
 <h3 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h3><p> 系统—&gt;高级系统设置—&gt;环境变量—&gt;系统变量 </p>
 <p>新建环境变量</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名：MYSQL_HOME</span><br><span class="line">变量值：E:\Program-Environment\mysql-8.0.20(文件解压的目录)</span><br></pre></td></tr></table></figure>
+
 <p>编辑 <code>Path</code> 变量，在Path末尾添加 <code>;%MYSQL_HOME%\bin</code></p>
 <h3 id="4、配置-my-ini-文件"><a href="#4、配置-my-ini-文件" class="headerlink" title="4、配置 my.ini 文件"></a>4、配置 <code>my.ini</code> 文件</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">#端口号</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment">#mysql的路径</span></span><br><span class="line"><span class="attr">basedir</span>=E:\Program-Environment\mysql-<span class="number">8.0</span>.<span class="number">20</span></span><br><span class="line"><span class="comment">#mysql的路径+\data</span></span><br><span class="line"><span class="attr">datadir</span>=E:\Program-Environment\mysql-<span class="number">8.0</span>.<span class="number">20</span>\data </span><br><span class="line"><span class="comment">#最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">200</span></span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"></span><br><span class="line"><span class="attr">sql_mode</span>=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line"></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="5、安装"><a href="#5、安装" class="headerlink" title="5、安装"></a>5、安装</h3><p>以管理员的身份运行 <code>cmd</code></p>
 <p>切换到 <code>mysql</code> 目录的 <code>bin</code> 文件夹下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; cd E:\Program-Environment\mysql-8.0.20\bin</span><br></pre></td></tr></table></figure>
+
 <p>安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; mysqld -install</span><br></pre></td></tr></table></figure>
+
 <p>初始化</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; mysqld --initialize</span><br></pre></td></tr></table></figure>
+
 <p>启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; net start mysql</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="6、设置MySQL密码"><a href="#6、设置MySQL密码" class="headerlink" title="6、设置MySQL密码"></a>6、设置<code>MySQL</code>密码</h3><ul>
 <li><p>查看默认密码</p>
 <blockquote>
