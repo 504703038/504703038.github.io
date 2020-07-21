@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CodeBlocks个性化设置</title>
+    <url>/2019/08/08/CodeBlocks%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="0、配置文件路径"><a href="#0、配置文件路径" class="headerlink" title="0、配置文件路径"></a>0、配置文件路径</h3><p><code>default.conf</code>所在位置，若未打开过<code>CodeBlocks</code>先打开一次才会有</p>
+<div class="tabs" id="conf_file"><ul class="nav-tabs"><li class="tab active"><a href="#conf_file-1">Windows</a></li><li class="tab"><a href="#conf_file-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="conf_file-1"><p><code>C:\Users\&quot;Username&quot;\AppData\Roaming\CodeBlocks\default.conf</code></p></div><div class="tab-pane" id="conf_file-2"><p><code>~/.config/codeblocks/default.conf</code></p></div></div></div>
+
+<a id="more"></a>
+
+<h3 id="1、主题和字体"><a href="#1、主题和字体" class="headerlink" title="1、主题和字体"></a>1、主题和字体</h3><h4 id="1、主题："><a href="#1、主题：" class="headerlink" title="1、主题："></a>1、主题：</h4><p><a href="http://wiki.codeblocks.org/index.php?title=Syntax_highlighting_custom_colour_themes" target="_blank" rel="noopener">官网主题</a></p>
+<p>从官网上复制主题代码，将代码粘贴在<code>default.conf</code>文件中，覆盖<code>&lt;colour_sets&gt;</code>的代码段。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">colour_sets</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">default</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">cc</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">editor</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">keywords</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">SET4</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">str</span>&gt;</span></span><br><span class="line">							&lt;![CDATA[__cplusplus __GNUC__ __GNUG__]]&gt;</span><br><span class="line">						<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">SET4</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">keywords</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">editor</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">NAME</span> <span class="attr">bool</span>=<span class="string">"1"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">cc</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">default</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">colour_sets</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>保存文件后打开 <code>Settings -&gt; Editor -&gt; Syntax highlighting -&gt; Color  theme</code>选择 <code>modnokai night shift v2</code> 主题，该主题的光标行为黑色，<code>Settings -&gt; Editor -&gt; Margins and caret -&gt; caret</code>将光标调为白色。</p>
+<h4 id="2、字体设置："><a href="#2、字体设置：" class="headerlink" title="2、字体设置："></a>2、字体设置：</h4><p><code>Settings -&gt; Editor -&gt; General  settings -&gt; Font</code>选择<code>Courier  New</code> 字体。</p>
+<h3 id="2、代码补全"><a href="#2、代码补全" class="headerlink" title="2、代码补全"></a>2、代码补全</h3><p><code>Settings -&gt; Editor -&gt; General  settings -&gt; Code  completion -&gt; Autolaunch  after  typing  #  letters</code>设置为 2​ ，选中 <code>Case  sensitive</code>。</p>
+<p><code>Settings -&gt; Editor -&gt; Code  completion</code>  1~9 都选中，延时调到<code>200ms</code> 。</p>
+<p><code>Settings -&gt; Editor -&gt; Browse  Tracker</code> 选中 <code>Enable  Browse  Tracker</code> 。</p>
+<p><code>Setting -&gt; Editor -&gt; Syntax  highlighting -&gt; Key  Words</code> 将下面的单词复制进去一个空集合。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">STANDARD_LIBRARY_NAMES abort ios_base accumulate isalpha allocator islower </span><br><span class="line">auto_ptr ispunct back_inserter isspace bad_alloc istream bad_cast </span><br><span class="line">istream_iterator bind2ndistringstream bitset isupper boolalpha left cerr </span><br><span class="line">less_equalcin list copy logic_error count lower_bound count_if make_pair cout </span><br><span class="line">map dec max deque min endl multimap ends multiset equal_range negate exception </span><br><span class="line">noboolalpha fill noshowbase fill_n noshowpoint find noskipws find_end not1 </span><br><span class="line">find_first_of nounitbuf fixed nouppercase flush nth_element for_each oct </span><br><span class="line">front_inserter of stream fstream ostream getline ostream_iterator hex</span><br><span class="line">ostringstream ifstream out_of_range inner_product pair inserter partial_sort </span><br><span class="line">internal plus priority_queuesqrt ptrdiff_t stable_sort queue stack range_error </span><br><span class="line">strcmp replace strcpy replace_copy string reverse_iterator stringstream right </span><br><span class="line">strlen runtime_error strncpy scientific terminate set tolower set_difference </span><br><span class="line">toupper set_intersection type_info set_union unexpected setfill </span><br><span class="line">uninitialized_copy setprecision unitbuf setw unique showbase unique_copy </span><br><span class="line">showpoint upper_bound size_t uppercase skipwsvector sort STRING_EXPORTS append </span><br><span class="line">assign at begin c_str capacity clear compare copy data empty end erase find </span><br><span class="line">find_first_not_of find_first_of find_last_not_of find_last_of getline insert </span><br><span class="line">length max_size push_back rbegin rend replace reserve resize rfind size substr </span><br><span class="line">swap CPP_ITERATOR size_type iterator const_iterator input_iterator </span><br><span class="line">output_iterator forward_iterator bidirectional_iterator random_iterator </span><br><span class="line">reverse_iterator CPP_USER T N Any fout fin algorithm ofstream regex regex_match </span><br><span class="line">cmatch smatch regex_search regex_replace STANDARD_C_I_O clearerr fclose feof </span><br><span class="line">ferror fflush fgetc fgetpos fgets fopenfprintf fputc fputs fread freopen fscanf </span><br><span class="line">fseek fsetpos ftell fwrite getc getchar gets perrorprintf putc putchar puts </span><br><span class="line">remove rename rewindscanf setbuf setvbuf sprintf sscanf tmpfile tmpnam ungetc </span><br><span class="line">vprintf vfprintf vsprintf STANDARD_C_STRING_AND_CHARACTER atof atoi atol isalnum</span><br><span class="line">isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper isxdigit</span><br><span class="line">memchr memcmp memcpy memmove memset strcat strchr strcmp strcoll strcpy strcspn </span><br><span class="line">strerrorstrlen strncat strncmp strncpy strpbrk strrchr strspn strstr strtod </span><br><span class="line">strtok strtol strtoul strxfrmtolower toupper</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、自定义模板"><a href="#3、自定义模板" class="headerlink" title="3、自定义模板"></a>3、自定义模板</h3><p><code>Settings -&gt; Editor -&gt; Abbreviations</code>点击 <code>Add</code> 添加模板，将下面的代码复制到模板中。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* Problem : `(Problem)</span></span><br><span class="line"><span class="comment">* Date : `NOW_L</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,s,e) for(int i=s;i&lt;=e;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> per(i,s,e) for(int i=s;i&gt;=e;--i)</span></span><br><span class="line"><span class="comment">//using namespace std;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">namespace</span> ysf&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%d___\n"</span>,x);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%d   %d___\n"</span>,x,y);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(LL x)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%lld___\n"</span>,x);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(LL x,LL y)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%lld   %lld___\n"</span>,x,y);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%.10lf___\n"</span>,x);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">double</span> y)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%.10lf   %.10lf___\n"</span>,x,y);&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">using</span> ysf::debug;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">10</span>,MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> LL INF=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、其他"><a href="#4、其他" class="headerlink" title="4、其他"></a>4、其他</h3><p>1、左边行数栏宽度设置：<code>Settings -&gt; Editor -&gt; Margins  and  caret -&gt; Left  margin</code> 设置为 <code>0</code> ，选中<code>Dynamic  setting</code></p>
+<p>2、快速注释设置：</p>
+<p><code>Settings -&gt; Editor -&gt; Keyboard  shortcuts -&gt; Edit -&gt; Comment</code> 设置为 <code>Ctrl + /</code> 。</p>
+<p><code>Settings -&gt; Editor -&gt; Keyboard  shortcuts -&gt; Edit -&gt; Uncomment</code> 设置为 <code>Alt + /</code> 。</p>
+<h3 id="5、关闭拼写检查"><a href="#5、关闭拼写检查" class="headerlink" title="5、关闭拼写检查"></a>5、关闭拼写检查</h3><p>1、打开插件管理器</p>
+<p><code>Plugins -&gt; Manage  Plugins</code></p>
+<p>2、在插件列表中找到 <code>Spell  check</code>并关闭</p>
+<p><img src="/2019/08/08/CodeBlocks%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/%E5%85%B3%E9%97%AD%E6%8B%BC%E5%86%99%E6%A3%80%E6%9F%A5.png" alt="关闭拼写检查"></p>
+<h3 id="6、个人配置"><a href="#6、个人配置" class="headerlink" title="6、个人配置"></a>6、个人配置</h3><div class="tabs" id="personal-conf"><ul class="nav-tabs"><li class="tab active"><a href="#personal-conf-1">Windows</a></li><li class="tab"><a href="#personal-conf-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="personal-conf-1"><p><a href="Windows.zip">配置文件下载(Windows)</a></p></div><div class="tab-pane" id="personal-conf-2"><p><a href="Linux.zip">配置文件下载(Linux)</a></p></div></div></div>]]></content>
+      <categories>
+        <category>Code Blocks</category>
+      </categories>
+      <tags>
+        <tag>Code Blocks</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++相关知识</title>
     <url>/2019/05/30/C++%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<h3 id="1、预处理器指示符"><a href="#1、预处理器指示符" class="headerlink" title="1、预处理器指示符"></a>1、预处理器指示符</h3><p>当嵌套包含文件时可以用如下代码避免重复编译。</p>
@@ -79,49 +122,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CodeBlocks个性化设置</title>
-    <url>/2019/08/08/CodeBlocks%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h3 id="0、配置文件路径"><a href="#0、配置文件路径" class="headerlink" title="0、配置文件路径"></a>0、配置文件路径</h3><p><code>default.conf</code>所在位置，若未打开过<code>CodeBlocks</code>先打开一次才会有</p>
-<div class="tabs" id="conf_file"><ul class="nav-tabs"><li class="tab active"><a href="#conf_file-1">Windows</a></li><li class="tab"><a href="#conf_file-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="conf_file-1"><p><code>C:\Users\&quot;Username&quot;\AppData\Roaming\CodeBlocks\default.conf</code></p></div><div class="tab-pane" id="conf_file-2"><p><code>~/.config/codeblocks/default.conf</code></p></div></div></div>
-
-<a id="more"></a>
-
-<h3 id="1、主题和字体"><a href="#1、主题和字体" class="headerlink" title="1、主题和字体"></a>1、主题和字体</h3><h4 id="1、主题："><a href="#1、主题：" class="headerlink" title="1、主题："></a>1、主题：</h4><p><a href="http://wiki.codeblocks.org/index.php?title=Syntax_highlighting_custom_colour_themes" target="_blank" rel="noopener">官网主题</a></p>
-<p>从官网上复制主题代码，将代码粘贴在<code>default.conf</code>文件中，覆盖<code>&lt;colour_sets&gt;</code>的代码段。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">colour_sets</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">default</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">cc</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">editor</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">keywords</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">SET4</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">str</span>&gt;</span></span><br><span class="line">							&lt;![CDATA[__cplusplus __GNUC__ __GNUG__]]&gt;</span><br><span class="line">						<span class="tag">&lt;/<span class="name">str</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;/<span class="name">SET4</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">keywords</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">editor</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">NAME</span> <span class="attr">bool</span>=<span class="string">"1"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">cc</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">default</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">colour_sets</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>保存文件后打开 <code>Settings -&gt; Editor -&gt; Syntax highlighting -&gt; Color  theme</code>选择 <code>modnokai night shift v2</code> 主题，该主题的光标行为黑色，<code>Settings -&gt; Editor -&gt; Margins and caret -&gt; caret</code>将光标调为白色。</p>
-<h4 id="2、字体设置："><a href="#2、字体设置：" class="headerlink" title="2、字体设置："></a>2、字体设置：</h4><p><code>Settings -&gt; Editor -&gt; General  settings -&gt; Font</code>选择<code>Courier  New</code> 字体。</p>
-<h3 id="2、代码补全"><a href="#2、代码补全" class="headerlink" title="2、代码补全"></a>2、代码补全</h3><p><code>Settings -&gt; Editor -&gt; General  settings -&gt; Code  completion -&gt; Autolaunch  after  typing  #  letters</code>设置为 2​ ，选中 <code>Case  sensitive</code>。</p>
-<p><code>Settings -&gt; Editor -&gt; Code  completion</code>  1~9 都选中，延时调到<code>200ms</code> 。</p>
-<p><code>Settings -&gt; Editor -&gt; Browse  Tracker</code> 选中 <code>Enable  Browse  Tracker</code> 。</p>
-<p><code>Setting -&gt; Editor -&gt; Syntax  highlighting -&gt; Key  Words</code> 将下面的单词复制进去一个空集合。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">STANDARD_LIBRARY_NAMES abort ios_base accumulate isalpha allocator islower </span><br><span class="line">auto_ptr ispunct back_inserter isspace bad_alloc istream bad_cast </span><br><span class="line">istream_iterator bind2ndistringstream bitset isupper boolalpha left cerr </span><br><span class="line">less_equalcin list copy logic_error count lower_bound count_if make_pair cout </span><br><span class="line">map dec max deque min endl multimap ends multiset equal_range negate exception </span><br><span class="line">noboolalpha fill noshowbase fill_n noshowpoint find noskipws find_end not1 </span><br><span class="line">find_first_of nounitbuf fixed nouppercase flush nth_element for_each oct </span><br><span class="line">front_inserter of stream fstream ostream getline ostream_iterator hex</span><br><span class="line">ostringstream ifstream out_of_range inner_product pair inserter partial_sort </span><br><span class="line">internal plus priority_queuesqrt ptrdiff_t stable_sort queue stack range_error </span><br><span class="line">strcmp replace strcpy replace_copy string reverse_iterator stringstream right </span><br><span class="line">strlen runtime_error strncpy scientific terminate set tolower set_difference </span><br><span class="line">toupper set_intersection type_info set_union unexpected setfill </span><br><span class="line">uninitialized_copy setprecision unitbuf setw unique showbase unique_copy </span><br><span class="line">showpoint upper_bound size_t uppercase skipwsvector sort STRING_EXPORTS append </span><br><span class="line">assign at begin c_str capacity clear compare copy data empty end erase find </span><br><span class="line">find_first_not_of find_first_of find_last_not_of find_last_of getline insert </span><br><span class="line">length max_size push_back rbegin rend replace reserve resize rfind size substr </span><br><span class="line">swap CPP_ITERATOR size_type iterator const_iterator input_iterator </span><br><span class="line">output_iterator forward_iterator bidirectional_iterator random_iterator </span><br><span class="line">reverse_iterator CPP_USER T N Any fout fin algorithm ofstream regex regex_match </span><br><span class="line">cmatch smatch regex_search regex_replace STANDARD_C_I_O clearerr fclose feof </span><br><span class="line">ferror fflush fgetc fgetpos fgets fopenfprintf fputc fputs fread freopen fscanf </span><br><span class="line">fseek fsetpos ftell fwrite getc getchar gets perrorprintf putc putchar puts </span><br><span class="line">remove rename rewindscanf setbuf setvbuf sprintf sscanf tmpfile tmpnam ungetc </span><br><span class="line">vprintf vfprintf vsprintf STANDARD_C_STRING_AND_CHARACTER atof atoi atol isalnum</span><br><span class="line">isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper isxdigit</span><br><span class="line">memchr memcmp memcpy memmove memset strcat strchr strcmp strcoll strcpy strcspn </span><br><span class="line">strerrorstrlen strncat strncmp strncpy strpbrk strrchr strspn strstr strtod </span><br><span class="line">strtok strtol strtoul strxfrmtolower toupper</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、自定义模板"><a href="#3、自定义模板" class="headerlink" title="3、自定义模板"></a>3、自定义模板</h3><p><code>Settings -&gt; Editor -&gt; Abbreviations</code>点击 <code>Add</code> 添加模板，将下面的代码复制到模板中。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* Problem : `(Problem)</span></span><br><span class="line"><span class="comment">* Date : `NOW_L</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,s,e) for(int i=s;i&lt;=e;++i)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> per(i,s,e) for(int i=s;i&gt;=e;--i)</span></span><br><span class="line"><span class="comment">//using namespace std;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">namespace</span> ysf&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%d___\n"</span>,x);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%d   %d___\n"</span>,x,y);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(LL x)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%lld___\n"</span>,x);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(LL x,LL y)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%lld   %lld___\n"</span>,x,y);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%.10lf___\n"</span>,x);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">debug</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">double</span> y)</span></span>&#123;<span class="built_in">printf</span>(<span class="string">"___%.10lf   %.10lf___\n"</span>,x,y);&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">using</span> ysf::debug;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">10</span>,MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> LL INF=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4、其他"><a href="#4、其他" class="headerlink" title="4、其他"></a>4、其他</h3><p>1、左边行数栏宽度设置：<code>Settings -&gt; Editor -&gt; Margins  and  caret -&gt; Left  margin</code> 设置为 <code>0</code> ，选中<code>Dynamic  setting</code></p>
-<p>2、快速注释设置：</p>
-<p><code>Settings -&gt; Editor -&gt; Keyboard  shortcuts -&gt; Edit -&gt; Comment</code> 设置为 <code>Ctrl + /</code> 。</p>
-<p><code>Settings -&gt; Editor -&gt; Keyboard  shortcuts -&gt; Edit -&gt; Uncomment</code> 设置为 <code>Alt + /</code> 。</p>
-<h3 id="5、关闭拼写检查"><a href="#5、关闭拼写检查" class="headerlink" title="5、关闭拼写检查"></a>5、关闭拼写检查</h3><p>1、打开插件管理器</p>
-<p><code>Plugins -&gt; Manage  Plugins</code></p>
-<p>2、在插件列表中找到 <code>Spell  check</code>并关闭</p>
-<p><img src="/2019/08/08/CodeBlocks%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/%E5%85%B3%E9%97%AD%E6%8B%BC%E5%86%99%E6%A3%80%E6%9F%A5.png" alt="关闭拼写检查"></p>
-<h3 id="6、个人配置"><a href="#6、个人配置" class="headerlink" title="6、个人配置"></a>6、个人配置</h3><div class="tabs" id="personal-conf"><ul class="nav-tabs"><li class="tab active"><a href="#personal-conf-1">Windows</a></li><li class="tab"><a href="#personal-conf-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="personal-conf-1"><p><a href="Windows.zip">配置文件下载(Windows)</a></p></div><div class="tab-pane" id="personal-conf-2"><p><a href="Linux.zip">配置文件下载(Linux)</a></p></div></div></div>]]></content>
-      <categories>
-        <category>Code Blocks</category>
-      </categories>
-      <tags>
-        <tag>Code Blocks</tag>
       </tags>
   </entry>
   <entry>
@@ -441,9 +441,14 @@ function hide() {
 
 
 
+<h4 id="17、放大图片"><a href="#17、放大图片" class="headerlink" title="17、放大图片"></a>17、放大图片</h4><p>下载图片浏览放大插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> next/<span class="built_in">source</span>/lib</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-fancybox3 fancybox</span><br></pre></td></tr></table></figure>
 
+<p>修改配置文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">fancybox:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-
+<p>效果</p>
+<img src="/2020/02/20/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/%E5%A4%A7%E5%9B%BE%E6%B5%8F%E8%A7%88.png" alt="大图浏览" style="zoom: 50%;">
 
 
 
@@ -456,6 +461,40 @@ function hide() {
 <h4 id="1、集成常用的第三方服务"><a href="#1、集成常用的第三方服务" class="headerlink" title="-1、集成常用的第三方服务"></a>-1、集成常用的第三方服务</h4><p>留坑</p>
 <h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://theme-next.org" target="_blank" rel="noopener">Theme NexT</a></p>
 </div>]]></content>
+      <categories>
+        <category>Hexo 博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo 博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 安装</title>
+    <url>/2020/01/21/Hexo%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="tabs" id="hexo_install"><ul class="nav-tabs"><li class="tab active"><a href="#hexo_install-1">Windows</a></li><li class="tab"><a href="#hexo_install-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="hexo_install-1"><h3 id="1、安装Git"><a href="#1、安装Git" class="headerlink" title="1、安装Git"></a>1、安装Git</h3><p> <a href="https://git-scm.com/" target="_blank" rel="noopener">Git 官网</a> 下载安装包进行安装</p>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、安装NodeJs"><a href="#2、安装NodeJs" class="headerlink" title="2、安装NodeJs"></a>2、安装NodeJs</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">NodeJs 官网</a> 下载安装包进行安装</p>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、安装Hexo"><a href="#3、安装Hexo" class="headerlink" title="3、安装Hexo"></a>3、安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="hexo_install-2"><h3 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、安装nodejs"><a href="#2、安装nodejs" class="headerlink" title="2、安装nodejs"></a>2、安装nodejs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a>3、安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div></div></div>]]></content>
       <categories>
         <category>Hexo 博客</category>
       </categories>
@@ -624,40 +663,6 @@ function hide() {
 
 
 ]]></content>
-      <categories>
-        <category>Hexo 博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo 博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 安装</title>
-    <url>/2020/01/21/Hexo%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div class="tabs" id="hexo_install"><ul class="nav-tabs"><li class="tab active"><a href="#hexo_install-1">Windows</a></li><li class="tab"><a href="#hexo_install-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="hexo_install-1"><h3 id="1、安装Git"><a href="#1、安装Git" class="headerlink" title="1、安装Git"></a>1、安装Git</h3><p> <a href="https://git-scm.com/" target="_blank" rel="noopener">Git 官网</a> 下载安装包进行安装</p>
-<p>验证：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、安装NodeJs"><a href="#2、安装NodeJs" class="headerlink" title="2、安装NodeJs"></a>2、安装NodeJs</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">NodeJs 官网</a> 下载安装包进行安装</p>
-<p>验证：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、安装Hexo"><a href="#3、安装Hexo" class="headerlink" title="3、安装Hexo"></a>3、安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>验证：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="hexo_install-2"><h3 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、安装nodejs"><a href="#2、安装nodejs" class="headerlink" title="2、安装nodejs"></a>2、安装nodejs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a>3、安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div></div></div>]]></content>
       <categories>
         <category>Hexo 博客</category>
       </categories>
@@ -2474,24 +2479,6 @@ function hide() {
       </tags>
   </entry>
   <entry>
-    <title>文档</title>
-    <url>/2020/05/03/%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h3 id="1、Python文档"><a href="#1、Python文档" class="headerlink" title="1、Python文档"></a>1、Python文档</h3><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="noopener">Beautiful Soup 4.2.0 文档</a></p>
-<p><a href="https://selenium-python-zh.readthedocs.io/en/latest/" target="_blank" rel="noopener">Selenium-Python中文文档</a></p>
-<p><a href>Pygame 中文文档</a></p>
-<a id="more"></a>
-
-<h3 id="2、C-文档"><a href="#2、C-文档" class="headerlink" title="2、C++文档"></a>2、C++文档</h3><p><a href="https://zh.cppreference.com/w/cpp" target="_blank" rel="noopener">C++ 参考手册</a></p>
-<h3 id="3、Java文档"><a href="#3、Java文档" class="headerlink" title="3、Java文档"></a>3、Java文档</h3>]]></content>
-      <categories>
-        <category>文档</category>
-      </categories>
-      <tags>
-        <tag>文档</tag>
-        <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Win10 攻略</title>
     <url>/2020/02/18/Win10%E6%94%BB%E7%95%A5/</url>
     <content><![CDATA[<h3 id="1、关闭离开模式"><a href="#1、关闭离开模式" class="headerlink" title="1、关闭离开模式"></a>1、关闭离开模式</h3><p>1、打开注册表</p>
@@ -2550,6 +2537,24 @@ function hide() {
       </categories>
       <tags>
         <tag>Win10</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文档</title>
+    <url>/2020/05/03/%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h3 id="1、Python文档"><a href="#1、Python文档" class="headerlink" title="1、Python文档"></a>1、Python文档</h3><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="noopener">Beautiful Soup 4.2.0 文档</a></p>
+<p><a href="https://selenium-python-zh.readthedocs.io/en/latest/" target="_blank" rel="noopener">Selenium-Python中文文档</a></p>
+<p><a href>Pygame 中文文档</a></p>
+<a id="more"></a>
+
+<h3 id="2、C-文档"><a href="#2、C-文档" class="headerlink" title="2、C++文档"></a>2、C++文档</h3><p><a href="https://zh.cppreference.com/w/cpp" target="_blank" rel="noopener">C++ 参考手册</a></p>
+<h3 id="3、Java文档"><a href="#3、Java文档" class="headerlink" title="3、Java文档"></a>3、Java文档</h3>]]></content>
+      <categories>
+        <category>文档</category>
+      </categories>
+      <tags>
+        <tag>文档</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
