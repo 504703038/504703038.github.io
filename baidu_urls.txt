@@ -1,3 +1,4 @@
+https://oort_t.gitee.io/2020/07/21/MySQL%E5%AE%89%E8%A3%85/
 https://oort_t.gitee.io/2020/05/03/%E6%96%87%E6%A1%A3/
 https://oort_t.gitee.io/2020/04/05/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C-TensorFlow/
 https://oort_t.gitee.io/2020/03/19/Matplotlib%E5%BA%93/

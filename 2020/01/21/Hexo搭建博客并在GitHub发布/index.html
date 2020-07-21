@@ -146,17 +146,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">17</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">18</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">15</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -284,11 +284,6 @@
 <p>可以使用<code>hexo n &quot;title&quot;</code>来新建一个页面。</p>
 <h4 id="3、本地测试"><a href="#3、本地测试" class="headerlink" title="3、本地测试"></a>3、本地测试</h4><p>在博客的根目录下执行命令，让其在本地运行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 博客生成</span></span><br><span class="line"><span class="comment"># hexo g</span></span><br><span class="line">hexo generate </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在本地运行</span></span><br><span class="line"><span class="comment"># hexo s</span></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="2、在-GitHub-上发布"><a href="#2、在-GitHub-上发布" class="headerlink" title="2、在 GitHub 上发布"></a>2、在 GitHub 上发布</h3><h4 id="1、创建仓库"><a href="#1、创建仓库" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h4><p>仓库名称随意（网上的教程仓库名称都是用户名+github.io。随意名称的话，最后发布的时候改一下发布的仓库就可以了。）</p>
 <p>在仓库的设置中设置 GitHub Pages。</p>
 <div>
@@ -318,12 +313,8 @@
 
 <h4 id="4、修改博客的发布地址"><a href="#4、修改博客的发布地址" class="headerlink" title="4、修改博客的发布地址"></a>4、修改博客的发布地址</h4><p>修改博客根目录下的<code>_config.yml</code>文件</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://"用户名".github.io/"仓库名称"/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/"仓库名称"/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing 'index.html' from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing '.html' from permalinks</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:"用户名"/"仓库名称".git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="5、发布"><a href="#5、发布" class="headerlink" title="5、发布"></a>5、发布</h4><p>在博客的根目录下执行命令发布到 GitHub</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 博客生成</span></span><br><span class="line"><span class="comment"># hexo g</span></span><br><span class="line">hexo generate </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在本地运行</span></span><br><span class="line"><span class="comment"># hexo d</span></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>在发布过程中遇到个小错误。。。。</p>
 <div align="left">
     <img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/发布-1.png" alt="发布-1" style="zoom:80%;">
@@ -333,8 +324,7 @@
 <p>执行<code>npm install --save hexo-deployer-git</code>来解决问题。</p>
 <h3 id="3、Hexo双线部署"><a href="#3、Hexo双线部署" class="headerlink" title="3、Hexo双线部署"></a>3、<code>Hexo</code>双线部署</h3><p>同时部署到 <code>GitHub Page</code> 和 <code>Gitee Pages</code> 。除了<code>Gitee Pages</code>还可以部署到<code>Coding Pages</code>，在部署到<code>Coding Pages</code>时宕机了好几次所以用了<code>Gitee Pages</code>。</p>
 <h4 id="1、创建仓库-1"><a href="#1、创建仓库-1" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h4><p>新建仓库，仓库名称与你的用户名相同，就像<code>GitHub Pages</code>那样。</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.png" alt="Gitee创建仓库" style="zoom: 67%;">
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.png" alt="Gitee创建仓库" style="zoom: 67%;"></p>
 <h4 id="2、开启Gitee-Pages服务"><a href="#2、开启Gitee-Pages服务" class="headerlink" title="2、开启Gitee Pages服务"></a>2、开启<code>Gitee Pages</code>服务</h4><p>进入仓库开启<code>Gitee Pages</code>服务</p>
 <div align="left">
     <img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%BC%80%E5%90%AFGitee%20Pages%E6%9C%8D%E5%8A%A1-1.png" alt="开启Gitee Pages服务-1" style="zoom:67%;">
@@ -345,34 +335,21 @@
 
 
 <h4 id="3、添加SSH-1"><a href="#3、添加SSH-1" class="headerlink" title="3、添加SSH"></a>3、添加SSH</h4><p>进入<code>Gitee</code>的个人设置，添加<code>SSH</code>，与<code>Github</code>使用相同的<code>SSH</code>就可以。</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E6%B7%BB%E5%8A%A0SSH.png" alt="Gitee添加SSH" style="zoom:67%;">
-
-
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E6%B7%BB%E5%8A%A0SSH.png" alt="Gitee添加SSH" style="zoom:67%;"></p>
 <h4 id="5、修改Hexo配置文件"><a href="#5、修改Hexo配置文件" class="headerlink" title="5、修改Hexo配置文件"></a>5、修改Hexo配置文件</h4><p>修改<code>_config.yml</code>文件</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:504703038/504703038.github.io.git</span></span><br><span class="line">    <span class="attr">gitee:</span> <span class="string">git@gitee.com:Oort_t/Oort_t.git</span></span><br><span class="line">    <span class="comment"># coding: git@e.coding.net:oort/oort.coding.me.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="4、在百度收录网站"><a href="#4、在百度收录网站" class="headerlink" title="4、在百度收录网站"></a>4、在百度收录网站</h3><p>在百度收录网站，使得网站能够在百度搜得到。因为<code>GitHub</code>禁止了百度爬虫，所以要实现双线部署，让百度爬虫从<code>Gitee</code>收录。</p>
 <h4 id="0、查看网站是否被收录"><a href="#0、查看网站是否被收录" class="headerlink" title="0、查看网站是否被收录"></a>0、查看网站是否被收录</h4><p>输入 <code>site:域名</code> 来查看域名是否被搜索引擎收录</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E6%9F%A5%E7%9C%8B%E6%94%B6%E5%BD%95%E7%8A%B6%E5%86%B5.png" alt="查看收录状况" style="zoom:67%;">
-
-
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E6%9F%A5%E7%9C%8B%E6%94%B6%E5%BD%95%E7%8A%B6%E5%86%B5.png" alt="查看收录状况" style="zoom:67%;"></p>
 <h4 id="1、在百度资源平台添加网站"><a href="#1、在百度资源平台添加网站" class="headerlink" title="1、在百度资源平台添加网站"></a>1、在百度资源平台添加网站</h4><p><a href="https://ziyuan.baidu.com/site#/" target="_blank" rel="noopener">百度资源平台</a></p>
-<h5 id="1、添加网站"><a href="#1、添加网站" class="headerlink" title="1、添加网站"></a>1、添加网站</h5><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-1.png" alt="在百度资源平台添加网站-1" style="zoom:60%;">
-
+<h5 id="1、添加网站"><a href="#1、添加网站" class="headerlink" title="1、添加网站"></a>1、添加网站</h5><p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-1.png" alt="在百度资源平台添加网站-1" style="zoom:60%;"></p>
 <h5 id="2、验证"><a href="#2、验证" class="headerlink" title="2、验证"></a>2、验证</h5><p>验证使用<code>HTML</code>标签验证</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-2.png" alt="在百度资源平台添加网站-2" style="zoom:67%;">
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-2.png" alt="在百度资源平台添加网站-2" style="zoom:67%;"></p>
 <p>将验证标签<code>&lt;meta name=&quot;baidu-site-verification&quot; content=&quot;**********&quot; /&gt;</code>放到<code>./themes/next/layout/_partials/head/head.swing</code>文件的前几行</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;meta name=<span class="string">"baidu-site-verification"</span> content=<span class="string">"**********"</span> /&gt;</span><br></pre></td></tr></table></figure>
-
 <p>完成之后发布博客来完成验证。</p>
 <h4 id="2、提交百度搜索"><a href="#2、提交百度搜索" class="headerlink" title="2、提交百度搜索"></a>2、提交百度搜索</h4><h5 id="1、主动推送"><a href="#1、主动推送" class="headerlink" title="1、主动推送"></a>1、主动推送</h5><p>安装插件<code>npm install hexo-baidu-url-submit --save</code>，并在<code>_config.yml</code>中添加配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 百度推送</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">100</span>                  <span class="comment"># 提交最新的多少个链接</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">oort_t.gitee.io</span>     <span class="comment"># 在百度站长平台中添加的域名</span></span><br><span class="line">  <span class="attr">token:</span> <span class="string">****************</span>   <span class="comment"># 密钥</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span>      <span class="comment"># 文本文档的地址， 新链接会保存在此文本文档里</span></span><br></pre></td></tr></table></figure>
-
 <p>其中 <code>token</code>可以再链接提交中找到</p>
 <div align="left">
     <img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81-1.png" alt="主动推送-1" style="zoom:70%;">
@@ -382,20 +359,14 @@
 
 <p>更新<code>_config.yml</code>配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:504703038/504703038.github.io.git</span></span><br><span class="line">    <span class="attr">gitee:</span> <span class="string">git@gitee.com:Oort_t/Oort_t.git</span></span><br><span class="line">    <span class="comment"># coding: git@e.coding.net:oort/oort.coding.me.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span>   <span class="comment"># 百度主动推送</span></span><br></pre></td></tr></table></figure>
-
 <p>在执行<code>hexo d</code>部署时就会自动推送，成功推送的标志</p>
 <p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81-3.png" alt="主动推送-3"></p>
 <p><strong>注意</strong>：<code>_config.yml</code>中的<code>url</code>要与平台中添加的网站一致</p>
 <h5 id="2、自动推送"><a href="#2、自动推送" class="headerlink" title="2、自动推送"></a>2、自动推送</h5><p>将自动推送的代码放到<code>./themes/next/layout/_third-party/baidu-push.swing</code>文件中</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81.png" alt="自动推送" style="zoom:67%;">
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81.png" alt="自动推送" style="zoom:67%;"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.baidu_push %&#125;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		(function()&#123;</span><br><span class="line">		    <span class="keyword">var</span> bp = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">		    <span class="keyword">var</span> curProtocol = window.location.protocol.split(<span class="string">':'</span>)[<span class="number">0</span>];</span><br><span class="line">		    <span class="keyword">if</span> (curProtocol === <span class="string">'https'</span>) &#123;</span><br><span class="line">		        bp.src = <span class="string">'https://zz.bdstatic.com/linksubmit/push.js'</span>;</span><br><span class="line">		    &#125;</span><br><span class="line">		    <span class="keyword">else</span> &#123;</span><br><span class="line">		        bp.src = <span class="string">'http://push.zhanzhang.baidu.com/push.js'</span>;</span><br><span class="line">		    &#125;</span><br><span class="line">		    <span class="keyword">var</span> s = document.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</span><br><span class="line">		    s.parentNode.insertBefore(bp, s);</span><br><span class="line">		&#125;)();</span><br><span class="line">  	&lt;/script&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
 <p>更新<code>./themes/next/_config.yml</code>配置，将<code>baidu_push</code>设置为<code>true</code>(大约在<code>500</code>行左右)</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidu_push:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://blog.csdn.net/qq_36759224/article/details/100899489" target="_blank" rel="noopener">Hexo 博客提交百度、谷歌搜索引擎收录</a></p>
 
     </div>
@@ -498,20 +469,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -554,13 +525,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">96k</span>
+    <span title="站点总字数">98k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:28</span>
+    <span title="站点阅读时长">1:29</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
