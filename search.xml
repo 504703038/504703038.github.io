@@ -469,6 +469,40 @@ function hide() {
       </tags>
   </entry>
   <entry>
+    <title>Hexo 安装</title>
+    <url>/2020/01/21/Hexo%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<div class="tabs" id="hexo_install"><ul class="nav-tabs"><li class="tab active"><a href="#hexo_install-1">Windows</a></li><li class="tab"><a href="#hexo_install-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="hexo_install-1"><h3 id="1、安装Git"><a href="#1、安装Git" class="headerlink" title="1、安装Git"></a>1、安装Git</h3><p> <a href="https://git-scm.com/" target="_blank" rel="noopener">Git 官网</a> 下载安装包进行安装</p>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、安装NodeJs"><a href="#2、安装NodeJs" class="headerlink" title="2、安装NodeJs"></a>2、安装NodeJs</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">NodeJs 官网</a> 下载安装包进行安装</p>
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、安装Hexo"><a href="#3、安装Hexo" class="headerlink" title="3、安装Hexo"></a>3、安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="hexo_install-2"><h3 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、安装nodejs"><a href="#2、安装nodejs" class="headerlink" title="2、安装nodejs"></a>2、安装nodejs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a>3、安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div></div></div>]]></content>
+      <categories>
+        <category>Hexo 博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo 博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo 搭建博客并在 GitHub 发布</title>
     <url>/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/</url>
     <content><![CDATA[<h3 id="1、Hexo搭建博客"><a href="#1、Hexo搭建博客" class="headerlink" title="1、Hexo搭建博客"></a>1、Hexo搭建博客</h3><h4 id="1、Hexo-初始化"><a href="#1、Hexo-初始化" class="headerlink" title="1、Hexo 初始化"></a>1、Hexo 初始化</h4><p>在本地新建一个文件夹，并在该目录下执行<code>hexo init</code>命令，使用Hexo的初始框架。</p>
@@ -598,40 +632,6 @@ function hide() {
       </tags>
   </entry>
   <entry>
-    <title>Hexo 安装</title>
-    <url>/2020/01/21/Hexo%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<div class="tabs" id="hexo_install"><ul class="nav-tabs"><li class="tab active"><a href="#hexo_install-1">Windows</a></li><li class="tab"><a href="#hexo_install-2">Linux</a></li></ul><div class="tab-content"><div class="tab-pane active" id="hexo_install-1"><h3 id="1、安装Git"><a href="#1、安装Git" class="headerlink" title="1、安装Git"></a>1、安装Git</h3><p> <a href="https://git-scm.com/" target="_blank" rel="noopener">Git 官网</a> 下载安装包进行安装</p>
-<p>验证：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、安装NodeJs"><a href="#2、安装NodeJs" class="headerlink" title="2、安装NodeJs"></a>2、安装NodeJs</h3><p><a href="http://nodejs.cn/download/" target="_blank" rel="noopener">NodeJs 官网</a> 下载安装包进行安装</p>
-<p>验证：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、安装Hexo"><a href="#3、安装Hexo" class="headerlink" title="3、安装Hexo"></a>3、安装Hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p>验证：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="hexo_install-2"><h3 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、安装nodejs"><a href="#2、安装nodejs" class="headerlink" title="2、安装nodejs"></a>2、安装nodejs</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、安装hexo"><a href="#3、安装hexo" class="headerlink" title="3、安装hexo"></a>3、安装hexo</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证：</span></span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure></div></div></div>]]></content>
-      <categories>
-        <category>Hexo 博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo 博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo 搭建博客时遇到的问题</title>
     <url>/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h3 id="1、npm-安装插件速度慢"><a href="#1、npm-安装插件速度慢" class="headerlink" title="1、npm 安装插件速度慢"></a>1、npm 安装插件速度慢</h3><p>1、方法一：切换源</p>
@@ -668,6 +668,44 @@ function hide() {
       </categories>
       <tags>
         <tag>Hexo 博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux攻略--(一)基础设置</title>
+    <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%B8%80)%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="1、终端设置"><a href="#1、终端设置" class="headerlink" title="1、终端设置"></a>1、终端设置</h3><p>编辑-首选项 100*30 字体大小 15</p>
+<h3 id="2、软件更新"><a href="#2、软件更新" class="headerlink" title="2、软件更新"></a>2、软件更新</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h3 id="3、创建应用程序图标"><a href="#3、创建应用程序图标" class="headerlink" title="3、创建应用程序图标"></a>3、创建应用程序图标</h3><p>1、创建文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo gedit /usr/share/applications/应用程序名.desktop</span><br></pre></td></tr></table></figure>
+
+<p>2、文件中输入下面内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=图标名称</span><br><span class="line">Comment=描述</span><br><span class="line">Exec=可运行文件路径</span><br><span class="line">Icon=图标路径</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;Development;</span><br></pre></td></tr></table></figure>
+
+<p>3、修改权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod u+x /usr/share/applications/应用程序名.desktop</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、安装-TopIcons-Plus"><a href="#4、安装-TopIcons-Plus" class="headerlink" title="4、安装 TopIcons Plus"></a>4、安装 TopIcons Plus</h3><p>软件中心搜索 TopIcons Plus 。</p>
+<h3 id="5、为Ubuntu-Dock启用“最小化点击”"><a href="#5、为Ubuntu-Dock启用“最小化点击”" class="headerlink" title="5、为Ubuntu Dock启用“最小化点击”"></a>5、为Ubuntu Dock启用“最小化点击”</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gsettings <span class="built_in">set</span> org.gnome.shell.extensions.dash-to-dock click-action <span class="string">'minimize'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6、安装-GNOME-Tweak-Tool"><a href="#6、安装-GNOME-Tweak-Tool" class="headerlink" title="6、安装 GNOME Tweak Tool"></a>6、安装 GNOME Tweak Tool</h3><p><a href="apt://gnome-tweak-tool/">点击安装</a></p>
+<h3 id="7、添加SSH"><a href="#7、添加SSH" class="headerlink" title="7、添加SSH"></a>7、添加SSH</h3><p>将SSH放到<code>~/.ssh</code>目录下，并执行下列语句。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-add</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Ubuntu Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -778,34 +816,30 @@ function hide() {
       </tags>
   </entry>
   <entry>
-    <title>Linux攻略--(一)基础设置</title>
-    <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%B8%80)%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h3 id="1、终端设置"><a href="#1、终端设置" class="headerlink" title="1、终端设置"></a>1、终端设置</h3><p>编辑-首选项 100*30 字体大小 15</p>
-<h3 id="2、软件更新"><a href="#2、软件更新" class="headerlink" title="2、软件更新"></a>2、软件更新</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+    <title>Linux攻略--(四)常用命令</title>
+    <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E5%9B%9B)%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="1、卸载软件"><a href="#1、卸载软件" class="headerlink" title="1、卸载软件"></a>1、卸载软件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove softname1</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、查看-修改文件编码"><a href="#2、查看-修改文件编码" class="headerlink" title="2、查看/修改文件编码"></a>2、查看/修改文件编码</h3><p>查看文件编码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看文件编码</span></span><br><span class="line">file 文件名</span><br></pre></td></tr></table></figure>
+
+<p>修改文件编码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#修改文件编码</span></span><br><span class="line">sudo iconv -f <span class="string">'gbk'</span> -t <span class="string">'utf-8'</span> 源文件 目标文件</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<h3 id="3、创建应用程序图标"><a href="#3、创建应用程序图标" class="headerlink" title="3、创建应用程序图标"></a>3、创建应用程序图标</h3><p>1、创建文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo gedit /usr/share/applications/应用程序名.desktop</span><br></pre></td></tr></table></figure>
-
-<p>2、文件中输入下面内容</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=图标名称</span><br><span class="line">Comment=描述</span><br><span class="line">Exec=可运行文件路径</span><br><span class="line">Icon=图标路径</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;Development;</span><br></pre></td></tr></table></figure>
-
-<p>3、修改权限</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod u+x /usr/share/applications/应用程序名.desktop</span><br></pre></td></tr></table></figure>
+<h3 id="3、修改文件权限"><a href="#3、修改文件权限" class="headerlink" title="3、修改文件权限"></a>3、修改文件权限</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 权限 文件名</span><br><span class="line"><span class="comment"># eg.</span></span><br><span class="line"><span class="comment"># chmod 600 fileName</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="4、安装-TopIcons-Plus"><a href="#4、安装-TopIcons-Plus" class="headerlink" title="4、安装 TopIcons Plus"></a>4、安装 TopIcons Plus</h3><p>软件中心搜索 TopIcons Plus 。</p>
-<h3 id="5、为Ubuntu-Dock启用“最小化点击”"><a href="#5、为Ubuntu-Dock启用“最小化点击”" class="headerlink" title="5、为Ubuntu Dock启用“最小化点击”"></a>5、为Ubuntu Dock启用“最小化点击”</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gsettings <span class="built_in">set</span> org.gnome.shell.extensions.dash-to-dock click-action <span class="string">'minimize'</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、输出当前路径的文件树"><a href="#4、输出当前路径的文件树" class="headerlink" title="4、输出当前路径的文件树"></a>4、输出当前路径的文件树</h3><p>使用下列命令或者使用<code>tree</code>命令，<code>tree</code>命令需要手动安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> d -<span class="built_in">print</span> 2&gt;/dev/null | awk <span class="string">'!/\.$/ &#123;for (i=1; i&lt;NF; i++)&#123;printf("%4s","|")&#125; print("--"$NF)&#125;'</span> FS=<span class="string">'/'</span>;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="6、安装-GNOME-Tweak-Tool"><a href="#6、安装-GNOME-Tweak-Tool" class="headerlink" title="6、安装 GNOME Tweak Tool"></a>6、安装 GNOME Tweak Tool</h3><p><a href="apt://gnome-tweak-tool/">点击安装</a></p>
-<h3 id="7、添加SSH"><a href="#7、添加SSH" class="headerlink" title="7、添加SSH"></a>7、添加SSH</h3><p>将SSH放到<code>~/.ssh</code>目录下，并执行下列语句。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-add</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="5、安装-deb包"><a href="#5、安装-deb包" class="headerlink" title="5、安装.deb包"></a>5、安装<code>.deb</code>包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i filename.deb</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -999,40 +1033,6 @@ function hide() {
 
 <h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://blog.csdn.net/zmken497300/article/details/77531982" target="_blank" rel="noopener">Ubuntu16.04安装wps并解决系统缺失字体问题</a></p>
 <p><a href="https://blog.csdn.net/qq_37806908/article/details/104389641" target="_blank" rel="noopener">deepin QQ/TIM显示不了图片的解决方法</a></p>
-]]></content>
-      <categories>
-        <category>Ubuntu Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux攻略--(四)常用命令</title>
-    <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E5%9B%9B)%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="1、卸载软件"><a href="#1、卸载软件" class="headerlink" title="1、卸载软件"></a>1、卸载软件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove softname1</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、查看-修改文件编码"><a href="#2、查看-修改文件编码" class="headerlink" title="2、查看/修改文件编码"></a>2、查看/修改文件编码</h3><p>查看文件编码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看文件编码</span></span><br><span class="line">file 文件名</span><br></pre></td></tr></table></figure>
-
-<p>修改文件编码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#修改文件编码</span></span><br><span class="line">sudo iconv -f <span class="string">'gbk'</span> -t <span class="string">'utf-8'</span> 源文件 目标文件</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="3、修改文件权限"><a href="#3、修改文件权限" class="headerlink" title="3、修改文件权限"></a>3、修改文件权限</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 权限 文件名</span><br><span class="line"><span class="comment"># eg.</span></span><br><span class="line"><span class="comment"># chmod 600 fileName</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="4、输出当前路径的文件树"><a href="#4、输出当前路径的文件树" class="headerlink" title="4、输出当前路径的文件树"></a>4、输出当前路径的文件树</h3><p>使用下列命令或者使用<code>tree</code>命令，<code>tree</code>命令需要手动安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> d -<span class="built_in">print</span> 2&gt;/dev/null | awk <span class="string">'!/\.$/ &#123;for (i=1; i&lt;NF; i++)&#123;printf("%4s","|")&#125; print("--"$NF)&#125;'</span> FS=<span class="string">'/'</span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5、安装-deb包"><a href="#5、安装-deb包" class="headerlink" title="5、安装.deb包"></a>5、安装<code>.deb</code>包</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dpkg -i filename.deb</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>Ubuntu Linux</category>
@@ -1280,6 +1280,64 @@ function hide() {
       </categories>
       <tags>
         <tag>Python Module</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL安装</title>
+    <url>/2020/07/21/MySQL%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><p><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">官网下载地址</a></p>
+<a id="more"></a>
+
+<h3 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h3><p>直接解压</p>
+<h3 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h3><p> 系统—&gt;高级系统设置—&gt;环境变量—&gt;系统变量 </p>
+<p>新建环境变量</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">变量名：MYSQL_HOME</span><br><span class="line">变量值：E:\Program-Environment\mysql-8.0.20(文件解压的目录)</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <code>Path</code> 变量，在Path末尾添加 <code>;%MYSQL_HOME%\bin</code></p>
+<h3 id="4、配置-my-ini-文件"><a href="#4、配置-my-ini-文件" class="headerlink" title="4、配置 my.ini 文件"></a>4、配置 <code>my.ini</code> 文件</h3><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">#端口号</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment">#mysql的路径</span></span><br><span class="line"><span class="attr">basedir</span>=E:\Program-Environment\mysql-<span class="number">8.0</span>.<span class="number">20</span></span><br><span class="line"><span class="comment">#mysql的路径+\data</span></span><br><span class="line"><span class="attr">datadir</span>=E:\Program-Environment\mysql-<span class="number">8.0</span>.<span class="number">20</span>\data </span><br><span class="line"><span class="comment">#最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">200</span></span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"></span><br><span class="line"><span class="attr">sql_mode</span>=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line"></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5、安装"><a href="#5、安装" class="headerlink" title="5、安装"></a>5、安装</h3><p>以管理员的身份运行 <code>cmd</code></p>
+<p>切换到 <code>mysql</code> 目录的 <code>bin</code> 文件夹下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd E:\Program-Environment\mysql-8.0.20\bin</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; mysqld -install</span><br></pre></td></tr></table></figure>
+
+<p>初始化</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; mysqld --initialize</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; net start mysql</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6、设置MySQL密码"><a href="#6、设置MySQL密码" class="headerlink" title="6、设置MySQL密码"></a>6、设置<code>MySQL</code>密码</h3><ul>
+<li><p>查看默认密码</p>
+<blockquote>
+<p>打开 <code>E:\Program-Environment\mysql-8.0.20\data</code> 目录下的<code>.err</code>文件，找到类似这样的一行。例如，下面密码就是 <code>ke,ak(M7;Jl:</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A temporary password is generated for root@localhost: ke,ak(M7;Jl:</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>登录<code>MySQL</code></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; mysql -u root -p</span><br><span class="line">Enter password: 输入刚才找到的默认密码</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>修改密码</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;新密码&#39;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="7、可视化工具Navicat"><a href="#7、可视化工具Navicat" class="headerlink" title="7、可视化工具Navicat"></a>7、可视化工具<code>Navicat</code></h3><p><a href="https://www.navicat.com.cn/download/navicat-for-mysql" target="_blank" rel="noopener">官网下载</a></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -1710,64 +1768,6 @@ function hide() {
       </categories>
       <tags>
         <tag>Python Module</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySQL安装</title>
-    <url>/2020/07/21/MySQL%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h3 id="1、下载"><a href="#1、下载" class="headerlink" title="1、下载"></a>1、下载</h3><p><a href="https://downloads.mysql.com/archives/community/" target="_blank" rel="noopener">官网下载地址</a></p>
-<a id="more"></a>
-
-<h3 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h3><p>直接解压</p>
-<h3 id="3、配置环境变量"><a href="#3、配置环境变量" class="headerlink" title="3、配置环境变量"></a>3、配置环境变量</h3><p> 系统—&gt;高级系统设置—&gt;环境变量—&gt;系统变量 </p>
-<p>新建环境变量</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">变量名：MYSQL_HOME</span><br><span class="line">变量值：E:\Program-Environment\mysql-8.0.20(文件解压的目录)</span><br></pre></td></tr></table></figure>
-
-<p>编辑 <code>Path</code> 变量，在Path末尾添加 <code>;%MYSQL_HOME%\bin</code></p>
-<h3 id="4、配置-my-ini-文件"><a href="#4、配置-my-ini-文件" class="headerlink" title="4、配置 my.ini 文件"></a>4、配置 <code>my.ini</code> 文件</h3><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">#端口号</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">3306</span></span><br><span class="line"><span class="comment">#mysql的路径</span></span><br><span class="line"><span class="attr">basedir</span>=E:\Program-Environment\mysql-<span class="number">8.0</span>.<span class="number">20</span></span><br><span class="line"><span class="comment">#mysql的路径+\data</span></span><br><span class="line"><span class="attr">datadir</span>=E:\Program-Environment\mysql-<span class="number">8.0</span>.<span class="number">20</span>\data </span><br><span class="line"><span class="comment">#最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">200</span></span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"></span><br><span class="line"><span class="attr">sql_mode</span>=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line"></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment">#编码</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5、安装"><a href="#5、安装" class="headerlink" title="5、安装"></a>5、安装</h3><p>以管理员的身份运行 <code>cmd</code></p>
-<p>切换到 <code>mysql</code> 目录的 <code>bin</code> 文件夹下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; cd E:\Program-Environment\mysql-8.0.20\bin</span><br></pre></td></tr></table></figure>
-
-<p>安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; mysqld -install</span><br></pre></td></tr></table></figure>
-
-<p>初始化</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; mysqld --initialize</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; net start mysql</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="6、设置MySQL密码"><a href="#6、设置MySQL密码" class="headerlink" title="6、设置MySQL密码"></a>6、设置<code>MySQL</code>密码</h3><ul>
-<li><p>查看默认密码</p>
-<blockquote>
-<p>打开 <code>E:\Program-Environment\mysql-8.0.20\data</code> 目录下的<code>.err</code>文件，找到类似这样的一行。例如，下面密码就是 <code>ke,ak(M7;Jl:</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A temporary password is generated for root@localhost: ke,ak(M7;Jl:</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>登录<code>MySQL</code></p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; mysql -u root -p</span><br><span class="line">Enter password: 输入刚才找到的默认密码</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>修改密码</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;新密码&#39;;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<h3 id="7、可视化工具Navicat"><a href="#7、可视化工具Navicat" class="headerlink" title="7、可视化工具Navicat"></a>7、可视化工具<code>Navicat</code></h3><p><a href="https://www.navicat.com.cn/download/navicat-for-mysql" target="_blank" rel="noopener">官网下载</a></p>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -2526,7 +2526,7 @@ function hide() {
 
 <h3 id="3、控制台输出带颜色的字符"><a href="#3、控制台输出带颜色的字符" class="headerlink" title="3、控制台输出带颜色的字符"></a>3、控制台输出带颜色的字符</h3><p>1、安装<code>ANSI</code>转义序列支持</p>
 <p><a href="https://github.com/adoxa/ansicon/releases" target="_blank" rel="noopener">下载地址</a>（<em>如果下载不下来，可以点击<a href="./ansi189-bin.zip">这里</a>下载</em>）</p>
-<p>下载后解压，到x64文件夹内执行下列命令完成安装</p>
+<p>下载后将<code>x64</code>文件夹解压到<code>C:\Windows\System32</code>(或者其他已经添加环境变量的路径)，到<code>x64</code>文件夹内执行下列命令完成安装</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;ansicon.exe -i</span><br><span class="line">.&#x2F;ansicon.exe -l</span><br></pre></td></tr></table></figure>
 
 <p>2、输出格式</p>
@@ -2550,7 +2550,25 @@ function hide() {
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>Win10</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文档</title>
+    <url>/2020/05/03/%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h3 id="1、Python文档"><a href="#1、Python文档" class="headerlink" title="1、Python文档"></a>1、Python文档</h3><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="noopener">Beautiful Soup 4.2.0 文档</a></p>
+<p><a href="https://selenium-python-zh.readthedocs.io/en/latest/" target="_blank" rel="noopener">Selenium-Python中文文档</a></p>
+<p><a href>Pygame 中文文档</a></p>
+<a id="more"></a>
+
+<h3 id="2、C-文档"><a href="#2、C-文档" class="headerlink" title="2、C++文档"></a>2、C++文档</h3><p><a href="https://zh.cppreference.com/w/cpp" target="_blank" rel="noopener">C++ 参考手册</a></p>
+<h3 id="3、Java文档"><a href="#3、Java文档" class="headerlink" title="3、Java文档"></a>3、Java文档</h3>]]></content>
+      <categories>
+        <category>文档</category>
+      </categories>
+      <tags>
+        <tag>文档</tag>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -2660,24 +2678,6 @@ function hide() {
       <tags>
         <tag>机器学习</tag>
         <tag>神经网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>文档</title>
-    <url>/2020/05/03/%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h3 id="1、Python文档"><a href="#1、Python文档" class="headerlink" title="1、Python文档"></a>1、Python文档</h3><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="noopener">Beautiful Soup 4.2.0 文档</a></p>
-<p><a href="https://selenium-python-zh.readthedocs.io/en/latest/" target="_blank" rel="noopener">Selenium-Python中文文档</a></p>
-<p><a href>Pygame 中文文档</a></p>
-<a id="more"></a>
-
-<h3 id="2、C-文档"><a href="#2、C-文档" class="headerlink" title="2、C++文档"></a>2、C++文档</h3><p><a href="https://zh.cppreference.com/w/cpp" target="_blank" rel="noopener">C++ 参考手册</a></p>
-<h3 id="3、Java文档"><a href="#3、Java文档" class="headerlink" title="3、Java文档"></a>3、Java文档</h3>]]></content>
-      <categories>
-        <category>文档</category>
-      </categories>
-      <tags>
-        <tag>文档</tag>
-        <tag>API</tag>
       </tags>
   </entry>
 </search>
