@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"oort_t.gitee.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1、装箱与拆箱 装箱：基本数据类型转换成包装数据类型如：int 转换成 Integer 拆箱：包装数据类型转换成基本数据类型如：Integer 转换成 int 基本类型对应的包装类型| 基本类型 | 包装器类  || :——- | ——— || boolean  | Boolean   || byte     | Byte      || char     | Character || short">
+  <meta name="description" content="1、基本数据类型与包装类型1、整数类型   数据类型 内存空间 取值范围    byte 8位(1个字节) -128~127   short 16位(2个字节) -32768~32767   int 32位(4个字节) -2147483648~2147483647   long 64位(8个字节) -9223372036854775808~9223372036854775807   2、浮点类型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java相关知识">
 <meta property="og:url" content="https://oort_t.gitee.io/2020/01/28/Java%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="Oort.">
-<meta property="og:description" content="1、装箱与拆箱 装箱：基本数据类型转换成包装数据类型如：int 转换成 Integer 拆箱：包装数据类型转换成基本数据类型如：Integer 转换成 int 基本类型对应的包装类型| 基本类型 | 包装器类  || :——- | ——— || boolean  | Boolean   || byte     | Byte      || char     | Character || short">
+<meta property="og:description" content="1、基本数据类型与包装类型1、整数类型   数据类型 内存空间 取值范围    byte 8位(1个字节) -128~127   short 16位(2个字节) -32768~32767   int 32位(4个字节) -2147483648~2147483647   long 64位(8个字节) -9223372036854775808~9223372036854775807   2、浮点类型">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-28T08:55:17.000Z">
-<meta property="article:modified_time" content="2020-07-04T06:56:35.000Z">
+<meta property="article:modified_time" content="2020-07-27T04:02:07.857Z">
 <meta property="article:author" content="Shifa Yang">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Java相关知识 | Oort.</title><meta name="robots" content="noindex">
+  <title>Java相关知识 | Oort.</title>
   
 
 
@@ -128,17 +128,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">18</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">19</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">16</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">17</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">26</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,7 +222,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-04 14:56:35" itemprop="dateModified" datetime="2020-07-04T14:56:35+08:00">2020-07-04</time>
+                <time title="修改时间：2020-07-27 12:02:07" itemprop="dateModified" datetime="2020-07-27T12:02:07+08:00">2020-07-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,14 +242,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>5.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>5 分钟</span>
             </span>
 
         </div>
@@ -261,69 +261,164 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>1、装箱与拆箱</p>
-<p>装箱：基本数据类型转换成包装数据类型<br>如：<code>int</code> 转换成 <code>Integer</code></p>
-<p>拆箱：包装数据类型转换成基本数据类型<br>如：<code>Integer</code> 转换成 <code>int</code></p>
-<p>基本类型对应的包装类型<br>| 基本类型 | 包装器类  |<br>| :——- | ——— |<br>| boolean  | Boolean   |<br>| byte     | Byte      |<br>| char     | Character |<br>| short    | Short     |<br>| int      | Integer   |<br>| long     | Long      |<br>| float    | Float     |<br>| double   | Double    |</p>
-<p>2、异常处理中的<code>return</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">final</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果<code>try、final</code>语句中均有<code>reurn</code>，<code>final</code>语句中的<code>return</code>会覆盖<code>try</code>语句中的<code>return</code></p>
-<p>3、<code>final</code>修饰的父类方法</p>
-<p>如果父类中的方法使用<code>final</code>修饰了，那么在子类中不能重写这个方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">'A'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">'B'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>虽然A类中的方法使用<code>final</code>修饰了，但该方法对于子类不可见，所以对于子类来说不是重写父类的方法。</p>
-<p>4、自增自减</p>
-<p>自增自减优先级大于加减法</p>
-<p><code>a---b</code>=<code>(a--)-b</code></p>
-<p>5、<code>Servlet</code>生命周期</p>
-<p><code>Servlet</code> 生命周期可被定义为从创建直到毁灭的整个过程：</p>
-<blockquote>
-<ul>
-<li><code>Servlet</code> 通过调用 <code>init ()</code> 方法进行初始化。</li>
-<li><code>Servlet</code> 调用 <code>service()</code> 方法来处理客户端的请求。</li>
-<li><code>Servlet</code> 通过调用 <code>destroy()</code> 方法终止（结束）。</li>
-<li>最后，<code>Servlet</code> 是由 <code>JVM</code> 的垃圾回收器进行垃圾回收的。</li>
-</ul>
-</blockquote>
-<p><code>init()</code> 方法：</p>
-<blockquote>
-<p><code>init</code> 方法被设计成只调用一次。它在第一次创建 <code>Servlet</code> 时被调用，在后续每次用户请求时不再调用。</p>
-<p>当用户调用一个 <code>Servlet</code> 时，就会创建一个 <code>Servlet</code> 实例，每一个用户请求都会产生一个新的线程，适当的时候移交给 <code>doGet</code> 或 <code>doPost</code> 方法。</p>
-</blockquote>
-<p><code>service()</code> 方法：</p>
-<blockquote>
-<p><code>service()</code> 方法是执行实际任务的主要方法。<code>Servlet</code> 容器（即 <code>Web</code> 服务器）调用 <code>service()</code> 方法来处理来自客户端（浏览器）的请求，并把格式化的响应写回给客户端。</p>
-</blockquote>
-<p><code>destroy()</code> 方法</p>
-<blockquote>
-<p><code>destroy()</code> 方法只会被调用一次，在 <code>Servlet</code> 生命周期结束时被调用。<code>destroy()</code> 方法可以让您的 <code>Servlet</code> 关闭数据库连接、停止后台线程、把 <code>Cookie</code> 列表或点击计数器写入到磁盘，并执行其他类似的清理活动。</p>
-</blockquote>
-<p>6、设计模式：</p>
-<p>设计模式分为三大类：创建模式、结构模式、行为模式。</p>
-<table>
+        <h3 id="1、基本数据类型与包装类型"><a href="#1、基本数据类型与包装类型" class="headerlink" title="1、基本数据类型与包装类型"></a>1、基本数据类型与包装类型</h3><h4 id="1、整数类型"><a href="#1、整数类型" class="headerlink" title="1、整数类型"></a>1、整数类型</h4><table>
 <thead>
 <tr>
-<th align="left">模式&amp;描述</th>
-<th align="left">包括</th>
+<th align="center">数据类型</th>
+<th align="center">内存空间</th>
+<th align="center">取值范围</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left"><strong>创建型模式</strong>提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。</td>
-<td align="left">工厂模式（Factory Pattern）<br>抽象工厂模式（Abstract Factory Pattern）<br>单例模式（Singleton Pattern）<br>建造者模式（Builder Pattern）<br>原型模式（Prototype Pattern）</td>
+<td align="center">byte</td>
+<td align="center">8位(1个字节)</td>
+<td align="center">-128~127</td>
 </tr>
 <tr>
-<td align="left"><strong>结构型模式</strong>关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。</td>
-<td align="left">适配器模式（Adapter Pattern）<br>桥接模式（Bridge Pattern）<br>过滤器模式（Filter、Criteria Pattern）<br>组合模式（Composite Pattern） <br>装饰器模式（Decorator Pattern）<br>外观模式（Facade Pattern）<br>享元模式（Flyweight Pattern）<br>代理模式（Proxy Pattern）</td>
+<td align="center">short</td>
+<td align="center">16位(2个字节)</td>
+<td align="center">-32768~32767</td>
 </tr>
 <tr>
-<td align="left"><strong>行为型模式</strong>特别关注对象之间的通信。</td>
-<td align="left">责任链模式（Chain of Responsibility Pattern）<br>命令模式（Command Pattern）<br>解释器模式（Interpreter Pattern） <br>迭代器模式（Iterator Pattern） <br>中介者模式（Mediator Pattern） <br>备忘录模式（Memento Pattern） <br>观察者模式（Observer Pattern） <br>状态模式（State Pattern） <br>空对象模式（Null Object Pattern） <br>策略模式（Strategy Pattern） <br>模板模式（Template Pattern） <br>访问者模式（Visitor Pattern）</td>
+<td align="center">int</td>
+<td align="center">32位(4个字节)</td>
+<td align="center">-2147483648~2147483647</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">64位(8个字节)</td>
+<td align="center">-9223372036854775808~9223372036854775807</td>
 </tr>
 </tbody></table>
-<p>7、</p>
-<!-- flag of hidden posts -->
+<h4 id="2、浮点类型"><a href="#2、浮点类型" class="headerlink" title="2、浮点类型"></a>2、浮点类型</h4><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">内存空间</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">float</td>
+<td align="center">32位(4个字节)</td>
+<td align="center">1.4E-45~3.4028235-E38</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">64位(8个字节)</td>
+<td align="center">4.9E-324~1.7976931348623157E-308</td>
+</tr>
+</tbody></table>
+<h4 id="3、字符类型"><a href="#3、字符类型" class="headerlink" title="3、字符类型"></a>3、字符类型</h4><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">内存空间</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">16位(2个字节)</td>
+<td align="center">0~65535</td>
+</tr>
+</tbody></table>
+<h4 id="4、布尔类型"><a href="#4、布尔类型" class="headerlink" title="4、布尔类型"></a>4、布尔类型</h4><table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">内存空间</th>
+<th align="center">取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">boolean</td>
+<td align="center">8位(1个字节)或32位(4个字节)</td>
+<td align="center">true,false</td>
+</tr>
+</tbody></table>
+<p>当声明一个 <code>boolean</code> 变量时占用4个字节，当声明一个 <code>boolean</code> 数组时占用1个字节。</p>
+<h4 id="5、包装类型"><a href="#5、包装类型" class="headerlink" title="5、包装类型"></a>5、包装类型</h4><p>基本类型对应的包装类型</p>
+<table>
+<thead>
+<tr>
+<th align="left">基本类型</th>
+<th>包装器类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td>Double</td>
+</tr>
+</tbody></table>
+<p>装箱与拆箱</p>
+<p>装箱：基本数据类型转换成包装数据类型<br>如：<code>int</code> 转换成 <code>Integer</code></p>
+<p>拆箱：包装数据类型转换成基本数据类型<br>如：<code>Integer</code> 转换成 <code>int</code></p>
+<h3 id="2、数组操作"><a href="#2、数组操作" class="headerlink" title="2、数组操作"></a>2、数组操作</h3><h4 id="1、遍历"><a href="#1、遍历" class="headerlink" title="1、遍历"></a>1、遍历</h4><p>1、通过索引遍历</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        System.out.println(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[][])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">            System.out.print(arr[i][j] + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、使用 <code>foreach</code> 遍历</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x : arr) &#123;</span><br><span class="line">        System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[][])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a[] : arr) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x : a) &#123;</span><br><span class="line">            System.out.print(x + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、填充"><a href="#2、填充" class="headerlink" title="2、填充"></a>2、填充</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * Arrays.fill(Object[] a, Object value);</span></span><br><span class="line"><span class="comment"> * a:要进行元素填充的数组</span></span><br><span class="line"><span class="comment"> * value:填充值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Arrays.fill(Object[] a, int fromIndex, int toIndex, Object value);</span></span><br><span class="line"><span class="comment"> * a:要进行元素填充的数组</span></span><br><span class="line"><span class="comment"> * fromIndex:填充起始位置</span></span><br><span class="line"><span class="comment"> * toIndex:填充结束位置</span></span><br><span class="line"><span class="comment"> * value:填充值 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        Arrays.fill(arr, <span class="number">1</span>); <span class="comment">// 全部填充为1</span></span><br><span class="line">        Arrays.fill(arr, <span class="number">0</span>, <span class="number">10</span>, <span class="number">5</span>); <span class="comment">// 填充[0,10)，填充值为5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、排序"><a href="#3、排序" class="headerlink" title="3、排序"></a>3、排序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Arrays.sort(Object a[])</span></span><br><span class="line"><span class="comment"> * a:要排序的数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Arrays.sort(Object a[], int fromIndex, int toIndex)</span></span><br><span class="line"><span class="comment"> * a:要排序的数组</span></span><br><span class="line"><span class="comment"> * fromIndex:排序的起始位置</span></span><br><span class="line"><span class="comment"> * toIndex:排序的结束位置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> arr[] = &#123; <span class="number">5</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">8</span> &#125;;</span><br><span class="line">        Arrays.sort(arr); <span class="comment">// 数组排序</span></span><br><span class="line">        Arrays.sort(arr, <span class="number">0</span>, <span class="number">10</span>); <span class="comment">// 数组[0,10)排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4、复制"><a href="#4、复制" class="headerlink" title="4、复制"></a>4、复制</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Object b[] = Arrays.copyOf(Object a[], int newLength)</span></span><br><span class="line"><span class="comment"> * a:要复制的数组</span></span><br><span class="line"><span class="comment"> * newLength:要复制后数组长度，如果&lt;a.length，复制前[0,newLength)；如果&gt;a.length，后面补初始值(整数补0；char补null；)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Object b[] = Arrays.copyOfRange(Object a[], int fromIndex, int toIndex)</span></span><br><span class="line"><span class="comment"> * a:要复制的数组</span></span><br><span class="line"><span class="comment"> * from:复制开始位置</span></span><br><span class="line"><span class="comment"> * to:复制结束位置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> arr[] = &#123; <span class="number">5</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">8</span> &#125;;</span><br><span class="line">		<span class="keyword">int</span> arr2[] = Arrays.copyOf(arr,arr.length); <span class="comment">//复制arr数组</span></span><br><span class="line">		<span class="keyword">int</span> arr3[] = Arrays.copyOfRange(arr, <span class="number">0</span>, <span class="number">10</span>); <span class="comment">//复制arr[0,10)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、字符串操作"><a href="#3、字符串操作" class="headerlink" title="3、字符串操作"></a>3、字符串操作</h3><h4 id="1、查找"><a href="#1、查找" class="headerlink" title="1、查找"></a>1、查找</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * int idx = str.indexOf(String substr)</span></span><br><span class="line"><span class="comment"> * substr:要搜索的子串</span></span><br><span class="line"><span class="comment"> * idx:返回子串在str中第一次出现的位置，如果没有返回-1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * int idx = str.lastIndexOf(String substr)</span></span><br><span class="line"><span class="comment"> * substr:要搜索的子串</span></span><br><span class="line"><span class="comment"> * idx:返回子串在str中最后一次出现的位置，如果没有返回-1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * char ch = str.charAt(int index)</span></span><br><span class="line"><span class="comment"> * index:下标</span></span><br><span class="line"><span class="comment"> * ch:str中下标为index的字符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    <span class="keyword">int</span> firIdx = str.indexOf(<span class="string">"o"</span>);</span><br><span class="line">    <span class="keyword">int</span> lastIdx = str.lastIndexOf(<span class="string">"o"</span>);</span><br><span class="line">    <span class="keyword">char</span> ch = str.charAt(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、替换"><a href="#2、替换" class="headerlink" title="2、替换"></a>2、替换</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replace(char oldChar, char newChar) </span></span><br><span class="line"><span class="comment"> * oldChar:被替换的字符</span></span><br><span class="line"><span class="comment"> * newChar:替换的字符</span></span><br><span class="line"><span class="comment"> * newStr:替换所有匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replace(CharSequence target, CharSequence replacement) </span></span><br><span class="line"><span class="comment"> * target:被替换的字符串</span></span><br><span class="line"><span class="comment"> * replacement:替换的字符串</span></span><br><span class="line"><span class="comment"> * newStr:替换所有匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replaceAll(String regex, String replacement)</span></span><br><span class="line"><span class="comment"> * regex:正则表达式，或字符串</span></span><br><span class="line"><span class="comment"> * replacement:用于替换的字符串</span></span><br><span class="line"><span class="comment"> * newString:替换所有匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replaceFirst(String regex, String replacement)</span></span><br><span class="line"><span class="comment"> * regex:正则表达式，或字符串</span></span><br><span class="line"><span class="comment"> * replacement:用于替换的字符串</span></span><br><span class="line"><span class="comment"> * newString:只替换第一个匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    str = str.replace(<span class="string">'!'</span>, <span class="string">'.'</span>);</span><br><span class="line">    str = str.replace(<span class="string">"World"</span>, <span class="string">"Java"</span>);</span><br><span class="line">    str = str.replaceAll(<span class="string">"[A-Z]"</span>, <span class="string">"*"</span>);</span><br><span class="line">    str = str.replaceAll(<span class="string">"o"</span>, <span class="string">"*"</span>);</span><br><span class="line">    str = str.replaceFirst(<span class="string">"[A-Z]"</span>, <span class="string">"#"</span>);</span><br><span class="line">    str = str.replaceFirst(<span class="string">"l"</span>, <span class="string">"#"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、比较"><a href="#3、比较" class="headerlink" title="3、比较"></a>3、比较</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.equals(String str1)</span></span><br><span class="line"><span class="comment"> * str1:要比较的字符串</span></span><br><span class="line"><span class="comment"> * bool:比较结果，相等为true，不相等为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.equalsIgnoreCase(String str1)</span></span><br><span class="line"><span class="comment"> * str1:要比较的字符串</span></span><br><span class="line"><span class="comment"> * bool:忽略字母大小写的比较结果，相等为true，不相等为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.startWith(String prefix)</span></span><br><span class="line"><span class="comment"> * prefix:指作为前缀的字符</span></span><br><span class="line"><span class="comment"> * bool:比较结果，如果prefix是str的前缀则为true，否则为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.startWith(String prefix, int offset)</span></span><br><span class="line"><span class="comment"> * prefix:指作为前缀的字符</span></span><br><span class="line"><span class="comment"> * offset:从str的offset位置开始</span></span><br><span class="line"><span class="comment"> * bool:比较结果，如果prefix是str从offset开始的前缀则为true，否则为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.endWith(String suffix)</span></span><br><span class="line"><span class="comment"> * suffix:指作为后缀的字符</span></span><br><span class="line"><span class="comment"> * bool:比较结果，如果suffix是str的后缀则为true，否则为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.toLowerCase();</span></span><br><span class="line"><span class="comment"> * newStr:大写字母全部替换为小写字母后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">s</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.toUpperCase();</span></span><br><span class="line"><span class="comment"> * newStr:小写字母全部替换为大写字母后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    <span class="keyword">boolean</span> bool1 = str.equals(<span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool2 = str.equalsIgnoreCase(<span class="string">"hello world!"</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool3 = str.startsWith(<span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool4 = str.startsWith(<span class="string">"ello"</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool5 = str.endsWith(<span class="string">"World!"</span>);</span><br><span class="line">    str = str.toLowerCase();</span><br><span class="line">    str = str.toUpperCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4、分割"><a href="#4、分割" class="headerlink" title="4、分割"></a>4、分割</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String[] subStrs = str.split(String sign)</span></span><br><span class="line"><span class="comment"> * sign:分隔符，可以使用正则表达式</span></span><br><span class="line"><span class="comment"> * subStrs:str分割后的字符串数组 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String[] subStrs = str.split(String sign, int limit)</span></span><br><span class="line"><span class="comment"> * sign:分隔符，可以使用正则表达式</span></span><br><span class="line"><span class="comment"> * limit:限制的分割份数</span></span><br><span class="line"><span class="comment"> * subStrs:str分割后的字符串数组 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    String strs[] = str.split(<span class="string">" "</span>);</span><br><span class="line">    String strs1[] = str.split(<span class="string">" "</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5、格式化"><a href="#5、格式化" class="headerlink" title="5、格式化"></a>5、格式化</h4>
     </div>
 
     
@@ -340,6 +435,16 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" rel="prev" title="Hexo 搭建博客时遇到的问题">
+      <i class="fa fa-chevron-left"></i> Hexo 搭建博客时遇到的问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/28/Sublime-Text%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/" rel="next" title="Sublime Text 个性化设置">
+      Sublime Text 个性化设置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -398,6 +503,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、基本数据类型与包装类型"><span class="nav-text">1、基本数据类型与包装类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、整数类型"><span class="nav-text">1、整数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、浮点类型"><span class="nav-text">2、浮点类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、字符类型"><span class="nav-text">3、字符类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、布尔类型"><span class="nav-text">4、布尔类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、包装类型"><span class="nav-text">5、包装类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、数组操作"><span class="nav-text">2、数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、遍历"><span class="nav-text">1、遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、填充"><span class="nav-text">2、填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、排序"><span class="nav-text">3、排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、复制"><span class="nav-text">4、复制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、字符串操作"><span class="nav-text">3、字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、查找"><span class="nav-text">1、查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、替换"><span class="nav-text">2、替换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、比较"><span class="nav-text">3、比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、分割"><span class="nav-text">4、分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、格式化"><span class="nav-text">5、格式化</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -413,20 +519,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -469,13 +575,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">100k</span>
+    <span title="站点总字数">105k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:31</span>
+    <span title="站点阅读时长">1:35</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
