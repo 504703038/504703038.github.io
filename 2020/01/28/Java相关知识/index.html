@@ -29,7 +29,7 @@
 <meta property="og:description" content="1、基本数据类型与包装类型1、整数类型   数据类型 内存空间 取值范围    byte 8位(1个字节) -128~127   short 16位(2个字节) -32768~32767   int 32位(4个字节) -2147483648~2147483647   long 64位(8个字节) -9223372036854775808~9223372036854775807   2、浮点类型">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-28T08:55:17.000Z">
-<meta property="article:modified_time" content="2020-07-29T02:19:26.314Z">
+<meta property="article:modified_time" content="2020-07-29T02:38:54.737Z">
 <meta property="article:author" content="Shifa Yang">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-29 10:19:26" itemprop="dateModified" datetime="2020-07-29T10:19:26+08:00">2020-07-29</time>
+                <time title="修改时间：2020-07-29 10:38:54" itemprop="dateModified" datetime="2020-07-29T10:38:54+08:00">2020-07-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -597,6 +597,8 @@
 
 <h4 id="7、扩展：正则表达式"><a href="#7、扩展：正则表达式" class="headerlink" title="7、扩展：正则表达式"></a>7、扩展：正则表达式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.matches(String regex)</span></span><br><span class="line"><span class="comment"> * regex:正则表达式</span></span><br><span class="line"><span class="comment"> * bool:判断str是否符合正则表达式，符合则为true</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello"</span>;</span><br><span class="line">    <span class="keyword">boolean</span> bool  = str.matches(<span class="string">"[A-Z][a-z]&#123;4&#125;"</span>);</span><br><span class="line">    System.out.println(bool);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
 <p>正则表达式中的元字符</p>
 <table>
 <thead>
@@ -614,7 +616,7 @@
 <tr>
 <td>\d</td>
 <td><code>\\d</code></td>
-<td>代表0~9的任何一个数字</td>
+<td>代表<code>0~9</code>的任何一个数字</td>
 </tr>
 <tr>
 <td>\D</td>
@@ -674,7 +676,7 @@
 <tr>
 <td>\p{Punct}</td>
 <td><code>\\p{Punct}</code></td>
-<td>代表标点符号 ``!@#$%^&amp;*()-=_+[]{}</td>
+<td>代表标点符号 <code>!@#$%^&amp;*()-=_+[]\{}|;:&#39;&quot;,&lt;.&gt;/?`~</code></td>
 </tr>
 <tr>
 <td>\p{Graph}</td>
@@ -755,11 +757,11 @@
 </tr>
 <tr>
 <td><code>[a-zA-Z]</code></td>
-<td>a<del>z或A</del>Z的任何字符</td>
+<td><code>a~z</code>或<code>A~Z</code>的任何字符</td>
 </tr>
 <tr>
 <td><code>[a-d[m-p]]</code></td>
-<td>a<del>d或m</del>p的任何字符</td>
+<td><code>a~d</code>或<code>m~p</code>的任何字符</td>
 </tr>
 <tr>
 <td><code>[a-z&amp;&amp;[def]]</code></td>
@@ -767,11 +769,11 @@
 </tr>
 <tr>
 <td><code>[a-z&amp;&amp;[^bc]]</code></td>
-<td>除b、c以外a~z的所有字符</td>
+<td>除b、c以外<code>a~z</code>的所有字符</td>
 </tr>
 <tr>
 <td><code>[a-z&amp;&amp;[^m-p]]</code></td>
-<td>除m<del>p以外a</del>z的所有字符</td>
+<td>除<code>m~p</code>以外<code>a~z</code>的所有字符</td>
 </tr>
 </tbody></table>
 
