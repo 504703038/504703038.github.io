@@ -9,6 +9,13 @@
   </url>
   
   <url>
+    <loc>https://oort_t.gitee.io/2020/02/20/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/</loc>
+    
+    <lastmod>2020-10-08</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://oort_t.gitee.io/2020/01/28/Sublime-Text%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2020-08-11</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://oort_t.gitee.io/2019/10/31/VS-Code%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2020-07-22</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://oort_t.gitee.io/2020/02/20/Hexo%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/</loc>
-    
-    <lastmod>2020-07-21</lastmod>
     
   </url>
   
@@ -221,6 +221,13 @@
   </url>
   
   <url>
+    <loc>https://oort_t.gitee.io/tags/C/</loc>
+    <lastmod>2020-10-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://oort_t.gitee.io/tags/Eclipse/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
@@ -229,13 +236,6 @@
   
   <url>
     <loc>https://oort_t.gitee.io/tags/Hexo-%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2020-10-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oort_t.gitee.io/tags/C/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -312,14 +312,14 @@
   </url>
   
   <url>
-    <loc>https://oort_t.gitee.io/tags/Windows/</loc>
+    <loc>https://oort_t.gitee.io/tags/VS-Code/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://oort_t.gitee.io/tags/VS-Code/</loc>
+    <loc>https://oort_t.gitee.io/tags/Windows/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -363,6 +363,13 @@
   </url>
   
   <url>
+    <loc>https://oort_t.gitee.io/categories/C/</loc>
+    <lastmod>2020-10-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://oort_t.gitee.io/categories/Eclipse/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
@@ -371,13 +378,6 @@
   
   <url>
     <loc>https://oort_t.gitee.io/categories/Hexo-%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2020-10-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://oort_t.gitee.io/categories/C/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -454,14 +454,14 @@
   </url>
   
   <url>
-    <loc>https://oort_t.gitee.io/categories/Windows/</loc>
+    <loc>https://oort_t.gitee.io/categories/VS-Code/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://oort_t.gitee.io/categories/VS-Code/</loc>
+    <loc>https://oort_t.gitee.io/categories/Windows/</loc>
     <lastmod>2020-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -44,6 +44,87 @@
       </tags>
   </entry>
   <entry>
+    <title>C++相关知识</title>
+    <url>/2019/05/30/C++%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h3 id="1、预处理器指示符"><a href="#1、预处理器指示符" class="headerlink" title="1、预处理器指示符"></a>1、预处理器指示符</h3><p>当嵌套包含文件时可以用如下代码避免重复编译。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> BOOKSTORE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BOOKSTORE_H</span></span><br><span class="line"><span class="comment">/* Bookstore.h 的内容 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">#ifndef x	判断x是否被定义，若x未被定义则为真，否则为假。</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">#endif	标志#ifndef的结束</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#ifdef x 	判断x是否被定义，若x未被定义则为假，否则为真。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#define x	定义x。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>一些预定义名字：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">__cplusplus：编译 C++程序时 编译器自动定义的名字，用来判断该程序是不是C++程序。</span></span><br><span class="line"><span class="comment">__STDC__：在编译标准 C 时 编译器将自动定义的名字，用来判断该程序是不是C程序。</span></span><br><span class="line"><span class="comment">__LINE__：记录文件已经被编译的行数。</span></span><br><span class="line"><span class="comment">__FILE__：包含正在被编译的文件的名字。</span></span><br><span class="line"><span class="comment">__TIME__：当前被编译文件的编译时间</span></span><br><span class="line"><span class="comment">__DATE__：当前被编译文件的编译日期</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">若当前处理的行或文件发生变化 则__LINE__和__FILE__的值将分别被改变 其他四个</span></span><br><span class="line"><span class="comment">预定义名字在编译期间保持不变 它们的值也不能被修改</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、二维数组指针"><a href="#2、二维数组指针" class="headerlink" title="2、二维数组指针"></a>2、二维数组指针</h3><p>二维数组 <code>a[2][3]</code> 指针表示</p>
+<p>方法一：</p>
+<p><code>int (*p)[3]=a</code>或<code>int (*p)[3]=&amp;a[0]</code></p>
+<p>访问 <code>a[i][j]</code> 等价于 <code>p[i][j]</code> 或 <code>*(*(p+i)+j)</code></p>
+<p>方法二：</p>
+<p><code>int *p=a[0]=&amp;a[0][0]=*a</code></p>
+<p>访问 <code>a[i][j]</code> 等价于 <code>*(p+i*C+j)</code> 或 <code>*(*(p+i)+j)</code></p>
+<h3 id="3、pair-用法"><a href="#3、pair-用法" class="headerlink" title="3、pair 用法"></a>3、pair 用法</h3><p>类模板：<code>template&lt;class T1,class T2&gt; struct pair</code></p>
+<p>参数：T1是第一个值的数据类型，T2是第二个值的数据类型。</p>
+<p>功能：pair将一对值(T1和T2)组合成一个值，这一对值可以具有不同的数据类型（T1和T2）， 两个值可以分别用pair的两个公有函数first和second访问。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pair&lt;T1,T2&gt; p1; <span class="comment">//创建一个空的pair对象，元素类型分别为T1，T2。</span></span><br><span class="line">pair&lt;T1,T2&gt; p2(v1,v2);//创建一个pair对象，元素的值分别为v1，v2。</span><br><span class="line">make_pair(v1,v2);<span class="comment">//以v1，v2的值创建一个pair对象，类型分别为v1，v2的类型</span></span><br><span class="line">p1&lt;p2;<span class="comment">//小于比较，先first后second。</span></span><br><span class="line">p1==p2;<span class="comment">//等于比较，先first后second。</span></span><br><span class="line">p1.first;<span class="comment">//返回p1中的第一个值。</span></span><br><span class="line">p1.second;<span class="comment">//返回p1中的第二个值。</span></span><br></pre></td></tr></table></figure>
+
+<p>可以预定义宏</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;T1,T2&gt; P;</span><br><span class="line"><span class="comment">//三种定义方式</span></span><br><span class="line"><span class="function">P <span class="title">p1</span><span class="params">(v1,v2)</span></span>;</span><br><span class="line">P p = P(v1,v2);</span><br><span class="line">P p = make_pair(v1,v2);</span><br></pre></td></tr></table></figure>
+
+<p>可以通过<code>tie</code>获取pair元素值，<code>std::tie</code>位于<code>tuple</code>头文件中</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;T1,T2&gt; P;</span><br><span class="line"><span class="function">P <span class="title">p</span><span class="params">(v1,v2)</span></span>;</span><br><span class="line">T1 v3;</span><br><span class="line">T2 v4;</span><br><span class="line">tie(v3,v4)=p;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、队列-queue"><a href="#4、队列-queue" class="headerlink" title="4、队列(queue)"></a>4、队列(queue)</h3><p><code>std::queue</code>位于 <code>queue</code>头文件</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="built_in">queue</span>&lt;T&gt; Q; <span class="comment">//定义一个类型为T的队列</span></span><br><span class="line"><span class="comment">//常用函数</span></span><br><span class="line"><span class="comment">//访问第一个元素</span></span><br><span class="line">T e=Q.front();</span><br><span class="line"><span class="comment">//访问最后一个元素</span></span><br><span class="line">T e=Q.back();</span><br><span class="line"><span class="comment">//检查队列是否为空</span></span><br><span class="line"><span class="keyword">bool</span> b=Q.empty();</span><br><span class="line"><span class="comment">//返回队列中元素的个数</span></span><br><span class="line"><span class="keyword">int</span> s=Q.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//将元素e插入队列尾部</span></span><br><span class="line">Q.push(e);</span><br><span class="line"><span class="comment">//删除栈顶元素 </span></span><br><span class="line">Q.pop();</span><br><span class="line"><span class="comment">//于尾部原位构造元素</span></span><br><span class="line">Q.emplace(e);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5、字符串-string"><a href="#5、字符串-string" class="headerlink" title="5、字符串(string)"></a>5、字符串(string)</h3><p><code>std::string</code> 位于<code>string</code>头文件</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//string 可以直接赋值</span></span><br><span class="line">str = <span class="string">"This is a string."</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问字符串元素</span></span><br><span class="line"><span class="keyword">char</span> ch = str[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line"><span class="keyword">int</span> l = str.length();</span><br><span class="line"></span><br><span class="line"><span class="comment">//向末尾添加</span></span><br><span class="line">str += <span class="string">"A new string."</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串比较(==,!=,&lt;,&gt;,&lt;=,&gt;=,&lt;=&gt;都可以直接使用)</span></span><br><span class="line">b = (str &lt;= <span class="string">"Another string."</span>);</span><br><span class="line">b = (str &gt;= <span class="string">"Another string."</span>);</span><br><span class="line">b = (str == <span class="string">"Another string."</span>);</span><br><span class="line"><span class="comment">//cpm &lt;0 : str的字典序小 cpm &gt;0 ：str的字典序大</span></span><br><span class="line"><span class="keyword">int</span> cpm = str.compare(<span class="string">"Another string."</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取子串(pos表示开始位置，count表示子串的长度)</span></span><br><span class="line"><span class="built_in">string</span> subs = str.substr(pos,count);</span><br><span class="line"></span><br><span class="line"><span class="comment">//string转char数组(count表示子串长度，pos表示开始位置)</span></span><br><span class="line">str.copy(s,count,pos);</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找字符出现的位置(ch表示要搜索的字符，pos表示开始位置)返回ch第一次出现的位置，若没有则返回-1</span></span><br><span class="line">pos = str.<span class="built_in">find</span>(ch,pos);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输入输出</span></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;<span class="built_in">string</span>; <span class="built_in">cout</span>&lt;&lt;<span class="built_in">string</span>;</span><br><span class="line"><span class="comment">//读取一整行(包含空格字符串)</span></span><br><span class="line">getline(<span class="built_in">cin</span>,<span class="built_in">string</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//数值转换</span></span><br><span class="line"><span class="keyword">int</span> int1 = stoi(<span class="built_in">string</span>);</span><br><span class="line"><span class="keyword">long</span> long1 = stol(<span class="built_in">string</span>);</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> long_long1 = stoll(<span class="built_in">string</span>);</span><br><span class="line"><span class="built_in">string</span> str1 = to_string(<span class="keyword">int</span>);</span><br><span class="line"><span class="built_in">string</span> str1 = to_string(<span class="keyword">double</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6、映射-map"><a href="#6、映射-map" class="headerlink" title="6、映射(map)"></a>6、映射(map)</h3><p><code>std::map</code>在<code>map</code>头文件</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空</span></span><br><span class="line">mp.<span class="built_in">clear</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//大小</span></span><br><span class="line">mp.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入键值对</span></span><br><span class="line">mp[key]=value;</span><br><span class="line"></span><br><span class="line"><span class="comment">//顺序遍历</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = mp.<span class="built_in">begin</span>();it!=mp.<span class="built_in">end</span>();++it)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> key = it-&gt;first;</span><br><span class="line">    <span class="keyword">int</span> calue = it-&gt;second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断key是否在map中</span></span><br><span class="line"><span class="keyword">auto</span> it = mp.<span class="built_in">find</span>(key);</span><br><span class="line"><span class="keyword">if</span> (it!=mp.<span class="built_in">end</span>()) <span class="comment">//key在map中</span></span><br><span class="line"><span class="keyword">else</span> <span class="comment">//key不在map中，it即为其所在地址</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7、cout用法"><a href="#7、cout用法" class="headerlink" title="7、cout用法"></a>7、cout用法</h3><h4 id="1、cout保留小数"><a href="#1、cout保留小数" class="headerlink" title="1、cout保留小数"></a>1、cout保留小数</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="number">2</span>)&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//保留2位小数</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;setprecision(<span class="number">2</span>)&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//保留2位有效数字</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8、自定义结构体-struct"><a href="#8、自定义结构体-struct" class="headerlink" title="8、自定义结构体(struct)"></a>8、自定义结构体(struct)</h3><h4 id="1、结构体变量构造函数"><a href="#1、结构体变量构造函数" class="headerlink" title="1、结构体变量构造函数"></a>1、结构体变量构造函数</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">struct Student</span><br><span class="line">&#123;</span><br><span class="line">    char *name;</span><br><span class="line">    int age;</span><br><span class="line">    char *sex;</span><br><span class="line">    Student(char *name,int age,char *sex)</span><br><span class="line">    :name(name),age(age),sex(sex)&#123;&#125;</span><br><span class="line">    void print_info()</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">"name: "</span>&lt;&lt;name&lt;&lt;endl;</span><br><span class="line">        cout&lt;&lt;<span class="string">"age: "</span>&lt;&lt;age&lt;&lt;endl;</span><br><span class="line">        cout&lt;&lt;<span class="string">"sex: "</span>&lt;&lt;sex&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Student stu = Student(<span class="string">"张三"</span>,<span class="number">18</span>,<span class="string">"男"</span>);</span><br><span class="line">stu.print_info();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="9、STL中的二分查找"><a href="#9、STL中的二分查找" class="headerlink" title="9、STL中的二分查找"></a>9、STL中的二分查找</h3><h4 id="1、binary-search"><a href="#1、binary-search" class="headerlink" title="1、binary_search"></a>1、binary_search</h4><p>查找某个元素是否出现过。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">// binary_search(开始位置,结束位置,要查找的值);</span></span><br><span class="line"><span class="keyword">bool</span> f = binary_search(a,a+<span class="number">8</span>,<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> f = binary_search(b.<span class="built_in">begin</span>(),b.<span class="built_in">end</span>(),<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、lower-bound"><a href="#2、lower-bound" class="headerlink" title="2、lower_bound"></a>2、lower_bound</h4><p>查找第一个大于等于某个元素的位置。如果没找到返回结束位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">// lower_bound(开始位置,结束位置,要查找的值);</span></span><br><span class="line"><span class="keyword">int</span> pos = lower_bound(a,a+<span class="number">8</span>,<span class="number">7</span>)-a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> it= lower_bound(b.<span class="built_in">begin</span>(),b.<span class="built_in">end</span>(),<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、upper-bound"><a href="#3、upper-bound" class="headerlink" title="3、upper_bound"></a>3、upper_bound</h4><p>查找第一个大于某个元素的位置。如果没找到返回结束位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">// upper_bound(开始位置,结束位置,要查找的值);</span></span><br><span class="line"><span class="keyword">int</span> pos = upper_bound(a,a+<span class="number">8</span>,<span class="number">11</span>)-a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> it= upper_bound(b.<span class="built_in">begin</span>(),b.<span class="built_in">end</span>(),<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="10、读取一整行"><a href="#10、读取一整行" class="headerlink" title="10、读取一整行"></a>10、读取一整行</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>,str);</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Eclipse个性化设置</title>
     <url>/2019/08/27/Eclipse%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="1、字体大小"><a href="#1、字体大小" class="headerlink" title="1、字体大小"></a>1、字体大小</h3><p>1、编辑区字体大小</p>
@@ -551,84 +632,42 @@ function hide() {
       </tags>
   </entry>
   <entry>
-    <title>C++相关知识</title>
-    <url>/2019/05/30/C++%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h3 id="1、预处理器指示符"><a href="#1、预处理器指示符" class="headerlink" title="1、预处理器指示符"></a>1、预处理器指示符</h3><p>当嵌套包含文件时可以用如下代码避免重复编译。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> BOOKSTORE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BOOKSTORE_H</span></span><br><span class="line"><span class="comment">/* Bookstore.h 的内容 */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">#ifndef x	判断x是否被定义，若x未被定义则为真，否则为假。</span></span><br><span class="line"><span class="comment">...</span></span><br><span class="line"><span class="comment">#endif	标志#ifndef的结束</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#ifdef x 	判断x是否被定义，若x未被定义则为假，否则为真。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#define x	定义x。</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+    <title>Hexo 搭建博客时遇到的问题</title>
+    <url>/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="1、npm-安装插件速度慢"><a href="#1、npm-安装插件速度慢" class="headerlink" title="1、npm 安装插件速度慢"></a>1、npm 安装插件速度慢</h3><p>1、方法一：切换源</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、方法二：使用<code>cnpm</code></p>
+<p>执行完下列命令后，当要用到<code>npm</code>命令时就可以使用<code>cnpm</code>代替</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 
-<p>一些预定义名字：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">__cplusplus：编译 C++程序时 编译器自动定义的名字，用来判断该程序是不是C++程序。</span></span><br><span class="line"><span class="comment">__STDC__：在编译标准 C 时 编译器将自动定义的名字，用来判断该程序是不是C程序。</span></span><br><span class="line"><span class="comment">__LINE__：记录文件已经被编译的行数。</span></span><br><span class="line"><span class="comment">__FILE__：包含正在被编译的文件的名字。</span></span><br><span class="line"><span class="comment">__TIME__：当前被编译文件的编译时间</span></span><br><span class="line"><span class="comment">__DATE__：当前被编译文件的编译日期</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">若当前处理的行或文件发生变化 则__LINE__和__FILE__的值将分别被改变 其他四个</span></span><br><span class="line"><span class="comment">预定义名字在编译期间保持不变 它们的值也不能被修改</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、文章图片插入"><a href="#2、文章图片插入" class="headerlink" title="2、文章图片插入"></a>2、文章图片插入</h3><p>1、配置<code>_config.yml</code>文件，使得在使用<code>hexo</code>命令新建一个<code>Post</code>时同时创建一个对应的文件夹</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将 post_asset_folder 设置为 true</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="2、二维数组指针"><a href="#2、二维数组指针" class="headerlink" title="2、二维数组指针"></a>2、二维数组指针</h3><p>二维数组 <code>a[2][3]</code> 指针表示</p>
-<p>方法一：</p>
-<p><code>int (*p)[3]=a</code>或<code>int (*p)[3]=&amp;a[0]</code></p>
-<p>访问 <code>a[i][j]</code> 等价于 <code>p[i][j]</code> 或 <code>*(*(p+i)+j)</code></p>
-<p>方法二：</p>
-<p><code>int *p=a[0]=&amp;a[0][0]=*a</code></p>
-<p>访问 <code>a[i][j]</code> 等价于 <code>*(p+i*C+j)</code> 或 <code>*(*(p+i)+j)</code></p>
-<h3 id="3、pair-用法"><a href="#3、pair-用法" class="headerlink" title="3、pair 用法"></a>3、pair 用法</h3><p>类模板：<code>template&lt;class T1,class T2&gt; struct pair</code></p>
-<p>参数：T1是第一个值的数据类型，T2是第二个值的数据类型。</p>
-<p>功能：pair将一对值(T1和T2)组合成一个值，这一对值可以具有不同的数据类型（T1和T2）， 两个值可以分别用pair的两个公有函数first和second访问。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">pair&lt;T1,T2&gt; p1; <span class="comment">//创建一个空的pair对象，元素类型分别为T1，T2。</span></span><br><span class="line">pair&lt;T1,T2&gt; p2(v1,v2);//创建一个pair对象，元素的值分别为v1，v2。</span><br><span class="line">make_pair(v1,v2);<span class="comment">//以v1，v2的值创建一个pair对象，类型分别为v1，v2的类型</span></span><br><span class="line">p1&lt;p2;<span class="comment">//小于比较，先first后second。</span></span><br><span class="line">p1==p2;<span class="comment">//等于比较，先first后second。</span></span><br><span class="line">p1.first;<span class="comment">//返回p1中的第一个值。</span></span><br><span class="line">p1.second;<span class="comment">//返回p1中的第二个值。</span></span><br></pre></td></tr></table></figure>
-
-<p>可以预定义宏</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> pair&lt;T1,T2&gt; P;</span><br><span class="line"><span class="comment">//三种定义方式</span></span><br><span class="line"><span class="function">P <span class="title">p1</span><span class="params">(v1,v2)</span></span>;</span><br><span class="line">P p = P(v1,v2);</span><br><span class="line">P p = make_pair(v1,v2);</span><br></pre></td></tr></table></figure>
-
-<p>可以通过<code>tie</code>获取pair元素值，<code>std::tie</code>位于<code>tuple</code>头文件中</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;tuple&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;T1,T2&gt; P;</span><br><span class="line"><span class="function">P <span class="title">p</span><span class="params">(v1,v2)</span></span>;</span><br><span class="line">T1 v3;</span><br><span class="line">T2 v4;</span><br><span class="line">tie(v3,v4)=p;</span><br></pre></td></tr></table></figure>
+<p>2、安装<code>hexo-asset-image</code>插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image -- save</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="4、队列-queue"><a href="#4、队列-queue" class="headerlink" title="4、队列(queue)"></a>4、队列(queue)</h3><p><code>std::queue</code>位于 <code>queue</code>头文件</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="built_in">queue</span>&lt;T&gt; Q; <span class="comment">//定义一个类型为T的队列</span></span><br><span class="line"><span class="comment">//常用函数</span></span><br><span class="line"><span class="comment">//访问第一个元素</span></span><br><span class="line">T e=Q.front();</span><br><span class="line"><span class="comment">//访问最后一个元素</span></span><br><span class="line">T e=Q.back();</span><br><span class="line"><span class="comment">//检查队列是否为空</span></span><br><span class="line"><span class="keyword">bool</span> b=Q.empty();</span><br><span class="line"><span class="comment">//返回队列中元素的个数</span></span><br><span class="line"><span class="keyword">int</span> s=Q.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//将元素e插入队列尾部</span></span><br><span class="line">Q.push(e);</span><br><span class="line"><span class="comment">//删除栈顶元素 </span></span><br><span class="line">Q.pop();</span><br><span class="line"><span class="comment">//于尾部原位构造元素</span></span><br><span class="line">Q.emplace(e);</span><br></pre></td></tr></table></figure>
+<p>3、只要将<code>.md</code>引用的图片放入对应的文件夹内就可以了。</p>
+<p>4、如果你的仓库名称不是<code>username.io</code>的话，图片插入仍然存在问题，修改<code>node_modules/hexo-asset-image/index.js</code>中的代码来修复问题。</p>
+<p>修改后的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.extend.filter.register(<span class="string">'after_post_render'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">    <span class="keyword">var</span> link = data.permalink;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">'/'</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> appendLink = <span class="string">''</span>;</span><br><span class="line">    <span class="comment">// In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".</span></span><br><span class="line">    <span class="comment">// if not with index.html endpos = link.lastIndexOf('.') + 1 support hexo-abbrlink</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/.*\/index\.html$/</span>.test(link)) &#123;</span><br><span class="line">      <span class="comment">// when permalink is end with index.html, for example 2019/02/20/xxtitle/index.html</span></span><br><span class="line">      <span class="comment">// image in xxtitle/ will go to xxtitle/index/</span></span><br><span class="line">      appendLink = <span class="string">'index/'</span>;</span><br><span class="line">      <span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    link = link.substring(beginPos, endPos) + <span class="string">'/'</span> + appendLink;</span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">'excerpt'</span>, <span class="string">'more'</span>, <span class="string">'content'</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">'img'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(<span class="keyword">this</span>).attr(<span class="string">'src'</span>))&#123;</span><br><span class="line">          <span class="comment">// For windows style path, we replace '\' to '/'.</span></span><br><span class="line">          <span class="keyword">var</span> src = $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>).replace(<span class="string">'\\'</span>, <span class="string">'/'</span>);</span><br><span class="line">          <span class="keyword">if</span>(!(<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src)</span><br><span class="line">            || <span class="regexp">/^\s+\//</span>.test(src)</span><br><span class="line">            || <span class="regexp">/^\s*\/uploads|images\//</span>.test(src))) &#123;</span><br><span class="line">            <span class="comment">// For "about" page, the first part of "src" can't be removed.</span></span><br><span class="line">            <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">            <span class="keyword">var</span> linkArray = link.split(<span class="string">'/'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> elem != <span class="string">''</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">var</span> srcArray = src.split(<span class="string">'/'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> elem != <span class="string">''</span> &amp;&amp; elem != <span class="string">'.'</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">            srcArray.shift();</span><br><span class="line">            src = srcArray.join(<span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">            $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>, config.root + link + src);</span><br><span class="line">            <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">"update link as:--&gt;"</span>+ config.root + link + src);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">"no src attr, skipped..."</span>);</span><br><span class="line">          <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="keyword">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
-
-<h3 id="5、字符串-string"><a href="#5、字符串-string" class="headerlink" title="5、字符串(string)"></a>5、字符串(string)</h3><p><code>std::string</code> 位于<code>string</code>头文件</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//string 可以直接赋值</span></span><br><span class="line">str = <span class="string">"This is a string."</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问字符串元素</span></span><br><span class="line"><span class="keyword">char</span> ch = str[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取字符串长度</span></span><br><span class="line"><span class="keyword">int</span> l = str.length();</span><br><span class="line"></span><br><span class="line"><span class="comment">//向末尾添加</span></span><br><span class="line">str += <span class="string">"A new string."</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串比较(==,!=,&lt;,&gt;,&lt;=,&gt;=,&lt;=&gt;都可以直接使用)</span></span><br><span class="line">b = (str &lt;= <span class="string">"Another string."</span>);</span><br><span class="line">b = (str &gt;= <span class="string">"Another string."</span>);</span><br><span class="line">b = (str == <span class="string">"Another string."</span>);</span><br><span class="line"><span class="comment">//cpm &lt;0 : str的字典序小 cpm &gt;0 ：str的字典序大</span></span><br><span class="line"><span class="keyword">int</span> cpm = str.compare(<span class="string">"Another string."</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取子串(pos表示开始位置，count表示子串的长度)</span></span><br><span class="line"><span class="built_in">string</span> subs = str.substr(pos,count);</span><br><span class="line"></span><br><span class="line"><span class="comment">//string转char数组(count表示子串长度，pos表示开始位置)</span></span><br><span class="line">str.copy(s,count,pos);</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找字符出现的位置(ch表示要搜索的字符，pos表示开始位置)返回ch第一次出现的位置，若没有则返回-1</span></span><br><span class="line">pos = str.<span class="built_in">find</span>(ch,pos);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输入输出</span></span><br><span class="line"><span class="built_in">cin</span>&gt;&gt;<span class="built_in">string</span>; <span class="built_in">cout</span>&lt;&lt;<span class="built_in">string</span>;</span><br><span class="line"><span class="comment">//读取一整行(包含空格字符串)</span></span><br><span class="line">getline(<span class="built_in">cin</span>,<span class="built_in">string</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//数值转换</span></span><br><span class="line"><span class="keyword">int</span> int1 = stoi(<span class="built_in">string</span>);</span><br><span class="line"><span class="keyword">long</span> long1 = stol(<span class="built_in">string</span>);</span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> long_long1 = stoll(<span class="built_in">string</span>);</span><br><span class="line"><span class="built_in">string</span> str1 = to_string(<span class="keyword">int</span>);</span><br><span class="line"><span class="built_in">string</span> str1 = to_string(<span class="keyword">double</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="6、映射-map"><a href="#6、映射-map" class="headerlink" title="6、映射(map)"></a>6、映射(map)</h3><p><code>std::map</code>在<code>map</code>头文件</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空</span></span><br><span class="line">mp.<span class="built_in">clear</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//大小</span></span><br><span class="line">mp.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入键值对</span></span><br><span class="line">mp[key]=value;</span><br><span class="line"></span><br><span class="line"><span class="comment">//顺序遍历</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = mp.<span class="built_in">begin</span>();it!=mp.<span class="built_in">end</span>();++it)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> key = it-&gt;first;</span><br><span class="line">    <span class="keyword">int</span> calue = it-&gt;second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断key是否在map中</span></span><br><span class="line"><span class="keyword">auto</span> it = mp.<span class="built_in">find</span>(key);</span><br><span class="line"><span class="keyword">if</span> (it!=mp.<span class="built_in">end</span>()) <span class="comment">//key在map中</span></span><br><span class="line"><span class="keyword">else</span> <span class="comment">//key不在map中，it即为其所在地址</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="7、cout用法"><a href="#7、cout用法" class="headerlink" title="7、cout用法"></a>7、cout用法</h3><h4 id="1、cout保留小数"><a href="#1、cout保留小数" class="headerlink" title="1、cout保留小数"></a>1、cout保留小数</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;fixed&lt;&lt;setprecision(<span class="number">2</span>)&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//保留2位小数</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;setprecision(<span class="number">2</span>)&lt;&lt;b&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//保留2位有效数字</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="8、自定义结构体-struct"><a href="#8、自定义结构体-struct" class="headerlink" title="8、自定义结构体(struct)"></a>8、自定义结构体(struct)</h3><h4 id="1、结构体变量构造函数"><a href="#1、结构体变量构造函数" class="headerlink" title="1、结构体变量构造函数"></a>1、结构体变量构造函数</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">struct Student</span><br><span class="line">&#123;</span><br><span class="line">    char *name;</span><br><span class="line">    int age;</span><br><span class="line">    char *sex;</span><br><span class="line">    Student(char *name,int age,char *sex)</span><br><span class="line">    :name(name),age(age),sex(sex)&#123;&#125;</span><br><span class="line">    void print_info()</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">"name: "</span>&lt;&lt;name&lt;&lt;endl;</span><br><span class="line">        cout&lt;&lt;<span class="string">"age: "</span>&lt;&lt;age&lt;&lt;endl;</span><br><span class="line">        cout&lt;&lt;<span class="string">"sex: "</span>&lt;&lt;sex&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Student stu = Student(<span class="string">"张三"</span>,<span class="number">18</span>,<span class="string">"男"</span>);</span><br><span class="line">stu.print_info();</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="9、STL中的二分查找"><a href="#9、STL中的二分查找" class="headerlink" title="9、STL中的二分查找"></a>9、STL中的二分查找</h3><h4 id="1、binary-search"><a href="#1、binary-search" class="headerlink" title="1、binary_search"></a>1、binary_search</h4><p>查找某个元素是否出现过。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">// binary_search(开始位置,结束位置,要查找的值);</span></span><br><span class="line"><span class="keyword">bool</span> f = binary_search(a,a+<span class="number">8</span>,<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> f = binary_search(b.<span class="built_in">begin</span>(),b.<span class="built_in">end</span>(),<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2、lower-bound"><a href="#2、lower-bound" class="headerlink" title="2、lower_bound"></a>2、lower_bound</h4><p>查找第一个大于等于某个元素的位置。如果没找到返回结束位置。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">// lower_bound(开始位置,结束位置,要查找的值);</span></span><br><span class="line"><span class="keyword">int</span> pos = lower_bound(a,a+<span class="number">8</span>,<span class="number">7</span>)-a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> it= lower_bound(b.<span class="built_in">begin</span>(),b.<span class="built_in">end</span>(),<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3、upper-bound"><a href="#3、upper-bound" class="headerlink" title="3、upper_bound"></a>3、upper_bound</h4><p>查找第一个大于某个元素的位置。如果没找到返回结束位置。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="comment">// upper_bound(开始位置,结束位置,要查找的值);</span></span><br><span class="line"><span class="keyword">int</span> pos = upper_bound(a,a+<span class="number">8</span>,<span class="number">11</span>)-a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"><span class="keyword">auto</span> it= upper_bound(b.<span class="built_in">begin</span>(),b.<span class="built_in">end</span>(),<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="10、读取一整行"><a href="#10、读取一整行" class="headerlink" title="10、读取一整行"></a>10、读取一整行</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">10</span>];</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%[^\n]"</span>,str);</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>Hexo 博客</category>
       </categories>
       <tags>
-        <tag>C++</tag>
+        <tag>Hexo 博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1158,45 +1197,6 @@ function hide() {
       </tags>
   </entry>
   <entry>
-    <title>Hexo 搭建博客时遇到的问题</title>
-    <url>/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="1、npm-安装插件速度慢"><a href="#1、npm-安装插件速度慢" class="headerlink" title="1、npm 安装插件速度慢"></a>1、npm 安装插件速度慢</h3><p>1、方法一：切换源</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-
-
-<p>2、方法二：使用<code>cnpm</code></p>
-<p>执行完下列命令后，当要用到<code>npm</code>命令时就可以使用<code>cnpm</code>代替</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-
-<h3 id="2、文章图片插入"><a href="#2、文章图片插入" class="headerlink" title="2、文章图片插入"></a>2、文章图片插入</h3><p>1、配置<code>_config.yml</code>文件，使得在使用<code>hexo</code>命令新建一个<code>Post</code>时同时创建一个对应的文件夹</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将 post_asset_folder 设置为 true</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>2、安装<code>hexo-asset-image</code>插件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image -- save</span><br></pre></td></tr></table></figure>
-
-
-
-<p>3、只要将<code>.md</code>引用的图片放入对应的文件夹内就可以了。</p>
-<p>4、如果你的仓库名称不是<code>username.io</code>的话，图片插入仍然存在问题，修改<code>node_modules/hexo-asset-image/index.js</code>中的代码来修复问题。</p>
-<p>修改后的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hexo.extend.filter.register(<span class="string">'after_post_render'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">    <span class="keyword">var</span> link = data.permalink;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">'/'</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> appendLink = <span class="string">''</span>;</span><br><span class="line">    <span class="comment">// In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".</span></span><br><span class="line">    <span class="comment">// if not with index.html endpos = link.lastIndexOf('.') + 1 support hexo-abbrlink</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="regexp">/.*\/index\.html$/</span>.test(link)) &#123;</span><br><span class="line">      <span class="comment">// when permalink is end with index.html, for example 2019/02/20/xxtitle/index.html</span></span><br><span class="line">      <span class="comment">// image in xxtitle/ will go to xxtitle/index/</span></span><br><span class="line">      appendLink = <span class="string">'index/'</span>;</span><br><span class="line">      <span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">'/'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    link = link.substring(beginPos, endPos) + <span class="string">'/'</span> + appendLink;</span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">'excerpt'</span>, <span class="string">'more'</span>, <span class="string">'content'</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">'img'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ($(<span class="keyword">this</span>).attr(<span class="string">'src'</span>))&#123;</span><br><span class="line">          <span class="comment">// For windows style path, we replace '\' to '/'.</span></span><br><span class="line">          <span class="keyword">var</span> src = $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>).replace(<span class="string">'\\'</span>, <span class="string">'/'</span>);</span><br><span class="line">          <span class="keyword">if</span>(!(<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src)</span><br><span class="line">            || <span class="regexp">/^\s+\//</span>.test(src)</span><br><span class="line">            || <span class="regexp">/^\s*\/uploads|images\//</span>.test(src))) &#123;</span><br><span class="line">            <span class="comment">// For "about" page, the first part of "src" can't be removed.</span></span><br><span class="line">            <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">            <span class="keyword">var</span> linkArray = link.split(<span class="string">'/'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> elem != <span class="string">''</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">var</span> srcArray = src.split(<span class="string">'/'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">              <span class="keyword">return</span> elem != <span class="string">''</span> &amp;&amp; elem != <span class="string">'.'</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">            srcArray.shift();</span><br><span class="line">            src = srcArray.join(<span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">            $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>, config.root + link + src);</span><br><span class="line">            <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">"update link as:--&gt;"</span>+ config.root + link + src);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">"no src attr, skipped..."</span>);</span><br><span class="line">          <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="keyword">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>Hexo 博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo 博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux攻略--(一)基础设置</title>
     <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%B8%80)%E5%9F%BA%E7%A1%80%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="1、终端设置"><a href="#1、终端设置" class="headerlink" title="1、终端设置"></a>1、终端设置</h3><p>编辑-首选项 100*30 字体大小 15</p>
@@ -1226,103 +1226,6 @@ function hide() {
 
 
 
-]]></content>
-      <categories>
-        <category>Ubuntu Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux攻略--(二)常用软件</title>
-    <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="1、输入法"><a href="#1、输入法" class="headerlink" title="1、输入法"></a>1、输入法</h3><h4 id="1、搜狗输入法"><a href="#1、搜狗输入法" class="headerlink" title="1、搜狗输入法"></a>1、搜狗输入法</h4><p><a href="https://pinyin.sogou.com/linux/help.php" target="_blank" rel="noopener">官方教程</a></p>
-<p><a href="https://pinyin.sogou.com/linux/" target="_blank" rel="noopener">官网</a>下载安装包直接安装。</p>
-<a id="more"></a>
-
-<h3 id="2、文档编辑"><a href="#2、文档编辑" class="headerlink" title="2、文档编辑"></a>2、文档编辑</h3><h4 id="1、WPS"><a href="#1、WPS" class="headerlink" title="1、WPS"></a>1、WPS</h4><p>卸载libreoffice</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove libreoffice-common</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.wps.cn/product/wpslinux" target="_blank" rel="noopener">官网</a>下载安装包直接安装</p>
-<h4 id="2、Typora（Markdown编辑器）"><a href="#2、Typora（Markdown编辑器）" class="headerlink" title="2、Typora（Markdown编辑器）"></a>2、Typora（Markdown编辑器）</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span></span><br><span class="line">wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="comment"># add Typora's repository</span></span><br><span class="line">sudo add-apt-repository <span class="string">'deb https://typora.io/linux ./'</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment"># install typora</span></span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3、福昕阅读器（-PDF-阅读器）"><a href="#3、福昕阅读器（-PDF-阅读器）" class="headerlink" title="3、福昕阅读器（ PDF 阅读器）"></a>3、福昕阅读器（ PDF 阅读器）</h4><p><a href="http://www.ubuntukylin.com/application/show.php?id=311" target="_blank" rel="noopener">官网</a>下载安装包，直接安装。</p>
-<h4 id="4、Sublime-Text"><a href="#4、Sublime-Text" class="headerlink" title="4、Sublime Text"></a>4、Sublime Text</h4><p><a href="https://www.sublimetext.com/docs/3/linux_repositories.html" target="_blank" rel="noopener">官网安装教程</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Install the GPG key:</span></span><br><span class="line">wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ensure apt is set up to work with https sources:</span></span><br><span class="line">sudo apt-get install apt-transport-https</span><br><span class="line"></span><br><span class="line"><span class="comment"># Select the channel to use: </span></span><br><span class="line">  <span class="comment"># Stable</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"deb https://download.sublimetext.com/ apt/stable/"</span> | sudo tee /etc/apt/sources.list.d/sublime-text.list</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Dev</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"deb https://download.sublimetext.com/ apt/dev/"</span> | sudo tee /etc/apt/sources.list.d/sublime-text.list</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update apt sources and install Sublime Text:</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install sublime-text</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="3、浏览器"><a href="#3、浏览器" class="headerlink" title="3、浏览器"></a>3、浏览器</h3><h4 id="1、安装-Firefox-浏览器"><a href="#1、安装-Firefox-浏览器" class="headerlink" title="1、安装 Firefox 浏览器"></a>1、安装 Firefox 浏览器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install firefox</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2、Google-Chrome"><a href="#2、Google-Chrome" class="headerlink" title="2、Google Chrome"></a>2、Google Chrome</h4><p><a href="https://www.google.cn/chrome/index.html" target="_blank" rel="noopener">官网</a>下载安装包。</p>
-<p><del>可能需要爬梯子。。。</del></p>
-<h3 id="4、截图工具"><a href="#4、截图工具" class="headerlink" title="4、截图工具"></a>4、截图工具</h3><h4 id="1、Flameshot"><a href="#1、Flameshot" class="headerlink" title="1、Flameshot"></a>1、Flameshot</h4><p>安装软件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install flameshot</span><br></pre></td></tr></table></figure>
-
-<p>设置快捷键</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E9%94%AE.png" alt="设置快捷键"></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/flameshot gui</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="5、画图"><a href="#5、画图" class="headerlink" title="5、画图"></a>5、画图</h3><h4 id="1、kolourpaint4"><a href="#1、kolourpaint4" class="headerlink" title="1、kolourpaint4"></a>1、kolourpaint4</h4><p>类似Windows中的画板</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install kolourpaint4</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2、亿图"><a href="#2、亿图" class="headerlink" title="2、亿图"></a>2、亿图</h4><p><a href="https://www.edrawsoft.cn/" target="_blank" rel="noopener">亿图官网</a></p>
-<p><a href="https://www.edrawsoft.cn/download-edrawmax.php" target="_blank" rel="noopener">下载地址</a></p>
-<p>绘制精美的流程图、思维导图、信息图等</p>
-<p>下载<code>.deb</code>包直接安装。</p>
-<h3 id="6、音乐、视频"><a href="#6、音乐、视频" class="headerlink" title="6、音乐、视频"></a>6、音乐、视频</h3><h4 id="1、网易云音乐"><a href="#1、网易云音乐" class="headerlink" title="1、网易云音乐"></a>1、网易云音乐</h4><p><a href="https://music.163.com/#/download" target="_blank" rel="noopener">官网</a>下载安装包，直接安装。</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD.png" alt="网易云音乐下载"></p>
-<h4 id="2、VLC播放器"><a href="#2、VLC播放器" class="headerlink" title="2、VLC播放器"></a>2、VLC播放器</h4><p>从软件中心下载或者在终端执行命令安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install vlc</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="7、通讯"><a href="#7、通讯" class="headerlink" title="7、通讯"></a>7、通讯</h3><h4 id="1、QQ和微信"><a href="#1、QQ和微信" class="headerlink" title="1、QQ和微信"></a>1、QQ和微信</h4><p>QQ官方推出Linux版本的了。。。。。</p>
-<p><a href="https://im.qq.com/linuxqq/index.html" target="_blank" rel="noopener">官网下载</a></p>
-<p>选择对应版本下载安装就行了。(u1s1，有点复古，有点像零几年的QQ)</p>
-<p><del>下面内容可以不用看了</del> 建议还是用下面的安装吧，官方版本的可以发文件但发不出去消息。</p>
-<hr>
-<p><a href="https://blog.csdn.net/qq_36285997/article/details/89046191" target="_blank" rel="noopener">网上教程</a></p>
-<p>安装deepin-wine环境：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 仓库克隆</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入仓库目录</span></span><br><span class="line"><span class="built_in">cd</span>  deepin-wine-for-ubuntu </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
-
-<p>QQ安装包<a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/" target="_blank" rel="noopener">下载地址</a></p>
-<p>微信安装包<a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/" target="_blank" rel="noopener">下载地址</a></p>
-<h3 id="8、下载工具"><a href="#8、下载工具" class="headerlink" title="8、下载工具"></a>8、下载工具</h3><h4 id="1、XDM"><a href="#1、XDM" class="headerlink" title="1、XDM"></a>1、XDM</h4><p><a href="./xdm-2018-x64.tar">下载链接</a></p>
-<p>解压后运行<code>install.sh</code>脚本来安装，在网络设置中将最大线程数设置为<code>32</code>。</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/XDM%E4%B8%8B%E8%BD%BD.png" alt="XDM下载"></p>
-<h3 id="9、科学上网"><a href="#9、科学上网" class="headerlink" title="9、科学上网"></a>9、科学上网</h3><h4 id="1、SocketPro"><a href="#1、SocketPro" class="headerlink" title="1、SocketPro"></a>1、SocketPro</h4><p>教程：</p>
-<p><a href="https://www.socketprohc.com/hc/en-us/articles/360022001091-How-to-install-SocketPro-client-on-Linux-devices" target="_blank" rel="noopener">How to install SocketPro client on Linux devices</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential autoconf libtool libssl-dev libpcre3-dev asciidoc xmlto libz-dev zlib1g-dev</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/shadowsocksr-backup/shadowsocksr-libev.git ~/socketpro/client</span><br><span class="line"><span class="built_in">cd</span> ~/socketpro/client</span><br><span class="line">./configure &amp;&amp; make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h3 id="10、其他"><a href="#10、其他" class="headerlink" title="10、其他"></a>10、其他</h3><h4 id="1、Calibre-书籍管理工具"><a href="#1、Calibre-书籍管理工具" class="headerlink" title="1、Calibre (书籍管理工具)"></a>1、Calibre (书籍管理工具)</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo -v &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2、百度网盘"><a href="#2、百度网盘" class="headerlink" title="2、百度网盘"></a>2、百度网盘</h4><p><a href="https://pan.baidu.com/download" target="_blank" rel="noopener">官网</a>下载安装包。</p>
-<h4 id="3、软件中心"><a href="#3、软件中心" class="headerlink" title="3、软件中心"></a>3、软件中心</h4><p>类似Windows中的各种软件管理软件，下载安装包直接安装</p>
-<p><a href="https://www.ubuntukylin.com/applications/41-cn.html" target="_blank" rel="noopener">麒麟软件中心</a></p>
-<h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="http://www.linuxrsp.ru/win-lin-soft/table-chn.html" target="_blank" rel="noopener">视窗软件的Linux类似/替换/相近品</a></p>
-<p><a href="https://wiki.ubuntu.org.cn/Qref/Apps" target="_blank" rel="noopener">速配指南之软件参考</a></p>
-<p><a href="https://www.zhihu.com/question/19811112" target="_blank" rel="noopener">在Ubuntu 上有什么必装的实用软件？</a></p>
-<p><a href="https://www.cnblogs.com/dunitian/p/6670560.html" target="_blank" rel="noopener">Ubuntu常用软件安装（小集合）</a></p>
 ]]></content>
       <categories>
         <category>Ubuntu Linux</category>
@@ -1430,6 +1333,103 @@ function hide() {
 
 
 
+]]></content>
+      <categories>
+        <category>Ubuntu Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux攻略--(二)常用软件</title>
+    <url>/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="1、输入法"><a href="#1、输入法" class="headerlink" title="1、输入法"></a>1、输入法</h3><h4 id="1、搜狗输入法"><a href="#1、搜狗输入法" class="headerlink" title="1、搜狗输入法"></a>1、搜狗输入法</h4><p><a href="https://pinyin.sogou.com/linux/help.php" target="_blank" rel="noopener">官方教程</a></p>
+<p><a href="https://pinyin.sogou.com/linux/" target="_blank" rel="noopener">官网</a>下载安装包直接安装。</p>
+<a id="more"></a>
+
+<h3 id="2、文档编辑"><a href="#2、文档编辑" class="headerlink" title="2、文档编辑"></a>2、文档编辑</h3><h4 id="1、WPS"><a href="#1、WPS" class="headerlink" title="1、WPS"></a>1、WPS</h4><p>卸载libreoffice</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove libreoffice-common</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.wps.cn/product/wpslinux" target="_blank" rel="noopener">官网</a>下载安装包直接安装</p>
+<h4 id="2、Typora（Markdown编辑器）"><a href="#2、Typora（Markdown编辑器）" class="headerlink" title="2、Typora（Markdown编辑器）"></a>2、Typora（Markdown编辑器）</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE</span></span><br><span class="line">wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="comment"># add Typora's repository</span></span><br><span class="line">sudo add-apt-repository <span class="string">'deb https://typora.io/linux ./'</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment"># install typora</span></span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、福昕阅读器（-PDF-阅读器）"><a href="#3、福昕阅读器（-PDF-阅读器）" class="headerlink" title="3、福昕阅读器（ PDF 阅读器）"></a>3、福昕阅读器（ PDF 阅读器）</h4><p><a href="http://www.ubuntukylin.com/application/show.php?id=311" target="_blank" rel="noopener">官网</a>下载安装包，直接安装。</p>
+<h4 id="4、Sublime-Text"><a href="#4、Sublime-Text" class="headerlink" title="4、Sublime Text"></a>4、Sublime Text</h4><p><a href="https://www.sublimetext.com/docs/3/linux_repositories.html" target="_blank" rel="noopener">官网安装教程</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Install the GPG key:</span></span><br><span class="line">wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ensure apt is set up to work with https sources:</span></span><br><span class="line">sudo apt-get install apt-transport-https</span><br><span class="line"></span><br><span class="line"><span class="comment"># Select the channel to use: </span></span><br><span class="line">  <span class="comment"># Stable</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"deb https://download.sublimetext.com/ apt/stable/"</span> | sudo tee /etc/apt/sources.list.d/sublime-text.list</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Dev</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"deb https://download.sublimetext.com/ apt/dev/"</span> | sudo tee /etc/apt/sources.list.d/sublime-text.list</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update apt sources and install Sublime Text:</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install sublime-text</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3、浏览器"><a href="#3、浏览器" class="headerlink" title="3、浏览器"></a>3、浏览器</h3><h4 id="1、安装-Firefox-浏览器"><a href="#1、安装-Firefox-浏览器" class="headerlink" title="1、安装 Firefox 浏览器"></a>1、安装 Firefox 浏览器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install firefox</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、Google-Chrome"><a href="#2、Google-Chrome" class="headerlink" title="2、Google Chrome"></a>2、Google Chrome</h4><p><a href="https://www.google.cn/chrome/index.html" target="_blank" rel="noopener">官网</a>下载安装包。</p>
+<p><del>可能需要爬梯子。。。</del></p>
+<h3 id="4、截图工具"><a href="#4、截图工具" class="headerlink" title="4、截图工具"></a>4、截图工具</h3><h4 id="1、Flameshot"><a href="#1、Flameshot" class="headerlink" title="1、Flameshot"></a>1、Flameshot</h4><p>安装软件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install flameshot</span><br></pre></td></tr></table></figure>
+
+<p>设置快捷键</p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E8%AE%BE%E7%BD%AE%E5%BF%AB%E6%8D%B7%E9%94%AE.png" alt="设置快捷键"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/flameshot gui</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5、画图"><a href="#5、画图" class="headerlink" title="5、画图"></a>5、画图</h3><h4 id="1、kolourpaint4"><a href="#1、kolourpaint4" class="headerlink" title="1、kolourpaint4"></a>1、kolourpaint4</h4><p>类似Windows中的画板</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install kolourpaint4</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、亿图"><a href="#2、亿图" class="headerlink" title="2、亿图"></a>2、亿图</h4><p><a href="https://www.edrawsoft.cn/" target="_blank" rel="noopener">亿图官网</a></p>
+<p><a href="https://www.edrawsoft.cn/download-edrawmax.php" target="_blank" rel="noopener">下载地址</a></p>
+<p>绘制精美的流程图、思维导图、信息图等</p>
+<p>下载<code>.deb</code>包直接安装。</p>
+<h3 id="6、音乐、视频"><a href="#6、音乐、视频" class="headerlink" title="6、音乐、视频"></a>6、音乐、视频</h3><h4 id="1、网易云音乐"><a href="#1、网易云音乐" class="headerlink" title="1、网易云音乐"></a>1、网易云音乐</h4><p><a href="https://music.163.com/#/download" target="_blank" rel="noopener">官网</a>下载安装包，直接安装。</p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD.png" alt="网易云音乐下载"></p>
+<h4 id="2、VLC播放器"><a href="#2、VLC播放器" class="headerlink" title="2、VLC播放器"></a>2、VLC播放器</h4><p>从软件中心下载或者在终端执行命令安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install vlc</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="7、通讯"><a href="#7、通讯" class="headerlink" title="7、通讯"></a>7、通讯</h3><h4 id="1、QQ和微信"><a href="#1、QQ和微信" class="headerlink" title="1、QQ和微信"></a>1、QQ和微信</h4><p>QQ官方推出Linux版本的了。。。。。</p>
+<p><a href="https://im.qq.com/linuxqq/index.html" target="_blank" rel="noopener">官网下载</a></p>
+<p>选择对应版本下载安装就行了。(u1s1，有点复古，有点像零几年的QQ)</p>
+<p><del>下面内容可以不用看了</del> 建议还是用下面的安装吧，官方版本的可以发文件但发不出去消息。</p>
+<hr>
+<p><a href="https://blog.csdn.net/qq_36285997/article/details/89046191" target="_blank" rel="noopener">网上教程</a></p>
+<p>安装deepin-wine环境：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 仓库克隆</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入仓库目录</span></span><br><span class="line"><span class="built_in">cd</span>  deepin-wine-for-ubuntu </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
+
+<p>QQ安装包<a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.im/" target="_blank" rel="noopener">下载地址</a></p>
+<p>微信安装包<a href="http://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.wechat/" target="_blank" rel="noopener">下载地址</a></p>
+<h3 id="8、下载工具"><a href="#8、下载工具" class="headerlink" title="8、下载工具"></a>8、下载工具</h3><h4 id="1、XDM"><a href="#1、XDM" class="headerlink" title="1、XDM"></a>1、XDM</h4><p><a href="./xdm-2018-x64.tar">下载链接</a></p>
+<p>解压后运行<code>install.sh</code>脚本来安装，在网络设置中将最大线程数设置为<code>32</code>。</p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%8C)%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/XDM%E4%B8%8B%E8%BD%BD.png" alt="XDM下载"></p>
+<h3 id="9、科学上网"><a href="#9、科学上网" class="headerlink" title="9、科学上网"></a>9、科学上网</h3><h4 id="1、SocketPro"><a href="#1、SocketPro" class="headerlink" title="1、SocketPro"></a>1、SocketPro</h4><p>教程：</p>
+<p><a href="https://www.socketprohc.com/hc/en-us/articles/360022001091-How-to-install-SocketPro-client-on-Linux-devices" target="_blank" rel="noopener">How to install SocketPro client on Linux devices</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential autoconf libtool libssl-dev libpcre3-dev asciidoc xmlto libz-dev zlib1g-dev</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/shadowsocksr-backup/shadowsocksr-libev.git ~/socketpro/client</span><br><span class="line"><span class="built_in">cd</span> ~/socketpro/client</span><br><span class="line">./configure &amp;&amp; make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="10、其他"><a href="#10、其他" class="headerlink" title="10、其他"></a>10、其他</h3><h4 id="1、Calibre-书籍管理工具"><a href="#1、Calibre-书籍管理工具" class="headerlink" title="1、Calibre (书籍管理工具)"></a>1、Calibre (书籍管理工具)</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo -v &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、百度网盘"><a href="#2、百度网盘" class="headerlink" title="2、百度网盘"></a>2、百度网盘</h4><p><a href="https://pan.baidu.com/download" target="_blank" rel="noopener">官网</a>下载安装包。</p>
+<h4 id="3、软件中心"><a href="#3、软件中心" class="headerlink" title="3、软件中心"></a>3、软件中心</h4><p>类似Windows中的各种软件管理软件，下载安装包直接安装</p>
+<p><a href="https://www.ubuntukylin.com/applications/41-cn.html" target="_blank" rel="noopener">麒麟软件中心</a></p>
+<h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="http://www.linuxrsp.ru/win-lin-soft/table-chn.html" target="_blank" rel="noopener">视窗软件的Linux类似/替换/相近品</a></p>
+<p><a href="https://wiki.ubuntu.org.cn/Qref/Apps" target="_blank" rel="noopener">速配指南之软件参考</a></p>
+<p><a href="https://www.zhihu.com/question/19811112" target="_blank" rel="noopener">在Ubuntu 上有什么必装的实用软件？</a></p>
+<p><a href="https://www.cnblogs.com/dunitian/p/6670560.html" target="_blank" rel="noopener">Ubuntu常用软件安装（小集合）</a></p>
 ]]></content>
       <categories>
         <category>Ubuntu Linux</category>
@@ -2918,67 +2918,6 @@ function hide() {
       </tags>
   </entry>
   <entry>
-    <title>Win10 攻略</title>
-    <url>/2020/02/18/Win10%E6%94%BB%E7%95%A5/</url>
-    <content><![CDATA[<h3 id="1、关闭离开模式"><a href="#1、关闭离开模式" class="headerlink" title="1、关闭离开模式"></a>1、关闭离开模式</h3><p>1、打开注册表</p>
-<p><code>Windows+R</code>打开运行，输入<code>regedit</code>打开注册表</p>
-<img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-1.png" alt="打开注册表-1" style="zoom:60%;">
-
-<a id="more"></a>
-
-<p>2、找到注册表位置</p>
-<p>在注册表的地址栏输入<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power</code></p>
-<p>，并从中找到<code>AwayModeEnabled</code>键值，并将值改为0。</p>
-<div>
-    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-2.png" alt="打开注册表-2" style="zoom:50%;float:left;border:solid 1px 000;">
-    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-3.png" alt="打开注册表-3" style="zoom:55%;float:left;border:solid 1px 000;">
-</div><div style="clear:both;">
-
-
-
-
-
-
-
-
-<h3 id="2、设置输入法热键"><a href="#2、设置输入法热键" class="headerlink" title="2、设置输入法热键"></a>2、设置输入法热键</h3><p>在设置中打开高级键盘设置，点击<code>输入语言热键</code>进行设置</p>
-<div>
-    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE-1.png" alt="切换输入法快捷键设置-1" style="zoom:50%;float:left;border:solid 1px 000;">
-    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE-2.png" alt="切换输入法快捷键设置-2" style="zoom:50%;float:left;border:solid 1px 000;">
-</div><div style="clear:both;">
-
-
-
-<h3 id="3、控制台输出带颜色的字符"><a href="#3、控制台输出带颜色的字符" class="headerlink" title="3、控制台输出带颜色的字符"></a>3、控制台输出带颜色的字符</h3><p>1、安装<code>ANSI</code>转义序列支持</p>
-<p><a href="https://github.com/adoxa/ansicon/releases" target="_blank" rel="noopener">下载地址</a>（<em>如果下载不下来，可以点击<a href="./ansi189-bin.zip">这里</a>下载</em>）</p>
-<p>下载后将<code>x64</code>文件夹解压到<code>C:\Windows\System32</code>(或者其他已经添加环境变量的路径)，到<code>x64</code>文件夹内执行下列命令完成安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;ansicon.exe -i</span><br><span class="line">.&#x2F;ansicon.exe -l</span><br></pre></td></tr></table></figure>
-
-<p>2、输出格式</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">格式：\<span class="number">033</span>[显示方式;前景色;背景色m</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">前景色            背景色           颜色</span><br><span class="line">---------------------------------------</span><br><span class="line">30                40              黑色</span><br><span class="line">31                 41              红色</span><br><span class="line">32                42              绿色</span><br><span class="line">33                43              黃色</span><br><span class="line">34                44              蓝色</span><br><span class="line">35                45              紫红色</span><br><span class="line">36                46              青蓝色</span><br><span class="line">37                47              白色</span><br><span class="line"></span><br><span class="line">显示方式           意义</span><br><span class="line">-------------------------</span><br><span class="line">0                终端默认设置</span><br><span class="line">1                高亮显示</span><br><span class="line">4                使用下划线</span><br><span class="line">5                闪烁</span><br><span class="line">7                反白显示</span><br><span class="line">8                不可见</span><br></pre></td></tr></table></figure>
-
-<p>例如</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line">print(<span class="string">"\033[1;31;40m带颜色的字符\033[0m"</span>)  </span><br><span class="line">print(<span class="string">"\033[0;31m%s\033[0m"</span> % <span class="string">"带颜色的字符"</span>)</span><br><span class="line">print(<span class="string">'\033[1;31;42m 带颜色的字符 \033[0m'</span>)</span><br></pre></td></tr></table></figure>
-
-<p>效果</p>
-<img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%B8%A6%E9%A2%9C%E8%89%B2%E8%BE%93%E5%87%BA.png" alt="带颜色输出" style="zoom: 80%;">
-
-
-
-
-
-<h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://cloud.tencent.com/developer/article/1142372" target="_blank" rel="noopener">控制台输出颜色控制</a></p>
-</div></div>]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VS Code个性化设置</title>
     <url>/2019/10/31/VS-Code%E4%B8%AA%E6%80%A7%E5%8C%96%E8%AE%BE%E7%BD%AE/</url>
     <content><![CDATA[<h3 id="0、基本配置"><a href="#0、基本配置" class="headerlink" title="0、基本配置"></a>0、基本配置</h3><h4 id="1、字体大小"><a href="#1、字体大小" class="headerlink" title="1、字体大小"></a>1、字体大小</h4><p>​    在设置中搜索<code>font</code>，将<code>Font Family</code>的值改为<code>Consolas, &#39;Courier New&#39;, monospace</code></p>
@@ -3080,6 +3019,67 @@ function hide() {
       </tags>
   </entry>
   <entry>
+    <title>Win10 攻略</title>
+    <url>/2020/02/18/Win10%E6%94%BB%E7%95%A5/</url>
+    <content><![CDATA[<h3 id="1、关闭离开模式"><a href="#1、关闭离开模式" class="headerlink" title="1、关闭离开模式"></a>1、关闭离开模式</h3><p>1、打开注册表</p>
+<p><code>Windows+R</code>打开运行，输入<code>regedit</code>打开注册表</p>
+<img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-1.png" alt="打开注册表-1" style="zoom:60%;">
+
+<a id="more"></a>
+
+<p>2、找到注册表位置</p>
+<p>在注册表的地址栏输入<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power</code></p>
+<p>，并从中找到<code>AwayModeEnabled</code>键值，并将值改为0。</p>
+<div>
+    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-2.png" alt="打开注册表-2" style="zoom:50%;float:left;border:solid 1px 000;">
+    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-3.png" alt="打开注册表-3" style="zoom:55%;float:left;border:solid 1px 000;">
+</div><div style="clear:both;">
+
+
+
+
+
+
+
+
+<h3 id="2、设置输入法热键"><a href="#2、设置输入法热键" class="headerlink" title="2、设置输入法热键"></a>2、设置输入法热键</h3><p>在设置中打开高级键盘设置，点击<code>输入语言热键</code>进行设置</p>
+<div>
+    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE-1.png" alt="切换输入法快捷键设置-1" style="zoom:50%;float:left;border:solid 1px 000;">
+    <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE-2.png" alt="切换输入法快捷键设置-2" style="zoom:50%;float:left;border:solid 1px 000;">
+</div><div style="clear:both;">
+
+
+
+<h3 id="3、控制台输出带颜色的字符"><a href="#3、控制台输出带颜色的字符" class="headerlink" title="3、控制台输出带颜色的字符"></a>3、控制台输出带颜色的字符</h3><p>1、安装<code>ANSI</code>转义序列支持</p>
+<p><a href="https://github.com/adoxa/ansicon/releases" target="_blank" rel="noopener">下载地址</a>（<em>如果下载不下来，可以点击<a href="./ansi189-bin.zip">这里</a>下载</em>）</p>
+<p>下载后将<code>x64</code>文件夹解压到<code>C:\Windows\System32</code>(或者其他已经添加环境变量的路径)，到<code>x64</code>文件夹内执行下列命令完成安装</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;ansicon.exe -i</span><br><span class="line">.&#x2F;ansicon.exe -l</span><br></pre></td></tr></table></figure>
+
+<p>2、输出格式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">格式：\<span class="number">033</span>[显示方式;前景色;背景色m</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">前景色            背景色           颜色</span><br><span class="line">---------------------------------------</span><br><span class="line">30                40              黑色</span><br><span class="line">31                 41              红色</span><br><span class="line">32                42              绿色</span><br><span class="line">33                43              黃色</span><br><span class="line">34                44              蓝色</span><br><span class="line">35                45              紫红色</span><br><span class="line">36                46              青蓝色</span><br><span class="line">37                47              白色</span><br><span class="line"></span><br><span class="line">显示方式           意义</span><br><span class="line">-------------------------</span><br><span class="line">0                终端默认设置</span><br><span class="line">1                高亮显示</span><br><span class="line">4                使用下划线</span><br><span class="line">5                闪烁</span><br><span class="line">7                反白显示</span><br><span class="line">8                不可见</span><br></pre></td></tr></table></figure>
+
+<p>例如</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line">print(<span class="string">"\033[1;31;40m带颜色的字符\033[0m"</span>)  </span><br><span class="line">print(<span class="string">"\033[0;31m%s\033[0m"</span> % <span class="string">"带颜色的字符"</span>)</span><br><span class="line">print(<span class="string">'\033[1;31;42m 带颜色的字符 \033[0m'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%B8%A6%E9%A2%9C%E8%89%B2%E8%BE%93%E5%87%BA.png" alt="带颜色输出" style="zoom: 80%;">
+
+
+
+
+
+<h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://cloud.tencent.com/developer/article/1142372" target="_blank" rel="noopener">控制台输出颜色控制</a></p>
+</div></div>]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文档</title>
     <url>/2020/05/03/%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[<h3 id="1、Python文档"><a href="#1、Python文档" class="headerlink" title="1、Python文档"></a>1、Python文档</h3><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="noopener">Beautiful Soup 4.2.0 文档</a></p>
@@ -3117,7 +3117,88 @@ function hide() {
 <p>完成后TF卡会有两个分区</p>
 <p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5%E5%AE%8C%E6%88%90.png" alt="映像写入完成"></p>
 <p>系统默认关闭了 <code>SSH</code> 连接，想要使用 <code>SSH</code> 需要在 <code>boot</code> 分区中新建空白文件 <code>ssh</code> (<strong>注意：没有后缀名</strong>) </p>
-<h3 id="3、运行"><a href="#3、运行" class="headerlink" title="3、运行"></a>3、运行</h3>]]></content>
+<h3 id="3、运行"><a href="#3、运行" class="headerlink" title="3、运行"></a>3、运行</h3><h4 id="1、无屏幕"><a href="#1、无屏幕" class="headerlink" title="1、无屏幕"></a>1、无屏幕</h4><p><del>个人比较穷所以没有买屏幕</del></p>
+<h5 id="0、工具"><a href="#0、工具" class="headerlink" title="0、工具"></a>0、工具</h5><ul>
+<li>一台PC<del>(废话)</del></li>
+<li><a href="https://www.advanced-ip-scanner.com/cn/" target="_blank" rel="noopener">Advanced IP Scanner</a></li>
+<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" target="_blank" rel="noopener">PuTTY</a></li>
+<li><a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a></li>
+</ul>
+<h5 id="1、准备工作"><a href="#1、准备工作" class="headerlink" title="1、准备工作"></a>1、准备工作</h5><p>将之前准备好的TF卡插入树莓派并接通电源，给树莓派连接网络(让PC与树莓派处于同一局域网内)。</p>
+<h5 id="2、获取树莓派IP"><a href="#2、获取树莓派IP" class="headerlink" title="2、获取树莓派IP"></a>2、获取树莓派IP</h5><p>使用 <code>Advanced IP Scanner</code> 扫描IP地址，找到树莓派的地址</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/IP%E6%89%AB%E6%8F%8F.png" alt="IP扫描" style="zoom: 67%;">
+
+<p>当成功使用PuTTY连接到树莓派后就可以给树莓派分配静态IP地址，之后就不需要再扫描IP地址了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 vi 编辑文件，增加下列配置项</span></span><br><span class="line">vi /etc/dhcpcd.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 制定接口 eth0 //有线</span></span><br><span class="line"><span class="comment"># interface eth0</span></span><br><span class="line"><span class="comment"># 指定接口 wlan0 //无线</span></span><br><span class="line">interface wlan0</span><br><span class="line"><span class="comment"># 指定静态IP，/24表示子网掩码为 255.255.255.0</span></span><br><span class="line">static ip_address=192.168.1.150/24</span><br><span class="line"><span class="comment"># 路由器/网关IP地址</span></span><br><span class="line">static routers=192.168.1.1</span><br><span class="line"><span class="comment"># 手动自定义DNS服务器</span></span><br><span class="line">static domain_name_servers=114.114.114.114</span><br></pre></td></tr></table></figure>
+
+<p>配置完后重启树莓派</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h5 id="3、使用PuTTY连接树莓派"><a href="#3、使用PuTTY连接树莓派" class="headerlink" title="3、使用PuTTY连接树莓派"></a>3、使用PuTTY连接树莓派</h5><p>使用 <code>PuTTY</code> 连接树莓派，<del>如果不确定那个是树莓派的IP地址就挨个尝试一下。。。。。</del></p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="连接树莓派-1" style="zoom:67%;">
+
+<p>如果连接成功会提示你输入登录用户名以及密码</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-2.png" alt="连接树莓派-2" style="zoom: 67%;">
+
+<p>登录账号及密码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 树莓派默认用户名及密码</span><br><span class="line">username: pi</span><br><span class="line">password: raspberry</span><br></pre></td></tr></table></figure>
+
+<p>连接成功界面</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-3.png" alt="连接树莓派-3" style="zoom: 67%;">
+
+
+
+<h5 id="4、使用远程桌面访问树莓派"><a href="#4、使用远程桌面访问树莓派" class="headerlink" title="4、使用远程桌面访问树莓派"></a>4、使用远程桌面访问树莓派</h5><p>先使用 <code>PuTTY</code> 连接树莓派安装 <code>xrdp</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+
+<p><del>可能因为网络原因需要切换源，后面再补吧</del></p>
+<p>运行 <code>xrdp</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo xrdp</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>PC</code> 上启动 <em>远程桌面连接</em> </p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-1.png" alt="远程桌面连接-1" style="zoom:67%;">
+
+<p>输入密码</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-2.png" alt="远程桌面连接-2" style="zoom:67%;">
+
+<p>成功连接到树莓派</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-3.png" alt="远程桌面连接-3" style="zoom:67%;">
+
+
+
+<h5 id="5、使用VNC访问树莓派"><a href="#5、使用VNC访问树莓派" class="headerlink" title="5、使用VNC访问树莓派"></a>5、使用VNC访问树莓派</h5><p>1、开启树莓派VNC功能</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-1.png" alt="开启树莓派VNC功能-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-2.png" alt="开启树莓派VNC功能-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-3.png" alt="开启树莓派VNC功能-3" style="zoom:50%;">
+</div><div style="clear:both;">
+
+
+
+<p>2、连接树莓派</p>
+<p>输入树莓派IP地址进行连接，输入账号密码登录</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BD%BF%E7%94%A8VNC%E8%AE%BF%E9%97%AE%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="使用VNC访问树莓派-1" style="zoom:67%;">
+
+
+
+<p>3、遇到的问题</p>
+<p><code>VNC Viewer</code> 无法显示界面</p>
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%95%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png" alt="界面无法显示"></p>
+<p>解决方法：修改树莓派的分辨率</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-1.png" alt="修改分辨率-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-2.png" alt="修改分辨率-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-3.png" alt="修改分辨率-3" style="zoom:50%;">
+</div><div style="clear:both;">
+
+<p>重启树莓派</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+</div></div>]]></content>
       <categories>
         <category>Raspberry Pi</category>
       </categories>
