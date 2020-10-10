@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-2.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-3.png">
 <meta property="article:published_time" content="2020-10-08T04:01:13.000Z">
-<meta property="article:modified_time" content="2020-10-08T12:11:45.738Z">
+<meta property="article:modified_time" content="2020-10-10T05:45:17.416Z">
 <meta property="article:author" content="Shifa Yang">
 <meta property="article:tag" content="Raspberry Pi">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">27</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">28</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -235,10 +235,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-10-08 12:01:13 / 修改时间：20:11:45" itemprop="dateCreated datePublished" datetime="2020-10-08T12:01:13+08:00">2020-10-08</time>
+              <time title="创建时间：2020-10-08 12:01:13" itemprop="dateCreated datePublished" datetime="2020-10-08T12:01:13+08:00">2020-10-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-10 13:45:17" itemprop="dateModified" datetime="2020-10-10T13:45:17+08:00">2020-10-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -257,14 +263,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -305,7 +311,7 @@
 <img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/IP%E6%89%AB%E6%8F%8F.png" alt="IP扫描" style="zoom: 67%;">
 
 <p>当成功使用PuTTY连接到树莓派后就可以给树莓派分配静态IP地址，之后就不需要再扫描IP地址了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 vi 编辑文件，增加下列配置项</span></span><br><span class="line">vi /etc/dhcpcd.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 vi 编辑文件，增加下列配置项</span></span><br><span class="line">sudo vi /etc/dhcpcd.conf</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制定接口 eth0 //有线</span></span><br><span class="line"><span class="comment"># interface eth0</span></span><br><span class="line"><span class="comment"># 指定接口 wlan0 //无线</span></span><br><span class="line">interface wlan0</span><br><span class="line"><span class="comment"># 指定静态IP，/24表示子网掩码为 255.255.255.0</span></span><br><span class="line">static ip_address=192.168.1.150/24</span><br><span class="line"><span class="comment"># 路由器/网关IP地址</span></span><br><span class="line">static routers=192.168.1.1</span><br><span class="line"><span class="comment"># 手动自定义DNS服务器</span></span><br><span class="line">static domain_name_servers=114.114.114.114</span><br></pre></td></tr></table></figure>
 
@@ -333,7 +339,16 @@
 <h5 id="4、使用远程桌面访问树莓派"><a href="#4、使用远程桌面访问树莓派" class="headerlink" title="4、使用远程桌面访问树莓派"></a>4、使用远程桌面访问树莓派</h5><p>先使用 <code>PuTTY</code> 连接树莓派安装 <code>xrdp</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
 
-<p><del>可能因为网络原因需要切换源，后面再补吧</del></p>
+<p><em>可能因为网络原因需要切换源</em> </p>
+<p>切换为国内源</p>
+<p>编辑 <code>sources.list</code> 注释或删除原有的源添加新的源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 不习惯vi可以用nano</span></span><br><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>常用源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中国科学技术大学</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 阿里云</span></span><br><span class="line">deb http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清华大学</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华中科技大学</span></span><br><span class="line">deb http://mirrors.hustunique.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.hustunique.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华南农业大学</span></span><br><span class="line">deb http://mirrors.scau.edu.cn/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.scau.edu.cn/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 大连东软信息学院</span></span><br><span class="line">deb http://mirrors.neusoft.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重庆大学</span></span><br><span class="line">deb http://mirrors.cqu.edu.cn/Raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.cqu.edu.cn/Raspbian/raspbian/ stretch main contrib non-free</span><br></pre></td></tr></table></figure>
+
+
+
 <p>运行 <code>xrdp</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xrdp</span><br></pre></td></tr></table></figure>
 
@@ -396,7 +411,10 @@
     <a href="/2020/07/21/MySQL%E5%AE%89%E8%A3%85/" rel="prev" title="MySQL安装">
       <i class="fa fa-chevron-left"></i> MySQL安装
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/" rel="next" title="树莓派的应用">
+      树莓派的应用 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -472,7 +490,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -528,13 +546,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">113k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:40</span>
+    <span title="站点阅读时长">1:43</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
