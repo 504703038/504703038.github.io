@@ -36,6 +36,7 @@
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%99%BB%E5%BD%95phpMyAdmin-1.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%99%BB%E5%BD%95phpMyAdmin-2.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%8C%E5%96%84phpMyAdmin%E5%8A%9F%E8%83%BD.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/image-20210311111012787.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/WordPress%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png">
@@ -45,7 +46,7 @@
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-3.png">
 <meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%90%8C%E6%84%8FMinecraft%20EULA.png">
 <meta property="article:published_time" content="2020-10-09T07:15:43.000Z">
-<meta property="article:modified_time" content="2020-10-22T12:32:00.562Z">
+<meta property="article:modified_time" content="2021-03-11T03:25:47.951Z">
 <meta property="article:author" content="Shifa Yang">
 <meta property="article:tag" content="Blog">
 <meta name="twitter:card" content="summary">
@@ -239,7 +240,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-22 20:32:00" itemprop="dateModified" datetime="2020-10-22T20:32:00+08:00">2020-10-22</time>
+                <time title="修改时间：2021-03-11 11:25:47" itemprop="dateModified" datetime="2021-03-11T11:25:47+08:00">2021-03-11</time>
               </span>
 
           <br>
@@ -248,14 +249,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>7k</span>
+              <span>7.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
 
         </div>
@@ -280,6 +281,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">ls -al</span><br><span class="line"><span class="comment"># 修改文件权限</span></span><br><span class="line">sudo chmod 777 /var/www/html</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20Apache-2.png" alt="安装 Apache-2"></p>
+<p>设置 <code>utf-8</code> 编码，修改 <code>/etc/apache2/conf-available/charset.conf</code> 配置文件，添加下列语句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddDefaultCharset UTF-8AddDefaultCharset UTF-8</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h4 id="2、安装PHP"><a href="#2、安装PHP" class="headerlink" title="2、安装PHP"></a>2、安装PHP</h4><p>安装</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
 
@@ -359,6 +367,18 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/spoonysonny/pi-dashboard.git</span><br><span class="line">sudo chown -R www-data: pi-dashboard</span><br></pre></td></tr></table></figure>
 
 <p>完成后浏览器访问 <code>http://localhost/pi-dashboard/</code> 就可以看到树莓派运行信息页面</p>
+<h4 id="5、内网穿透"><a href="#5、内网穿透" class="headerlink" title="5、内网穿透"></a>5、内网穿透</h4><p>使用花生壳进行内网穿透</p>
+<p>1、在<a href="https://hsk.oray.com/download/" target="_blank" rel="noopener">花生壳官网</a>下载树莓派版本安装包（<em>要下载树莓派系统对应版本，否则无法安装</em>）</p>
+<p>2、在树莓派上安装花生壳</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i phtunnel_5_0_rapi_armhf.deb</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/image-20210311111012787.png" alt="image-20210311111012787"></p>
+<p>3、花生壳命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phddns  |start|status|stop|restart|reset|<span class="built_in">enable</span>|<span class="built_in">disable</span>|version</span><br></pre></td></tr></table></figure>
+
+<p>4、配置花生壳</p>
+<p>打开<a href="http://b.oray.com" target="_blank" rel="noopener">配置网址</a>，使用SN码登录，默认密码 <code>admin</code>，登录后激活账号</p>
+<p>在内网穿透中新增映射即可</p>
 <h4 id="5、遇到的问题"><a href="#5、遇到的问题" class="headerlink" title="5、遇到的问题"></a>5、遇到的问题</h4><h5 id="1、Apache-中文乱码"><a href="#1、Apache-中文乱码" class="headerlink" title="1、Apache 中文乱码"></a>1、Apache 中文乱码</h5><p>问题描述：</p>
 <blockquote>
 <p>在 <code>/var/www/html/</code> 目录下的中文文件以及文件中的中文都乱码了。</p>
@@ -436,7 +456,26 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service smbd restart</span><br></pre></td></tr></table></figure>
 
 <p>在 <code>PC</code> 端 <code>Win+R</code> 输入 <code>\\192.168.1.150</code> 访问共享文件服务</p>
-<h3 id="4、搭建-Minecraft-Server"><a href="#4、搭建-Minecraft-Server" class="headerlink" title="4、搭建 Minecraft Server"></a>4、搭建 Minecraft Server</h3><p>搭建一个 《我的世界》服务器 与舍友击剑。</p>
+<h3 id="4、搭建FTP服务"><a href="#4、搭建FTP服务" class="headerlink" title="4、搭建FTP服务"></a>4、搭建FTP服务</h3><h4 id="1、安装vsftpd"><a href="#1、安装vsftpd" class="headerlink" title="1、安装vsftpd"></a>1、安装vsftpd</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、配置vsftpd"><a href="#2、配置vsftpd" class="headerlink" title="2、配置vsftpd"></a>2、配置vsftpd</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/vsftpd.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改内容如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">listen</span>=<span class="literal">YES</span></span><br><span class="line"><span class="attr">listen_ipv6</span>=<span class="literal">NO</span></span><br><span class="line"><span class="attr">utf8_filesystem</span>=<span class="literal">YES</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、完善服务"><a href="#3、完善服务" class="headerlink" title="3、完善服务"></a>3、完善服务</h4><p>修改完成后重启 <code>vsftpd</code> 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd restart</span><br></pre></td></tr></table></figure>
+
+<p>设置开机启动 <code>vsftpd</code> 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="5、搭建-Minecraft-Server"><a href="#5、搭建-Minecraft-Server" class="headerlink" title="5、搭建 Minecraft Server"></a>5、搭建 Minecraft Server</h3><p>搭建一个 《我的世界》服务器 与舍友击剑。</p>
 <p>使用 <code>mcrcon (A client for handling Remote Commands (RCON) to a Minecraft server.)</code>  实用程序连接 Minecraft </p>
 <h4 id="1、配置-mcrcon-所需环境"><a href="#1、配置-mcrcon-所需环境" class="headerlink" title="1、配置 mcrcon 所需环境"></a>1、配置 mcrcon 所需环境</h4><p>1、安装 <code>build-essential</code> 工具包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git build-essential</span><br></pre></td></tr></table></figure>
@@ -543,7 +582,7 @@
 
 
 
-<h3 id="5、制作游戏机"><a href="#5、制作游戏机" class="headerlink" title="5、制作游戏机"></a>5、制作游戏机</h3><h4 id="1、烧录LAKKA系统"><a href="#1、烧录LAKKA系统" class="headerlink" title="1、烧录LAKKA系统"></a>1、烧录LAKKA系统</h4><p><a href="http://www.lakka.tv/" target="_blank" rel="noopener">下载 <code>LAKKA</code> 镜像</a></p>
+<h3 id="6、制作游戏机"><a href="#6、制作游戏机" class="headerlink" title="6、制作游戏机"></a>6、制作游戏机</h3><h4 id="1、烧录LAKKA系统"><a href="#1、烧录LAKKA系统" class="headerlink" title="1、烧录LAKKA系统"></a>1、烧录LAKKA系统</h4><p><a href="http://www.lakka.tv/" target="_blank" rel="noopener">下载 <code>LAKKA</code> 镜像</a></p>
 
     </div>
 
@@ -622,7 +661,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、搭建-LAMP-服务器"><span class="nav-text">1、搭建 LAMP 服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装-Apache"><span class="nav-text">1、安装 Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、安装PHP"><span class="nav-text">2、安装PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、安装-MySQL"><span class="nav-text">3、安装 MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、Pi-DashBoard"><span class="nav-text">4、Pi DashBoard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、遇到的问题"><span class="nav-text">5、遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、Apache-中文乱码"><span class="nav-text">1、Apache 中文乱码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、搭建个人网站"><span class="nav-text">2、搭建个人网站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装-WordPress"><span class="nav-text">1、安装 WordPress</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置WordPress数据库"><span class="nav-text">2、配置WordPress数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、配置WordPress"><span class="nav-text">3、配置WordPress</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、让-WordPress-有单独的文件夹"><span class="nav-text">4、让 WordPress 有单独的文件夹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、文件共享服务"><span class="nav-text">3、文件共享服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、搭建-Minecraft-Server"><span class="nav-text">4、搭建 Minecraft Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、配置-mcrcon-所需环境"><span class="nav-text">1、配置 mcrcon 所需环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建-Minecraft-用户"><span class="nav-text">2、创建 Minecraft 用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、下载和编译-mcrcon"><span class="nav-text">3、下载和编译 mcrcon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、下载并配置-Minecraft-服务器"><span class="nav-text">4、下载并配置 Minecraft 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、创建系统服务文件"><span class="nav-text">5、创建系统服务文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、创建配置备份"><span class="nav-text">6、创建配置备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、制作游戏机"><span class="nav-text">5、制作游戏机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、烧录LAKKA系统"><span class="nav-text">1、烧录LAKKA系统</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、搭建-LAMP-服务器"><span class="nav-text">1、搭建 LAMP 服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装-Apache"><span class="nav-text">1、安装 Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、安装PHP"><span class="nav-text">2、安装PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、安装-MySQL"><span class="nav-text">3、安装 MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、Pi-DashBoard"><span class="nav-text">4、Pi DashBoard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、内网穿透"><span class="nav-text">5、内网穿透</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、遇到的问题"><span class="nav-text">5、遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、Apache-中文乱码"><span class="nav-text">1、Apache 中文乱码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、搭建个人网站"><span class="nav-text">2、搭建个人网站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装-WordPress"><span class="nav-text">1、安装 WordPress</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置WordPress数据库"><span class="nav-text">2、配置WordPress数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、配置WordPress"><span class="nav-text">3、配置WordPress</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、让-WordPress-有单独的文件夹"><span class="nav-text">4、让 WordPress 有单独的文件夹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、文件共享服务"><span class="nav-text">3、文件共享服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、搭建FTP服务"><span class="nav-text">4、搭建FTP服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装vsftpd"><span class="nav-text">1、安装vsftpd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置vsftpd"><span class="nav-text">2、配置vsftpd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、完善服务"><span class="nav-text">3、完善服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、搭建-Minecraft-Server"><span class="nav-text">5、搭建 Minecraft Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、配置-mcrcon-所需环境"><span class="nav-text">1、配置 mcrcon 所需环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建-Minecraft-用户"><span class="nav-text">2、创建 Minecraft 用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、下载和编译-mcrcon"><span class="nav-text">3、下载和编译 mcrcon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、下载并配置-Minecraft-服务器"><span class="nav-text">4、下载并配置 Minecraft 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、创建系统服务文件"><span class="nav-text">5、创建系统服务文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、创建配置备份"><span class="nav-text">6、创建配置备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、制作游戏机"><span class="nav-text">6、制作游戏机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、烧录LAKKA系统"><span class="nav-text">1、烧录LAKKA系统</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -684,7 +723,7 @@
 <div class="copyright">
   
   &copy; 2017 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -694,13 +733,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">119k</span>
+    <span title="站点总字数">120k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:48</span>
+    <span title="站点阅读时长">1:49</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
