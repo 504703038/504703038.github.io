@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="baidu-site-verification" content="cbgupANQXc" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oort_t.gitee.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1、相关设备信息Raspberry Pi : 4B(2G)TF卡 : 32G电源 : 5.1V&#x2F;3A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派">
+<meta property="og:url" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/index.html">
+<meta property="og:site_name" content="Oort.">
+<meta property="og:description" content="1、相关设备信息Raspberry Pi : 4B(2G)TF卡 : 32G电源 : 5.1V&#x2F;3A">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/TF%E5%8D%A1%E6%A0%BC%E5%BC%8F%E5%8C%96.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5%E5%AE%8C%E6%88%90.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/IP%E6%89%AB%E6%8F%8F.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-3.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-3.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-3.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BD%BF%E7%94%A8VNC%E8%AE%BF%E9%97%AE%E6%A0%91%E8%8E%93%E6%B4%BE-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%95%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-3.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%B0%83%E6%95%B4%E5%88%86%E5%8C%BA%E5%AE%B9%E9%87%8F.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%94%9F%E6%88%90%E9%95%9C%E5%83%8F.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9.png">
+<meta property="article:published_time" content="2020-10-08T04:01:13.000Z">
+<meta property="article:modified_time" content="2020-10-14T01:55:34.666Z">
+<meta property="article:author" content="Shifa Yang">
+<meta property="article:tag" content="Raspberry Pi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-1.png">
+
+<link rel="canonical" href="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>树莓派 | Oort.</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?452ee43040f8b1962af23a18f66d1930";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oort.</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Oort.</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">29</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oort_t.gitee.io/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Shifa Yang">
+      <meta itemprop="description" content="Personal Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oort.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树莓派
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-08 12:01:13" itemprop="dateCreated datePublished" datetime="2020-10-08T12:01:13+08:00">2020-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-14 09:55:34" itemprop="dateModified" datetime="2020-10-14T09:55:34+08:00">2020-10-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Raspberry-Pi/" itemprop="url" rel="index">
+                    <span itemprop="name">Raspberry Pi</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="1、相关设备信息"><a href="#1、相关设备信息" class="headerlink" title="1、相关设备信息"></a>1、相关设备信息</h3><p><code>Raspberry Pi : 4B(2G)</code><br><code>TF卡 : 32G</code><br><code>电源 : 5.1V/3A</code></p>
+<a id="more"></a>
+
+<h3 id="2、系统安装"><a href="#2、系统安装" class="headerlink" title="2、系统安装"></a>2、系统安装</h3><h4 id="1、系统映像下载"><a href="#1、系统映像下载" class="headerlink" title="1、系统映像下载"></a>1、系统映像下载</h4><p>在 <a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">官网下载地址</a> 下载 <code>Raspberry Pi OS</code></p>
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-1.png" alt="系统镜像下载-1"></p>
+<p>选择含推荐软件的桌面版</p>
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-2.png" alt="系统镜像下载-2"></p>
+<p>下载完成后解压 <code>zip</code> 文件得到 后缀名为 <code>img</code> 的系统映像文件</p>
+<h4 id="2、将映像写入TF卡"><a href="#2、将映像写入TF卡" class="headerlink" title="2、将映像写入TF卡"></a>2、将映像写入TF卡</h4><p>首先将TF卡格式化</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/TF%E5%8D%A1%E6%A0%BC%E5%BC%8F%E5%8C%96.png" alt="TF卡格式化" style="zoom:50%;">
+
+<p>使用 <code>Win32DiskImager</code> 工具将映像写入TF卡(<a href="./win32diskimager-1.0.0-install.exe">Win32DiskImager下载</a>)</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png" alt="映像写入" style="zoom:67%;">
+
+<p>完成后TF卡会有两个分区</p>
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5%E5%AE%8C%E6%88%90.png" alt="映像写入完成"></p>
+<p>系统默认关闭了 <code>SSH</code> 连接，想要使用 <code>SSH</code> 需要在 <code>boot</code> 分区中新建空白文件 <code>ssh</code> (<strong>注意：没有后缀名</strong>) </p>
+<h3 id="3、运行"><a href="#3、运行" class="headerlink" title="3、运行"></a>3、运行</h3><h4 id="1、无屏幕"><a href="#1、无屏幕" class="headerlink" title="1、无屏幕"></a>1、无屏幕</h4><p><del>个人比较穷所以没有买屏幕</del></p>
+<h5 id="0、工具"><a href="#0、工具" class="headerlink" title="0、工具"></a>0、工具</h5><ul>
+<li>一台PC<del>(废话)</del></li>
+<li><a href="https://www.advanced-ip-scanner.com/cn/" target="_blank" rel="noopener">Advanced IP Scanner</a></li>
+<li><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/" target="_blank" rel="noopener">PuTTY</a></li>
+<li><a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">VNC Viewer</a></li>
+</ul>
+<h5 id="1、准备工作"><a href="#1、准备工作" class="headerlink" title="1、准备工作"></a>1、准备工作</h5><p>将之前准备好的TF卡插入树莓派并接通电源，给树莓派连接网络(让PC与树莓派处于同一局域网内)。</p>
+<h5 id="2、获取树莓派IP"><a href="#2、获取树莓派IP" class="headerlink" title="2、获取树莓派IP"></a>2、获取树莓派IP</h5><p>使用 <code>Advanced IP Scanner</code> 扫描IP地址，找到树莓派的地址</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/IP%E6%89%AB%E6%8F%8F.png" alt="IP扫描" style="zoom: 67%;">
+
+<p>当成功使用PuTTY连接到树莓派后就可以给树莓派分配静态IP地址，之后就不需要再扫描IP地址了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 vi 编辑文件，增加下列配置项</span></span><br><span class="line">sudo vi /etc/dhcpcd.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制定接口 eth0 //有线</span></span><br><span class="line"><span class="comment"># interface eth0</span></span><br><span class="line"><span class="comment"># 指定接口 wlan0 //无线</span></span><br><span class="line">interface wlan0</span><br><span class="line"><span class="comment"># 指定静态IP，/24表示子网掩码为 255.255.255.0</span></span><br><span class="line">static ip_address=192.168.1.150/24</span><br><span class="line"><span class="comment"># 路由器/网关IP地址</span></span><br><span class="line">static routers=192.168.1.1</span><br><span class="line"><span class="comment"># 手动自定义DNS服务器</span></span><br><span class="line">static domain_name_servers=114.114.114.114</span><br></pre></td></tr></table></figure>
+
+<p>也可以再使用 <code>VNC</code> 连接树莓派后，右键点击 <code>WLAN</code> 图标选择网络设置</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-1.png" alt="分配静态IP-1" style="zoom:67%;">
+
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-2.png" alt="分配静态IP-2" style="zoom:67%;">
+
+<p>配置完后重启树莓派</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h5 id="3、使用PuTTY连接树莓派"><a href="#3、使用PuTTY连接树莓派" class="headerlink" title="3、使用PuTTY连接树莓派"></a>3、使用PuTTY连接树莓派</h5><p>使用 <code>PuTTY</code> 连接树莓派，<del>如果不确定那个是树莓派的IP地址就挨个尝试一下。。。。。</del></p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="连接树莓派-1" style="zoom:67%;">
+
+<p>如果连接成功会提示你输入登录用户名以及密码</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-2.png" alt="连接树莓派-2" style="zoom: 67%;">
+
+<p>登录账号及密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 树莓派默认用户名及密码</span><br><span class="line">username: pi</span><br><span class="line">password: raspberry</span><br></pre></td></tr></table></figure>
+
+<p>连接成功界面</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-3.png" alt="连接树莓派-3" style="zoom: 67%;">
+
+
+
+<h5 id="4、使用远程桌面访问树莓派"><a href="#4、使用远程桌面访问树莓派" class="headerlink" title="4、使用远程桌面访问树莓派"></a>4、使用远程桌面访问树莓派</h5><p>先使用 <code>PuTTY</code> 连接树莓派安装 <code>xrdp</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
+
+<p><em>可能因为网络原因需要切换源</em> </p>
+<p>切换为国内源</p>
+<p>编辑 <code>sources.list</code> 注释或删除原有的源添加新的源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 不习惯vi可以用nano</span></span><br><span class="line">sudo nano /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 最后更新一下 apt-get </span></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>常用源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中国科学技术大学</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 阿里云</span></span><br><span class="line">deb http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清华大学</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华中科技大学</span></span><br><span class="line">deb http://mirrors.hustunique.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.hustunique.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华南农业大学</span></span><br><span class="line">deb http://mirrors.scau.edu.cn/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.scau.edu.cn/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 大连东软信息学院</span></span><br><span class="line">deb http://mirrors.neusoft.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重庆大学</span></span><br><span class="line">deb http://mirrors.cqu.edu.cn/Raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.cqu.edu.cn/Raspbian/raspbian/ stretch main contrib non-free</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行 <code>xrdp</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xrdp</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>PC</code> 上启动 <em>远程桌面连接</em> </p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-1.png" alt="远程桌面连接-1" style="zoom:67%;">
+
+<p>输入密码</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-2.png" alt="远程桌面连接-2" style="zoom:67%;">
+
+<p>成功连接到树莓派</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-3.png" alt="远程桌面连接-3" style="zoom:67%;">
+
+
+
+<h5 id="5、使用VNC访问树莓派"><a href="#5、使用VNC访问树莓派" class="headerlink" title="5、使用VNC访问树莓派"></a>5、使用VNC访问树莓派</h5><p>1、开启树莓派VNC功能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-1.png" alt="开启树莓派VNC功能-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-2.png" alt="开启树莓派VNC功能-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-3.png" alt="开启树莓派VNC功能-3" style="zoom:50%;">
+</div><div style="clear:both;">
+
+
+
+<p>2、连接树莓派</p>
+<p>输入树莓派IP地址进行连接，输入账号密码登录</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BD%BF%E7%94%A8VNC%E8%AE%BF%E9%97%AE%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="使用VNC访问树莓派-1" style="zoom:67%;">
+
+
+
+<p>3、遇到的问题</p>
+<p><code>VNC Viewer</code> 无法显示界面</p>
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%95%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png" alt="界面无法显示"></p>
+<p>解决方法：修改树莓派的分辨率</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-1.png" alt="修改分辨率-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-2.png" alt="修改分辨率-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-3.png" alt="修改分辨率-3" style="zoom:50%;">
+</div><div style="clear:both;">
+
+<p>重启树莓派</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4、备份与还原"><a href="#4、备份与还原" class="headerlink" title="4、备份与还原"></a>4、备份与还原</h3><h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><p>1、调整TF卡中系统分区容量，使其没有空闲空间</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%B0%83%E6%95%B4%E5%88%86%E5%8C%BA%E5%AE%B9%E9%87%8F.png" alt="调整分区容量" style="zoom: 50%;">
+
+
+
+<p>2、使用 <code>Win32DiskImager</code> 从TF卡中读取并生成镜像</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%94%9F%E6%88%90%E9%95%9C%E5%83%8F.png" alt="生成镜像" style="zoom:67%;">
+
+<p>3、最后不要忘了将分区容量调整回原始大小</p>
+<h4 id="还原"><a href="#还原" class="headerlink" title="还原"></a>还原</h4><p>1、使用 <code>Win32DiskImager</code> 工具将映像写入TF卡</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png" alt="映像写入" style="zoom:67%;">
+
+<p>2、使用分区工具调整系统分区容量</p>
+<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9.png" alt="系统分区扩容" style="zoom:50%;">
+
+
+
+</div></div>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Raspberry-Pi/" rel="tag"><i class="fa fa-tag"></i> Raspberry Pi</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/21/MySQL%E5%AE%89%E8%A3%85/" rel="prev" title="MySQL安装">
+      <i class="fa fa-chevron-left"></i> MySQL安装
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/" rel="next" title="树莓派的应用">
+      树莓派的应用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、相关设备信息"><span class="nav-text">1、相关设备信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、系统安装"><span class="nav-text">2、系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、系统映像下载"><span class="nav-text">1、系统映像下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、将映像写入TF卡"><span class="nav-text">2、将映像写入TF卡</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、运行"><span class="nav-text">3、运行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、无屏幕"><span class="nav-text">1、无屏幕</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0、工具"><span class="nav-text">0、工具</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1、准备工作"><span class="nav-text">1、准备工作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、获取树莓派IP"><span class="nav-text">2、获取树莓派IP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、使用PuTTY连接树莓派"><span class="nav-text">3、使用PuTTY连接树莓派</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、使用远程桌面访问树莓派"><span class="nav-text">4、使用远程桌面访问树莓派</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、使用VNC访问树莓派"><span class="nav-text">5、使用VNC访问树莓派</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、备份与还原"><span class="nav-text">4、备份与还原</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#备份"><span class="nav-text">备份</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#还原"><span class="nav-text">还原</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shifa Yang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Shifa Yang</p>
+  <div class="site-description" itemprop="description">Personal Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/504703038" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;504703038" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ysf504703038@163.com" title="E-Mail → mailto:ysf504703038@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shifa Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">122k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:51</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='160,160,160' opacity='0.7' zIndex='-1' count='100' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+	<script>
+		(function(){
+		    var bp = document.createElement('script');
+		    var curProtocol = window.location.protocol.split(':')[0];
+		    if (curProtocol === 'https') {
+		        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		    }
+		    else {
+		        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		    }
+		    var s = document.getElementsByTagName("script")[0];
+		    s.parentNode.insertBefore(bp, s);
+		})();
+  	</script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+        loader: {
+          load: ['[tex]/mhchem']
+        },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

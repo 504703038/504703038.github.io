@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="baidu-site-verification" content="cbgupANQXc" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oort_t.gitee.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1、搭建 LAMP 服务器LAMP(Linux, Apache, MySQL, PHP)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派的应用">
+<meta property="og:url" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/index.html">
+<meta property="og:site_name" content="Oort.">
+<meta property="og:description" content="1、搭建 LAMP 服务器LAMP(Linux, Apache, MySQL, PHP)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20Apache-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20Apache-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85PHP.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20MySQL-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20MySQL-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%99%BB%E5%BD%95phpMyAdmin-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%99%BB%E5%BD%95phpMyAdmin-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%8C%E5%96%84phpMyAdmin%E5%8A%9F%E8%83%BD.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/image-20210311111012787.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/WordPress%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E9%85%8D%E7%BD%AEWordPress%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9D%80.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-1.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-2.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-3.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%90%8C%E6%84%8FMinecraft%20EULA.png">
+<meta property="article:published_time" content="2020-10-09T07:15:43.000Z">
+<meta property="article:modified_time" content="2021-03-11T03:25:47.951Z">
+<meta property="article:author" content="Shifa Yang">
+<meta property="article:tag" content="Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20Apache-1.png">
+
+<link rel="canonical" href="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>树莓派的应用 | Oort.</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?452ee43040f8b1962af23a18f66d1930";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oort.</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Oort.</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">21</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">29</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oort_t.gitee.io/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Shifa Yang">
+      <meta itemprop="description" content="Personal Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oort.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树莓派的应用
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-09 15:15:43" itemprop="dateCreated datePublished" datetime="2020-10-09T15:15:43+08:00">2020-10-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-11 11:25:47" itemprop="dateModified" datetime="2021-03-11T11:25:47+08:00">2021-03-11</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="1、搭建-LAMP-服务器"><a href="#1、搭建-LAMP-服务器" class="headerlink" title="1、搭建 LAMP 服务器"></a>1、搭建 LAMP 服务器</h3><p><code>LAMP(Linux, Apache, MySQL, PHP)</code> </p>
+<a id="more"></a>
+
+<h4 id="1、安装-Apache"><a href="#1、安装-Apache" class="headerlink" title="1、安装 Apache"></a>1、安装 Apache</h4><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后浏览器访问 <code>http://localhost</code> (也可以直接在浏览器输入你树莓派的IP地址)，如果看到以下页面就表示安装成功。</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20Apache-1.png" alt="安装 Apache-1" style="zoom:67%;">
+
+<p>默认主页在 <code>/var/www/html</code> 目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">ls -al</span><br><span class="line"><span class="comment"># 修改文件权限</span></span><br><span class="line">sudo chmod 777 /var/www/html</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20Apache-2.png" alt="安装 Apache-2"></p>
+<p>设置 <code>utf-8</code> 编码，修改 <code>/etc/apache2/conf-available/charset.conf</code> 配置文件，添加下列语句</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddDefaultCharset UTF-8AddDefaultCharset UTF-8</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="2、安装PHP"><a href="#2、安装PHP" class="headerlink" title="2、安装PHP"></a>2、安装PHP</h4><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
+
+<p>验证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看PHP版本</span></span><br><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<p>测试PHP</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">sudo rm index.html</span><br><span class="line">sudo touch index.php</span><br><span class="line">sudo vi index.php</span><br></pre></td></tr></table></figure>
+
+<p>在index.php中输入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="string">"Hello World!"</span>; <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> date(<span class="string">'Y-m-d H:i:s'</span>); <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> phpinfo(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在浏览器中访问 <code>http://localhost</code></p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85PHP.png" alt="安装PHP" style="zoom:50%;">
+
+
+
+<h4 id="3、安装-MySQL"><a href="#3、安装-MySQL" class="headerlink" title="3、安装 MySQL"></a>3、安装 MySQL</h4><p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装MySQL</span></span><br><span class="line">sudo apt-get install mariadb-server php-mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化配置</span></span><br><span class="line">sudo mysql_secure_installation</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看运行状态</span></span><br><span class="line">sudo service mysql status</span><br></pre></td></tr></table></figure>
+
+<p>遇到的问题</p>
+<p>1、<code>mysql</code> 安装失败</p>
+<blockquote>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20MySQL-1.png" alt="安装 MySQL-1" style="zoom:67%;">
+
+<p>解决方法</p>
+<p>可能是因为更换源引起的，我换回国外源就可以安装了。</p>
+</blockquote>
+<p>2、<code>mysql</code> 登录无权限</p>
+<blockquote>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%89%E8%A3%85%20MySQL-2.png" alt="安装 MySQL-2" style="zoom:67%;">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用超级用户进入mysql</span></span><br><span class="line">sudo mysql</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择mysql数据库</span></span><br><span class="line"><span class="keyword">use</span> mysql;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改用户验证方式及密码</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">"yangSHIFA12345"</span>),<span class="keyword">plugin</span>=<span class="string">'mysql_native_password'</span> <span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改完验证方式后初始化数据库</span></span><br><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<p>安装 <code>phpmyadmin</code></p>
+<p><a href="https://www.phpmyadmin.net/downloads/" target="_blank" rel="noopener">官网下载安装包</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将安装包复制到 /var/www/html</span></span><br><span class="line">sudo cp /home/pi/Downloads/phpMyAdmin-4.9.6-all-languages.tar.gz /var/www/html/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">cd</span> /var/www/html/</span><br><span class="line">sudo tar xzf phpMyAdmin-4.9.6-all-languages.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除安装包</span></span><br><span class="line">sudo rm phpMyAdmin-4.9.6-all-languages.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给文件夹重命名</span></span><br><span class="line">sudo mv phpMyAdmin-4.9.6-all-languages phpMyAdmin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启 apache2</span></span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<p>访问 <code>http://localhost/phpMyAdmin</code> ，输入数据库用户名(<code>root</code>)和密码(<code>YourPassWord</code>)登录</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%99%BB%E5%BD%95phpMyAdmin-1.png" alt="登录phpMyAdmin-1" style="zoom:67%;">
+
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%99%BB%E5%BD%95phpMyAdmin-2.png" alt="登录phpMyAdmin-2" style="zoom:67%;">
+
+<p><code>phpmyadmin</code> 功能完善</p>
+<p>在主页面下方会提示“功能不完善”</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%AE%8C%E5%96%84phpMyAdmin%E5%8A%9F%E8%83%BD.png" alt="完善phpMyAdmin功能" style="zoom:67%;">
+
+<p>警告1：</p>
+<blockquote>
+<p>点击查找原因，会提示创建名为<code>phpmyadmin</code> 的数据库，点击创建即可。</p>
+</blockquote>
+<p>警告2：</p>
+<blockquote>
+<p>修改配置文件 <code>phpMyAdmin/libraries/config.default.php</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /var/www/html/phpMyAdmin/libraries/config.default.php</span><br><span class="line"><span class="comment"># 不熟悉 vi 可以使用 nano</span></span><br><span class="line">sudo nano /var/www/html/phpMyAdmin/libraries/config.default.php</span><br></pre></td></tr></table></figure>
+
+<p>找到 <code>$cfg[&#39;blowfish_secret&#39;] = &#39;&#39;;</code> 修改为 <code>$cfg[&#39;blowfish_secret&#39;] = &#39;d456g465df132sf48sdf489sdfgtwe78twerf32wer1ff&#39;;</code> (可以是随意非空字符 <em>建议长一点，不然主页还会提示太短</em>)</p>
+</blockquote>
+<p>警告3：</p>
+<blockquote>
+<p>原因：在 <code>phpMyAdmin</code> 目录下没有 <code>tmp</code> 文件夹，或者对 <code>tmp</code> 文件夹的权限不足。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html/phpMyAdmin/</span><br><span class="line">sudo mkdir tmp</span><br><span class="line">sudo chmod 777 tmp</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h4 id="4、Pi-DashBoard"><a href="#4、Pi-DashBoard" class="headerlink" title="4、Pi DashBoard"></a>4、Pi DashBoard</h4><p>在安装好 <code>Apache</code> 和 <code>PHP</code> 后就可以搭建一个树莓派的运行信息页面</p>
+<p>安装 <code>Git</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<p>从 <code>Git</code> 下载 <code>Pi DashBoard</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">sudo git <span class="built_in">clone</span> https://github.com/spoonysonny/pi-dashboard.git</span><br><span class="line">sudo chown -R www-data: pi-dashboard</span><br></pre></td></tr></table></figure>
+
+<p>完成后浏览器访问 <code>http://localhost/pi-dashboard/</code> 就可以看到树莓派运行信息页面</p>
+<h4 id="5、内网穿透"><a href="#5、内网穿透" class="headerlink" title="5、内网穿透"></a>5、内网穿透</h4><p>使用花生壳进行内网穿透</p>
+<p>1、在<a href="https://hsk.oray.com/download/" target="_blank" rel="noopener">花生壳官网</a>下载树莓派版本安装包（<em>要下载树莓派系统对应版本，否则无法安装</em>）</p>
+<p>2、在树莓派上安装花生壳</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i phtunnel_5_0_rapi_armhf.deb</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/image-20210311111012787.png" alt="image-20210311111012787"></p>
+<p>3、花生壳命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">phddns  |start|status|stop|restart|reset|<span class="built_in">enable</span>|<span class="built_in">disable</span>|version</span><br></pre></td></tr></table></figure>
+
+<p>4、配置花生壳</p>
+<p>打开<a href="http://b.oray.com" target="_blank" rel="noopener">配置网址</a>，使用SN码登录，默认密码 <code>admin</code>，登录后激活账号</p>
+<p>在内网穿透中新增映射即可</p>
+<h4 id="5、遇到的问题"><a href="#5、遇到的问题" class="headerlink" title="5、遇到的问题"></a>5、遇到的问题</h4><h5 id="1、Apache-中文乱码"><a href="#1、Apache-中文乱码" class="headerlink" title="1、Apache 中文乱码"></a>1、Apache 中文乱码</h5><p>问题描述：</p>
+<blockquote>
+<p>在 <code>/var/www/html/</code> 目录下的中文文件以及文件中的中文都乱码了。</p>
+</blockquote>
+<p>解决方法一：</p>
+<blockquote>
+<p>在 <code>HTML</code> 文件的 <code>&lt;head&gt;</code> 中添加字符编码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">META</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<p>解决方法二：</p>
+<blockquote>
+<p>修改 <code>/etc/httpd/conf/httpd.conf</code> 文件</p>
+<p>将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AddDefaultCharset ISO-8859-1</span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># AddDefaultCharset ISO-8859-1</span><br><span class="line">AddDefaultCharset off</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h3 id="2、搭建个人网站"><a href="#2、搭建个人网站" class="headerlink" title="2、搭建个人网站"></a>2、搭建个人网站</h3><p>使用 <code>WordPress</code> 搭建个人网站</p>
+<h4 id="1、安装-WordPress"><a href="#1、安装-WordPress" class="headerlink" title="1、安装 WordPress"></a>1、安装 WordPress</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除 /var/www/html/ 下的文件</span></span><br><span class="line"><span class="built_in">cd</span> /var/www/html/</span><br><span class="line">sudo rm *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载 WordPress</span></span><br><span class="line">sudo wget http://wordpress.org/latest.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 lastest.tar.gz 文件中 wordpress 文件夹下的文件解压到当前目录</span></span><br><span class="line">sudo tar xzf latest.tar.gz</span><br><span class="line">sudo mv wordpress/* .</span><br><span class="line">sudo rm -rf wordpress latest.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前目录结构</span></span><br><span class="line">tree -L 1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件所有者</span></span><br><span class="line">sudo chown -R www-data: .</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、配置WordPress数据库"><a href="#2、配置WordPress数据库" class="headerlink" title="2、配置WordPress数据库"></a>2、配置WordPress数据库</h4><p>运行 <code>mysql</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database wordpress;</span><br></pre></td></tr></table></figure>
+
+<p>给用户授权(<em>注意是你的密码</em>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON wordpress.* TO &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;YOURPASSWORD&#39;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、配置WordPress"><a href="#3、配置WordPress" class="headerlink" title="3、配置WordPress"></a>3、配置WordPress</h4><p>浏览器访问 <code>http://localhost/</code> 可以看到 <code>WordPress</code> 选择语言的页面</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/WordPress%E9%80%89%E6%8B%A9%E8%AF%AD%E8%A8%80.png" alt="WordPress选择语言" style="zoom:67%;">
+
+<p>接下来配置数据库信息</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF.png" alt="配置数据库信息" style="zoom:67%;">
+
+<p>接下来设置用户名和密码，完成后访问 <code>http://localhost/wp-admin/</code> 就可以看到使用 <code>WordPress</code> 搭建的网站</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E7%AB%99%E7%82%B9%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2.png" alt="站点管理页面" style="zoom:67%;">
+
+
+
+<h4 id="4、让-WordPress-有单独的文件夹"><a href="#4、让-WordPress-有单独的文件夹" class="headerlink" title="4、让 WordPress 有单独的文件夹"></a>4、让 WordPress 有单独的文件夹</h4><p><a href="https://wordpress.org/support/article/giving-wordpress-its-own-directory/" target="_blank" rel="noopener">参考官网教程</a></p>
+<p>1、修改 <code>WordPress</code> 配置</p>
+<p>在 <code>WordPress</code> 管理页面中修改 <code>WordPress地址</code> 和 <code>站点地址</code> ，如果前期已经给树莓派分配了固定IP的话可以将 <code>localhost</code> 改成树莓派的IP地址，然后保存更改</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E9%85%8D%E7%BD%AEWordPress%E7%AB%99%E7%82%B9%E5%9C%B0%E5%9D%80.png" alt="配置WordPress站点地址" style="zoom:67%;">
+
+<p>2、在根目录下安装好 <code>WordPress</code> 后将所有文件移到子文件夹下</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">sudo mkdir /var/www/tmp</span><br><span class="line">sudo mv ./* /var/www/tmp/</span><br><span class="line">sudo mkdir WordPress</span><br><span class="line">sudo mv /var/www/tmp/* WordPress/</span><br><span class="line">sudo rm -r /var/www/tmp</span><br></pre></td></tr></table></figure>
+
+<p> 3、创建 <code>.htaccess</code> 文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">sudo touch .htaccess</span><br><span class="line">sudo vi .htaccess</span><br></pre></td></tr></table></figure>
+
+<p> 并修改内容</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine On</span><br><span class="line">RewriteBase &#x2F;WordPress&#x2F;</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !^&#x2F;WordPress&#x2F;</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^(.*)$ &#x2F;WordPress&#x2F;$1</span><br><span class="line">RewriteRule ^(&#x2F;)?$ WordPress&#x2F;index.php [L]</span><br><span class="line">&lt;&#x2F;IfModule&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="3、文件共享服务"><a href="#3、文件共享服务" class="headerlink" title="3、文件共享服务"></a>3、文件共享服务</h3><p>安装 <code>Samba</code> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Samba</span></span><br><span class="line">sudo apt-get install samba samba-common-bin</span><br><span class="line"><span class="comment"># 添加 Samba 用户</span></span><br><span class="line">sudo smbpasswd -a pi</span><br><span class="line"><span class="comment"># 配置 Samba</span></span><br><span class="line">sudo nano /etc/samba/smb.conf</span><br></pre></td></tr></table></figure>
+
+<p>在文件末尾添加配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Pulic Storage]</span><br><span class="line">path &#x3D; &#x2F;media&#x2F;pi&#x2F;GM</span><br><span class="line">comment &#x3D; Public Storage</span><br><span class="line">valid users &#x3D; pi</span><br><span class="line">writeable &#x3D; yes</span><br><span class="line">browseable &#x3D; yes</span><br><span class="line">create mask &#x3D; 0777</span><br><span class="line">public &#x3D; yes</span><br></pre></td></tr></table></figure>
+
+<p>重启 <code>Samba</code>服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service smbd restart</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>PC</code> 端 <code>Win+R</code> 输入 <code>\\192.168.1.150</code> 访问共享文件服务</p>
+<h3 id="4、搭建FTP服务"><a href="#4、搭建FTP服务" class="headerlink" title="4、搭建FTP服务"></a>4、搭建FTP服务</h3><h4 id="1、安装vsftpd"><a href="#1、安装vsftpd" class="headerlink" title="1、安装vsftpd"></a>1、安装vsftpd</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install vsftpd</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、配置vsftpd"><a href="#2、配置vsftpd" class="headerlink" title="2、配置vsftpd"></a>2、配置vsftpd</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/vsftpd.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改内容如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">listen</span>=<span class="literal">YES</span></span><br><span class="line"><span class="attr">listen_ipv6</span>=<span class="literal">NO</span></span><br><span class="line"><span class="attr">utf8_filesystem</span>=<span class="literal">YES</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3、完善服务"><a href="#3、完善服务" class="headerlink" title="3、完善服务"></a>3、完善服务</h4><p>修改完成后重启 <code>vsftpd</code> 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service vsftpd restart</span><br></pre></td></tr></table></figure>
+
+<p>设置开机启动 <code>vsftpd</code> 服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="5、搭建-Minecraft-Server"><a href="#5、搭建-Minecraft-Server" class="headerlink" title="5、搭建 Minecraft Server"></a>5、搭建 Minecraft Server</h3><p>搭建一个 《我的世界》服务器 与舍友击剑。</p>
+<p>使用 <code>mcrcon (A client for handling Remote Commands (RCON) to a Minecraft server.)</code>  实用程序连接 Minecraft </p>
+<h4 id="1、配置-mcrcon-所需环境"><a href="#1、配置-mcrcon-所需环境" class="headerlink" title="1、配置 mcrcon 所需环境"></a>1、配置 mcrcon 所需环境</h4><p>1、安装 <code>build-essential</code> 工具包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git build-essential</span><br></pre></td></tr></table></figure>
+
+<p>2、配置 <code>raspberry</code> ，开启GL驱动程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p><code>Advance Options -&gt; GL Driver -&gt; GL (Fake KMS)</code> 完成后重启树莓派</p>
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-1.png" alt="开启GL驱动程序-1" style="zoom:67%;">
+
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-2.png" alt="开启GL驱动程序-2" style="zoom:67%;">
+
+<img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%BC%80%E5%90%AFGL%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F-3.png" alt="开启GL驱动程序-3" style="zoom:67%;">
+
+<p>3、安装 <code>Java</code> 运行环境</p>
+<p>一般 <code>Raspbian Os</code> 都会自带  <code>java</code> ，这里不再提供安装教程</p>
+<h4 id="2、创建-Minecraft-用户"><a href="#2、创建-Minecraft-用户" class="headerlink" title="2、创建 Minecraft 用户"></a>2、创建 Minecraft 用户</h4><p>为了安全起见，<code>Minecraft</code> 不在 <code>root</code> 用户下运行，新建一个 <code>minecraft</code> 系统用户和组来运行 <code>Minecraft</code> 服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -r -m -U -d /opt/minecraft -s /bin/bash minecraft</span><br><span class="line"><span class="comment"># 为 minecraft 用户添加密码</span></span><br><span class="line">sudo passwd minecraft</span><br></pre></td></tr></table></figure>
+
+<p>切换到 <code>minecraft</code> 用户，安装 <code>Minecraft</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - minecraft</span><br></pre></td></tr></table></figure>
+
+<p>在用户主目录创建两个目录</p>
+<blockquote>
+<ul>
+<li><code>tools</code> 目录用来存储 <code>mcrcon</code> 客户端和备份脚本</li>
+<li><code>server</code> 目录用来存储 <code>Minecraft</code> 服务器及数据</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~/&#123;tools,server&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、下载和编译-mcrcon"><a href="#3、下载和编译-mcrcon" class="headerlink" title="3、下载和编译 mcrcon"></a>3、下载和编译 mcrcon</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载</span></span><br><span class="line"><span class="built_in">cd</span> ~/tools &amp;&amp; git <span class="built_in">clone</span> https://github.com/Tiiffi/mcrcon.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line"><span class="built_in">cd</span> ~/tools/mcrcon</span><br><span class="line">gcc -std=gnu11 -pedantic -Wall -Wextra -O2 -s -o mcrcon mcrcon.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证</span></span><br><span class="line">./mcrcon -h</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4、下载并配置-Minecraft-服务器"><a href="#4、下载并配置-Minecraft-服务器" class="headerlink" title="4、下载并配置 Minecraft 服务器"></a>4、下载并配置 Minecraft 服务器</h4><p><a href="https://www.minecraft.net/zh-hans/download/server" target="_blank" rel="noopener">官网下载地址</a></p>
+<p>使用浏览器下载</p>
+<p>或者使用 <code>wget</code> 下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://launcher.mojang.com/v1/objects/f02f4473dbf152c23d7d484952121db0b36698cb/server.jar -P ~/server</span><br></pre></td></tr></table></figure>
+
+<p>配置 <code>Minecraft</code> 服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/server</span><br><span class="line">java -Xmx1024M -Xms1024M -jar server.jar nogui</span><br></pre></td></tr></table></figure>
+
+<p>首次启动，服务器将执行一些操作并创建<code>server.properties</code>和<code>eula.txt</code>文件并停止。并提示你要同意<code>Minecraft EULA</code> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[16:22:43] [main/ERROR]: Failed to load properties from file: server.properties</span><br><span class="line">[16:22:44] [main/WARN]: Failed to load eula.txt</span><br><span class="line">[16:22:44] [main/INFO]: You need to agree to the EULA <span class="keyword">in</span> order to run the server. Go to eula.txt <span class="keyword">for</span> more info.</span><br></pre></td></tr></table></figure>
+
+<p>同意 <code>Minecraft EULA</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano ~&#x2F;server&#x2F;eula.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/10/09/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%9A%84%E5%BA%94%E7%94%A8/%E5%90%8C%E6%84%8FMinecraft%20EULA.png" alt="同意Minecraft EULA"></p>
+<p>编辑 <code>server.properties</code> 文件以启用 <code>rcon</code> 协议并设置 <code>rcon</code> 密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano ~/server/server.properties</span><br></pre></td></tr></table></figure>
+
+<p>修改下列几行</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">rcon.port</span>=<span class="number">25575</span></span><br><span class="line"><span class="attr">rcon.password</span>=[YOUR PASSWORD]</span><br><span class="line"><span class="attr">enable-rcon</span>=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><em>各参数含义详情参考 <a href="https://minecraft-zh.gamepedia.com/Server.properties" target="_blank" rel="noopener">server.properties</a></em></p>
+<h4 id="5、创建系统服务文件"><a href="#5、创建系统服务文件" class="headerlink" title="5、创建系统服务文件"></a>5、创建系统服务文件</h4><p>使用 <code>pi</code> 用户在 <code>/etc/systemd/system/</code> 中创建一个名为 <code>minecraft.service</code> 的文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/systemd/system/minecraft.service</span><br></pre></td></tr></table></figure>
+
+<p>填写下列内容</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=Minecraft Server</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">User</span>=minecraft</span><br><span class="line"><span class="attr">Nice</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">KillMode</span>=none</span><br><span class="line"><span class="attr">SuccessExitStatus</span>=<span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="attr">ProtectHome</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">ProtectSystem</span>=full</span><br><span class="line"><span class="attr">PrivateDevices</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">NoNewPrivileges</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">WorkingDirectory</span>=/opt/minecraft/server</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/bin/java -Xmx768M -Xms512M -jar server.jar nogui</span><br><span class="line"><span class="attr">ExecStop</span>=/opt/minecraft/tools/mcrcon/mcrcon -H <span class="number">127.0</span>.<span class="number">0.1</span> -P <span class="number">25575</span> -p [YOUR PassWord] stop</span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>重新加载 <code>systemd</code> 配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p>启动 <code>Minecraft</code> 服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start minecraft</span><br></pre></td></tr></table></figure>
+
+<p>查看 <code>Minecraft</code> 服务器运行状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status minecraft</span><br></pre></td></tr></table></figure>
+
+<p>查看  <code>Minecraft</code> 服务器日志</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -f /opt/minecraft/server/logs/latest.log</span><br></pre></td></tr></table></figure>
+
+<p>让   <code>Minecraft</code> 服务器能够自动启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> minecraft</span><br></pre></td></tr></table></figure>
+
+<p>访问 <code>Minecraft</code> 控制台</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p [YOUR PASSWORD] -t</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6、创建配置备份"><a href="#6、创建配置备份" class="headerlink" title="6、创建配置备份"></a>6、创建配置备份</h4><p>创建一个备份 <code>Shell</code> 脚本和 <code>cronjob</code>来自动备份 <code>Minecraft</code> 服务器</p>
+<p>切换到 <code>minecraft</code> 用户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - minecraft</span><br></pre></td></tr></table></figure>
+
+<p>创建备份脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /opt/minecraft/tools/backup.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">function</span> rcon &#123;</span><br><span class="line">  /opt/minecraft/tools/mcrcon/mcrcon -H 127.0.0.1 -P 25575 -p [YOUR PASSWORD] <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rcon <span class="string">"save-off"</span></span><br><span class="line">rcon <span class="string">"save-all"</span></span><br><span class="line">tar -cvpzf /opt/minecraft/backups/server-$(date +%F_%R).tar.gz /opt/minecraft/server</span><br><span class="line">rcon <span class="string">"save-on"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Delete older backups</span></span><br><span class="line">find /opt/minecraft/backups/ -<span class="built_in">type</span> f -mtime +7 -name <span class="string">'*.gz'</span> -delete</span><br></pre></td></tr></table></figure>
+
+<p>修改文件属性</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /opt/minecraft/tools/backup.sh</span><br></pre></td></tr></table></figure>
+
+<p>创建 cron 作业，每天23:00运行备份脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 23 * * * /opt/minecraft/tools/backup.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="6、制作游戏机"><a href="#6、制作游戏机" class="headerlink" title="6、制作游戏机"></a>6、制作游戏机</h3><h4 id="1、烧录LAKKA系统"><a href="#1、烧录LAKKA系统" class="headerlink" title="1、烧录LAKKA系统"></a>1、烧录LAKKA系统</h4><p><a href="http://www.lakka.tv/" target="_blank" rel="noopener">下载 <code>LAKKA</code> 镜像</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="prev" title="树莓派">
+      <i class="fa fa-chevron-left"></i> 树莓派
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/24/Neo4j/" rel="next" title="Neo4j">
+      Neo4j <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、搭建-LAMP-服务器"><span class="nav-text">1、搭建 LAMP 服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装-Apache"><span class="nav-text">1、安装 Apache</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、安装PHP"><span class="nav-text">2、安装PHP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、安装-MySQL"><span class="nav-text">3、安装 MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、Pi-DashBoard"><span class="nav-text">4、Pi DashBoard</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、内网穿透"><span class="nav-text">5、内网穿透</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、遇到的问题"><span class="nav-text">5、遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、Apache-中文乱码"><span class="nav-text">1、Apache 中文乱码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、搭建个人网站"><span class="nav-text">2、搭建个人网站</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装-WordPress"><span class="nav-text">1、安装 WordPress</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置WordPress数据库"><span class="nav-text">2、配置WordPress数据库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、配置WordPress"><span class="nav-text">3、配置WordPress</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、让-WordPress-有单独的文件夹"><span class="nav-text">4、让 WordPress 有单独的文件夹</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、文件共享服务"><span class="nav-text">3、文件共享服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、搭建FTP服务"><span class="nav-text">4、搭建FTP服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、安装vsftpd"><span class="nav-text">1、安装vsftpd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、配置vsftpd"><span class="nav-text">2、配置vsftpd</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、完善服务"><span class="nav-text">3、完善服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、搭建-Minecraft-Server"><span class="nav-text">5、搭建 Minecraft Server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、配置-mcrcon-所需环境"><span class="nav-text">1、配置 mcrcon 所需环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建-Minecraft-用户"><span class="nav-text">2、创建 Minecraft 用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、下载和编译-mcrcon"><span class="nav-text">3、下载和编译 mcrcon</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、下载并配置-Minecraft-服务器"><span class="nav-text">4、下载并配置 Minecraft 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、创建系统服务文件"><span class="nav-text">5、创建系统服务文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、创建配置备份"><span class="nav-text">6、创建配置备份</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、制作游戏机"><span class="nav-text">6、制作游戏机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、烧录LAKKA系统"><span class="nav-text">1、烧录LAKKA系统</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shifa Yang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Shifa Yang</p>
+  <div class="site-description" itemprop="description">Personal Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/504703038" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;504703038" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ysf504703038@163.com" title="E-Mail → mailto:ysf504703038@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shifa Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">122k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:51</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='160,160,160' opacity='0.7' zIndex='-1' count='100' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+	<script>
+		(function(){
+		    var bp = document.createElement('script');
+		    var curProtocol = window.location.protocol.split(':')[0];
+		    if (curProtocol === 'https') {
+		        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		    }
+		    else {
+		        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		    }
+		    var s = document.getElementsByTagName("script")[0];
+		    s.parentNode.insertBefore(bp, s);
+		})();
+  	</script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+        loader: {
+          load: ['[tex]/mhchem']
+        },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
