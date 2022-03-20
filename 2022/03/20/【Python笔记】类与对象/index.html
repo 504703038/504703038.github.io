@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+<meta name="baidu-site-verification" content="cbgupANQXc" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"oort_t.gitee.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Python学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Python笔记】类与对象">
+<meta property="og:url" content="https://oort_t.gitee.io/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="Oort.">
+<meta property="og:description" content="Python学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://oort_t.gitee.io/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/%E5%A4%9A%E7%BB%A7%E6%89%BF.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/%E7%B1%BB%E4%B8%8E%E5%85%83%E7%B1%BB.jpg">
+<meta property="article:published_time" content="2022-03-20T03:37:01.000Z">
+<meta property="article:modified_time" content="2022-03-20T08:24:31.718Z">
+<meta property="article:author" content="Shifa Yang">
+<meta property="article:tag" content="Python笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://oort_t.gitee.io/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/%E5%A4%9A%E7%BB%A7%E6%89%BF.png">
+
+<link rel="canonical" href="https://oort_t.gitee.io/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>【Python笔记】类与对象 | Oort.</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?452ee43040f8b1962af23a18f66d1930";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Oort.</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Oort.</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">33</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oort_t.gitee.io/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Shifa Yang">
+      <meta itemprop="description" content="Personal Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Oort.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Python笔记】类与对象
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-20 11:37:01 / 修改时间：16:24:31" itemprop="dateCreated datePublished" datetime="2022-03-20T11:37:01+08:00">2022-03-20</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+            <div class="post-description">Python学习笔记</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1、类得定义与实例化"><a href="#1、类得定义与实例化" class="headerlink" title="1、类得定义与实例化"></a>1、类得定义与实例化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" 类的定义与实例化 """</span></span><br><span class="line"><span class="keyword">from</span> ast <span class="keyword">import</span> Mult</span><br><span class="line"><span class="keyword">from</span> tool <span class="keyword">import</span> topic</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>:</span></span><br><span class="line">    <span class="string">""" 自定义类 """</span></span><br><span class="line">    x = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(abcd)</span> -&gt; str:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"x=<span class="subst">&#123;abcd.x&#125;</span>, y=<span class="subst">&#123;abcd.y&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">static_method</span><span class="params">(str)</span>:</span></span><br><span class="line">        <span class="comment"># print(f"In MyClass.static_method, x=&#123;x&#125;")</span></span><br><span class="line">        print(<span class="string">f"In MyClass.static_method, str='<span class="subst">&#123;str&#125;</span>'"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">class_method</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">f"In MyClass.static_method, x=<span class="subst">&#123;cls.x&#125;</span>"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@topic("Demo-1")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" 类的类型 """</span></span><br><span class="line">    print(MyClass)</span><br><span class="line">    print(type(MyClass))</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@topic("Demo-2")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" 类成员变量与方法的调用 """</span></span><br><span class="line">    obj = MyClass()</span><br><span class="line">    print(MyClass.x)</span><br><span class="line">    <span class="comment"># print(MyClass.func())</span></span><br><span class="line">    MyClass.static_method(<span class="string">"Class Call"</span>)</span><br><span class="line">    MyClass.class_method()</span><br><span class="line"></span><br><span class="line">    print(<span class="string">f"x=<span class="subst">&#123;obj.x&#125;</span>"</span>)</span><br><span class="line">    print(obj.func())</span><br><span class="line">    obj.static_method(<span class="string">"Object Call"</span>)</span><br><span class="line">    obj.class_method()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 新增成员变量</span></span><br><span class="line">    obj.z = <span class="number">100</span></span><br><span class="line">    print(<span class="string">f"obj.z=<span class="subst">&#123;obj.z&#125;</span>"</span>)</span><br><span class="line">    MyClass.v = <span class="number">1000</span></span><br><span class="line">    print(<span class="string">f"obj.v=<span class="subst">&#123;obj.v&#125;</span>"</span>)</span><br><span class="line">    print(<span class="string">f"MyClass.v=<span class="subst">&#123;MyClass.v&#125;</span>"</span>)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@topic("Demo-3")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_3</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" 删除成员变量与函数 """</span></span><br><span class="line">    obj = MyClass()</span><br><span class="line">    <span class="keyword">del</span> MyClass.x</span><br><span class="line">    <span class="keyword">del</span> obj.y</span><br><span class="line">    <span class="comment"># print(obj.x)</span></span><br><span class="line">    <span class="comment"># print(obj.y)</span></span><br><span class="line">    <span class="keyword">del</span> MyClass.func</span><br><span class="line">    <span class="comment"># del obj.func</span></span><br><span class="line">    <span class="comment"># print(obj.func())</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    demo_1()</span><br><span class="line">    demo_2()</span><br><span class="line">    demo_3()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2、类的内置函数与重载"><a href="#2、类的内置函数与重载" class="headerlink" title="2、类的内置函数与重载"></a>2、类的内置函数与重载</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" 类的内置函数与重载 """</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>:</span></span><br><span class="line">    <span class="string">""" 自定义类 """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.x = <span class="number">0</span></span><br><span class="line">        self.y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AnotherClass</span>:</span></span><br><span class="line">    <span class="string">""" 另一个自定义类 """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.val = <span class="number">0</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span> -&gt; str:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f"val=<span class="subst">&#123;self.val&#125;</span>"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__eq__</span><span class="params">(self, __o: object)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> self.val == __o.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__ne__</span><span class="params">(self, __o: object)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> self.val != __o.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__le__</span><span class="params">(self, __o: object)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> self.val &lt;= __o.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__ge__</span><span class="params">(self, __o: object)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> self.val &gt;= __o.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__lt__</span><span class="params">(self, __o: object)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> self.val &lt; __o.val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__gt__</span><span class="params">(self, __o: object)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> self.val &gt; __o.val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" 类的内置变量与函数 """</span></span><br><span class="line">    obj = MyClass()</span><br><span class="line">    other_obj = MyClass()</span><br><span class="line">    print(dir(obj))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 内置变量</span></span><br><span class="line">    print(obj.__dict__)</span><br><span class="line">    print(obj.__doc__)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 内置函数</span></span><br><span class="line">    <span class="comment"># obj.__init__()</span></span><br><span class="line">    <span class="comment"># obj.__str__()</span></span><br><span class="line">    <span class="comment"># obj.__eq__(other_obj)</span></span><br><span class="line">    <span class="comment"># obj.__ne__(other_obj)</span></span><br><span class="line">    <span class="comment"># obj.__le__(other_obj)</span></span><br><span class="line">    <span class="comment"># obj.__ge__(other_obj)</span></span><br><span class="line">    <span class="comment"># obj.__lt__(other_obj)</span></span><br><span class="line">    <span class="comment"># obj.__gt__(other_obj)</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_2</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" 类的函数重载 """</span></span><br><span class="line">    obj1 = AnotherClass()</span><br><span class="line">    obj2 = AnotherClass()</span><br><span class="line"></span><br><span class="line">    print(obj1)</span><br><span class="line"></span><br><span class="line">    obj1.val = <span class="number">1</span></span><br><span class="line">    obj2.val = <span class="number">1</span></span><br><span class="line">    print(obj1 == obj2)</span><br><span class="line">    print(obj1 != obj2)</span><br><span class="line">    print(obj1 &gt;= obj2)</span><br><span class="line">    print(obj1 &lt;= obj2)</span><br><span class="line">    print(obj1 &gt; obj2)</span><br><span class="line">    print(obj1 &lt; obj2)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    demo_1()</span><br><span class="line">    demo_2()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3、继承"><a href="#3、继承" class="headerlink" title="3、继承"></a>3、继承</h2><h3 id="3-1、单继承"><a href="#3-1、单继承" class="headerlink" title="3.1、单继承"></a>3.1、单继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" 继承 """</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    y = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.x = <span class="number">10</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_A</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"func_A in Class A."</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># def __init__(self) -&gt; None:</span></span><br><span class="line">    <span class="comment">#     super().__init__()</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_A</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"func_A in Class C."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_1</span><span class="params">()</span>:</span></span><br><span class="line">    a = A()</span><br><span class="line">    b = B()</span><br><span class="line">    c = C()</span><br><span class="line"></span><br><span class="line">    a.func_A()</span><br><span class="line">    b.func_A()</span><br><span class="line">    c.func_A()</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_2</span><span class="params">()</span>:</span></span><br><span class="line">    a = A()</span><br><span class="line">    b = B()</span><br><span class="line">    c = C()</span><br><span class="line"></span><br><span class="line">    print(c.x)</span><br><span class="line">    print(c.y)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    demo_1()</span><br><span class="line">    demo_2()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2、多继承"><a href="#3-2、多继承" class="headerlink" title="3.2、多继承"></a>3.2、多继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" 多继承 """</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    z = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.x = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_A</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"func_A in Class A."</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    z = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        self.y = <span class="number">0</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_A</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"func_A in Class B."</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A, B)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># def __init__(self) -&gt; None:</span></span><br><span class="line">    <span class="comment">#     super().__init__()</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_C</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">f"x=<span class="subst">&#123;self.x&#125;</span>"</span>)</span><br><span class="line">        <span class="comment"># print(f"y=&#123;self.y&#125;")</span></span><br><span class="line">        print(<span class="string">f"z=<span class="subst">&#123;self.z&#125;</span>"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_CC</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># print(f"super.x=&#123;super().x&#125;")</span></span><br><span class="line">        <span class="comment"># print(f"super.y=&#123;super().y&#125;")</span></span><br><span class="line">        print(<span class="string">f"super.z=<span class="subst">&#123;super().z&#125;</span>"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_1</span><span class="params">()</span>:</span></span><br><span class="line">    c = C()</span><br><span class="line"></span><br><span class="line">    c.func_A()</span><br><span class="line">    c.func_C()</span><br><span class="line">    c.func_CC()</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span><span class="params">(A, B)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        B.__init__(self)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_D</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># print(f"x=&#123;self.x&#125;")</span></span><br><span class="line">        print(<span class="string">f"y=<span class="subst">&#123;self.y&#125;</span>"</span>)</span><br><span class="line">        print(<span class="string">f"z=<span class="subst">&#123;self.z&#125;</span>"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_DD</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># print(f"super.x=&#123;super().x&#125;")</span></span><br><span class="line">        <span class="comment"># print(f"super.y=&#123;super().y&#125;")</span></span><br><span class="line">        print(<span class="string">f"super.z=<span class="subst">&#123;super().z&#125;</span>"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_DDD</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">f"A.z=<span class="subst">&#123;A.z&#125;</span>"</span>)</span><br><span class="line">        print(<span class="string">f"B.z=<span class="subst">&#123;B.z&#125;</span>"</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_2</span><span class="params">()</span>:</span></span><br><span class="line">    d = D()</span><br><span class="line">    d.func_D()</span><br><span class="line">    d.func_DD()</span><br><span class="line">    d.func_DDD()</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    demo_1()</span><br><span class="line">    demo_2()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/%E5%A4%9A%E7%BB%A7%E6%89%BF.png" alt="多继承"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span><span class="params">(B, C)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">E</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">F</span><span class="params">(E, D)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">G</span><span class="params">(F, D)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">H</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span><span class="params">(H, G)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4、元类"><a href="#4、元类" class="headerlink" title="4、元类"></a>4、元类</h2><p><img src="/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/%E7%B1%BB%E4%B8%8E%E5%85%83%E7%B1%BB.jpg" alt="类与元类"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" 元类 </span></span><br><span class="line"><span class="string">MyClass = MetaClass()</span></span><br><span class="line"><span class="string">my_object = MyClass() </span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_A</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"In Class A."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>:</span></span><br><span class="line">    b = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_B</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">"In Class B."</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span><span class="params">(A, B)</span>:</span></span><br><span class="line">    c = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_C</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"In Class C."</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">static_method</span><span class="params">(str)</span>:</span></span><br><span class="line">        print(<span class="string">f"In C.static_method, str='<span class="subst">&#123;str&#125;</span>'."</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">class_method</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(<span class="string">f"In C.class_method, c=<span class="subst">&#123;cls.c&#125;</span>."</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_C</span><span class="params">(self)</span>:</span></span><br><span class="line">    print(<span class="string">"In global function func_C."</span>)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">static_method</span><span class="params">(str)</span>:</span></span><br><span class="line">    print(<span class="string">f"In global function static_method, str='<span class="subst">&#123;str&#125;</span>'."</span>)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@classmethod</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">class_method</span><span class="params">(cls)</span>:</span></span><br><span class="line">    print(<span class="string">f"In global function class_method, c=<span class="subst">&#123;cls.c&#125;</span>."</span>)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_1</span><span class="params">()</span>:</span></span><br><span class="line">    c = C()</span><br><span class="line">    c.func_C()</span><br><span class="line">    c.static_method(<span class="string">"Hello."</span>)</span><br><span class="line">    c.class_method()</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_2</span><span class="params">()</span>:</span></span><br><span class="line">    C = type(</span><br><span class="line">        <span class="string">"C"</span>, (A, B), &#123;</span><br><span class="line">            <span class="string">"c"</span>: <span class="number">1000</span>,</span><br><span class="line">            <span class="string">"func_C"</span>: func_C,</span><br><span class="line">            <span class="string">"static_method"</span>: static_method,</span><br><span class="line">            <span class="string">"class_method"</span>: class_method</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    c = C()</span><br><span class="line">    c.func_C()</span><br><span class="line">    c.static_method(<span class="string">"Hello."</span>)</span><br><span class="line">    c.class_method()</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    demo_1()</span><br><span class="line">    demo_2()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" 自定义元类 """</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_meta_class</span><span class="params">(class_name, class_parents, class_attr)</span>:</span></span><br><span class="line">    <span class="string">""" 自定义元类</span></span><br><span class="line"><span class="string">    将类中非"__"开头的属性改为大写</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    new_attr = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> name, value <span class="keyword">in</span> class_attr.items():</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name.startswith(<span class="string">"__"</span>):</span><br><span class="line">            new_attr[name.upper()] = value</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> type(class_name, class_parents, new_attr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(object, metaclass=my_meta_class)</span>:</span></span><br><span class="line">    a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_A</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_1</span><span class="params">()</span>:</span></span><br><span class="line">    a = A()</span><br><span class="line">    print(type(A))</span><br><span class="line">    print(A.__dict__)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyMetaClass</span><span class="params">(type)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, class_name, class_parents, class_attr)</span>:</span></span><br><span class="line">        new_attr = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> name, value <span class="keyword">in</span> class_attr.items():</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> name.startswith(<span class="string">"__"</span>):</span><br><span class="line">                new_attr[name.upper()] = value</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">return</span> type(class_name, class_parents, new_attr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(metaclass=MyMetaClass)</span>:</span></span><br><span class="line">    b = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func_B</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">demo_2</span><span class="params">()</span>:</span></span><br><span class="line">    a = B()</span><br><span class="line">    print(type(B))</span><br><span class="line">    print(B.__dict__)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    demo_1()</span><br><span class="line">    demo_2()</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Python%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> Python笔记</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/13/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E8%A3%85%E9%A5%B0%E5%99%A8/" rel="prev" title="【Python笔记】装饰器">
+      <i class="fa fa-chevron-left"></i> 【Python笔记】装饰器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/20/%E3%80%90Python%E7%AC%94%E8%AE%B0%E3%80%91%E5%BC%82%E5%B8%B8/" rel="next" title="【Python笔记】异常">
+      【Python笔记】异常 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、类得定义与实例化"><span class="nav-text">1、类得定义与实例化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、类的内置函数与重载"><span class="nav-text">2、类的内置函数与重载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、继承"><span class="nav-text">3、继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、单继承"><span class="nav-text">3.1、单继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2、多继承"><span class="nav-text">3.2、多继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、元类"><span class="nav-text">4、元类</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Shifa Yang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Shifa Yang</p>
+  <div class="site-description" itemprop="description">Personal Blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/504703038" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;504703038" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ysf504703038@163.com" title="E-Mail → mailto:ysf504703038@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shifa Yang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">136k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:04</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='160,160,160' opacity='0.7' zIndex='-1' count='100' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+	<script>
+		(function(){
+		    var bp = document.createElement('script');
+		    var curProtocol = window.location.protocol.split(':')[0];
+		    if (curProtocol === 'https') {
+		        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		    }
+		    else {
+		        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		    }
+		    var s = document.getElementsByTagName("script")[0];
+		    s.parentNode.insertBefore(bp, s);
+		})();
+  	</script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
