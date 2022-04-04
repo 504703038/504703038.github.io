@@ -1,18 +1,18 @@
 """ 装饰器 """
 
+from functools import wraps
+
 
 def decorator(func):
+    """ @wraps接受一个函数来进行装饰，并加入了复制函数名称、注释文档、参数列表等等的功能。
+    这可以让我们在装饰器里面访问在装饰之前的函数的属性。 """
 
+    # @wraps(func)
     def wrap_function():
         print("Before exec func.")
-        func()
-        print("After exec func.")
+        return func()
 
     return wrap_function
-
-
-def need_decoration():
-    print("This function need decoration.")
 
 
 @decorator
@@ -22,17 +22,7 @@ def test_function():
 
 
 if __name__ == "__main__":
-    my_function = decorator(need_decoration)
-    my_function()
-    """ output:
-        Before exec func.
-        This function need decoration.
-        After exec func."""
-
-
     test_function()
-    """ output:
-        Before exec func.
-        In test_function.
-        After exec func. """
+    print("*" * 20)
+    print(test_function.__name__)
     pass

@@ -1,7 +1,5 @@
 """ 函数返回函数 """
 
-from cmath import pi
-
 
 def function(str="Hello World!!!"):
 

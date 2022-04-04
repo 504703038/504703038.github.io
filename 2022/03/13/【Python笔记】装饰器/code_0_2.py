@@ -1,7 +1,5 @@
 """ 在函数中定义函数 """
 
-from cmath import pi
-
 
 def function(str="Hello World!!!"):
 
