@@ -129,11 +129,6 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
 
   </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
-
-  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
@@ -262,8 +257,8 @@
       
           <h3 id="1、文件读写"><a href="#1、文件读写" class="headerlink" title="1、文件读写"></a>1、文件读写</h3><h4 id="1、打开文件"><a href="#1、打开文件" class="headerlink" title="1、打开文件"></a>1、打开文件</h4><p>使用<code>open()</code>函数来进行文件的读写，调用<code>close()</code>来关闭文件</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">file = open(file, mode=<span class="string">'r'</span>, buffering=<span class="number">-1</span>, encoding=<span class="literal">None</span>,</span><br><span class="line">            errors=<span class="literal">None</span>, newline=<span class="literal">None</span>, closefd=<span class="literal">True</span>, opener=<span class="literal">None</span>)</span><br><span class="line"><span class="comment"># file 为要打开文件的文件的路径，相对路径或绝对路径都可以</span></span><br><span class="line"><span class="comment"># mode 为打开模式，默认为只读</span></span><br><span class="line"><span class="comment"># encoding 为编码格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭文件</span></span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
-
 <p>打开模式：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -271,7 +266,8 @@
 <th>意义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>&#39;r&#39;</code></td>
 <td>读取（默认）</td>
 </tr>
@@ -299,7 +295,9 @@
 <td><code>&#39;+&#39;</code></td>
 <td>更新磁盘文件（读取并写入）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/04/21/Python%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/#more" rel="contents">
@@ -494,12 +492,8 @@
 
       
           <h3 id="1、卸载软件"><a href="#1、卸载软件" class="headerlink" title="1、卸载软件"></a>1、卸载软件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove softname1</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="2、查看-修改文件编码"><a href="#2、查看-修改文件编码" class="headerlink" title="2、查看/修改文件编码"></a>2、查看/修改文件编码</h3><p>查看文件编码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看文件编码</span></span><br><span class="line">file 文件名</span><br></pre></td></tr></table></figure>
-
 <p>修改文件编码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改文件编码</span></span><br><span class="line">sudo iconv -f <span class="string">'gbk'</span> -t <span class="string">'utf-8'</span> 源文件 目标文件</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -599,7 +593,6 @@
 
       
           <h3 id="1、-Hexo环境搭建"><a href="#1、-Hexo环境搭建" class="headerlink" title="1、 Hexo环境搭建"></a>1、 Hexo环境搭建</h3><h4 id="1、安装git"><a href="#1、安装git" class="headerlink" title="1、安装git"></a>1、安装git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-
 <h4 id="2、安装nodejs"><a href="#2、安装nodejs" class="headerlink" title="2、安装nodejs"></a>2、安装nodejs</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -678,7 +671,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -897,7 +890,6 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>

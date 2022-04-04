@@ -129,11 +129,6 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
 
   </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
-
-  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
@@ -360,345 +355,335 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1、基本数据类型与包装类型"><a href="#1、基本数据类型与包装类型" class="headerlink" title="1、基本数据类型与包装类型"></a>1、基本数据类型与包装类型</h3><h4 id="1、整数类型"><a href="#1、整数类型" class="headerlink" title="1、整数类型"></a>1、整数类型</h4><table>
-<thead>
-<tr>
-<th align="center">数据类型</th>
-<th align="center">内存空间</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">byte</td>
-<td align="center">8位(1个字节)</td>
-<td align="center">-128~127</td>
-</tr>
-<tr>
-<td align="center">short</td>
-<td align="center">16位(2个字节)</td>
-<td align="center">-32768~32767</td>
-</tr>
-<tr>
-<td align="center">int</td>
-<td align="center">32位(4个字节)</td>
-<td align="center">-2147483648~2147483647</td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="center">64位(8个字节)</td>
-<td align="center">-9223372036854775808~9223372036854775807</td>
-</tr>
-</tbody></table>
-<h4 id="2、浮点类型"><a href="#2、浮点类型" class="headerlink" title="2、浮点类型"></a>2、浮点类型</h4><table>
-<thead>
-<tr>
-<th align="center">数据类型</th>
-<th align="center">内存空间</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">float</td>
-<td align="center">32位(4个字节)</td>
-<td align="center">1.4E-45~3.4028235-E38</td>
-</tr>
-<tr>
-<td align="center">double</td>
-<td align="center">64位(8个字节)</td>
-<td align="center">4.9E-324~1.7976931348623157E-308</td>
-</tr>
-</tbody></table>
-<h4 id="3、字符类型"><a href="#3、字符类型" class="headerlink" title="3、字符类型"></a>3、字符类型</h4><table>
-<thead>
-<tr>
-<th align="center">数据类型</th>
-<th align="center">内存空间</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">char</td>
-<td align="center">16位(2个字节)</td>
-<td align="center">0~65535</td>
-</tr>
-</tbody></table>
-<h4 id="4、布尔类型"><a href="#4、布尔类型" class="headerlink" title="4、布尔类型"></a>4、布尔类型</h4><table>
-<thead>
-<tr>
-<th align="center">数据类型</th>
-<th align="center">内存空间</th>
-<th align="center">取值范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">boolean</td>
-<td align="center">8位(1个字节)或32位(4个字节)</td>
-<td align="center">true,false</td>
-</tr>
-</tbody></table>
-<p>当声明一个 <code>boolean</code> 变量时占用4个字节，当声明一个 <code>boolean</code> 数组时占用1个字节。</p>
-<h4 id="5、包装类型"><a href="#5、包装类型" class="headerlink" title="5、包装类型"></a>5、包装类型</h4><p>基本类型对应的包装类型</p>
+          <h3 id="1、基本数据类型与包装类型"><a href="#1、基本数据类型与包装类型" class="headerlink" title="1、基本数据类型与包装类型"></a>1、基本数据类型与包装类型</h3><h4 id="1、整数类型"><a href="#1、整数类型" class="headerlink" title="1、整数类型"></a>1、整数类型</h4><div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">基本类型</th>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">内存空间</th>
+<th style="text-align:center">取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">byte</td>
+<td style="text-align:center">8位(1个字节)</td>
+<td style="text-align:center">-128~127</td>
+</tr>
+<tr>
+<td style="text-align:center">short</td>
+<td style="text-align:center">16位(2个字节)</td>
+<td style="text-align:center">-32768~32767</td>
+</tr>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">32位(4个字节)</td>
+<td style="text-align:center">-2147483648~2147483647</td>
+</tr>
+<tr>
+<td style="text-align:center">long</td>
+<td style="text-align:center">64位(8个字节)</td>
+<td style="text-align:center">-9223372036854775808~9223372036854775807</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="2、浮点类型"><a href="#2、浮点类型" class="headerlink" title="2、浮点类型"></a>2、浮点类型</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">内存空间</th>
+<th style="text-align:center">取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">float</td>
+<td style="text-align:center">32位(4个字节)</td>
+<td style="text-align:center">1.4E-45~3.4028235-E38</td>
+</tr>
+<tr>
+<td style="text-align:center">double</td>
+<td style="text-align:center">64位(8个字节)</td>
+<td style="text-align:center">4.9E-324~1.7976931348623157E-308</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="3、字符类型"><a href="#3、字符类型" class="headerlink" title="3、字符类型"></a>3、字符类型</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">内存空间</th>
+<th style="text-align:center">取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">char</td>
+<td style="text-align:center">16位(2个字节)</td>
+<td style="text-align:center">0~65535</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="4、布尔类型"><a href="#4、布尔类型" class="headerlink" title="4、布尔类型"></a>4、布尔类型</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">内存空间</th>
+<th style="text-align:center">取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">8位(1个字节)或32位(4个字节)</td>
+<td style="text-align:center">true,false</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>当声明一个 <code>boolean</code> 变量时占用4个字节，当声明一个 <code>boolean</code> 数组时占用1个字节。</p>
+<h4 id="5、包装类型"><a href="#5、包装类型" class="headerlink" title="5、包装类型"></a>5、包装类型</h4><p>基本类型对应的包装类型</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">基本类型</th>
 <th>包装器类</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">boolean</td>
+<tbody>
+<tr>
+<td style="text-align:left">boolean</td>
 <td>Boolean</td>
 </tr>
 <tr>
-<td align="left">byte</td>
+<td style="text-align:left">byte</td>
 <td>Byte</td>
 </tr>
 <tr>
-<td align="left">char</td>
+<td style="text-align:left">char</td>
 <td>Character</td>
 </tr>
 <tr>
-<td align="left">short</td>
+<td style="text-align:left">short</td>
 <td>Short</td>
 </tr>
 <tr>
-<td align="left">int</td>
+<td style="text-align:left">int</td>
 <td>Integer</td>
 </tr>
 <tr>
-<td align="left">long</td>
+<td style="text-align:left">long</td>
 <td>Long</td>
 </tr>
 <tr>
-<td align="left">float</td>
+<td style="text-align:left">float</td>
 <td>Float</td>
 </tr>
 <tr>
-<td align="left">double</td>
+<td style="text-align:left">double</td>
 <td>Double</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>装箱与拆箱</p>
 <p>装箱：基本数据类型转换成包装数据类型<br>如：<code>int</code> 转换成 <code>Integer</code></p>
 <p>拆箱：包装数据类型转换成基本数据类型<br>如：<code>Integer</code> 转换成 <code>int</code></p>
 <h3 id="2、数组操作"><a href="#2、数组操作" class="headerlink" title="2、数组操作"></a>2、数组操作</h3><h4 id="1、遍历"><a href="#1、遍历" class="headerlink" title="1、遍历"></a>1、遍历</h4><p>1、通过索引遍历</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        System.out.println(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[][])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">            System.out.print(arr[i][j] + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>2、使用 <code>foreach</code> 遍历</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x : arr) &#123;</span><br><span class="line">        System.out.println(x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ergodic</span><span class="params">(<span class="keyword">int</span> arr[][])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> a[] : arr) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x : a) &#123;</span><br><span class="line">            System.out.print(x + <span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="2、填充"><a href="#2、填充" class="headerlink" title="2、填充"></a>2、填充</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * Arrays.fill(Object[] a, Object value);</span></span><br><span class="line"><span class="comment"> * a:要进行元素填充的数组</span></span><br><span class="line"><span class="comment"> * value:填充值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Arrays.fill(Object[] a, int fromIndex, int toIndex, Object value);</span></span><br><span class="line"><span class="comment"> * a:要进行元素填充的数组</span></span><br><span class="line"><span class="comment"> * fromIndex:填充起始位置</span></span><br><span class="line"><span class="comment"> * toIndex:填充结束位置</span></span><br><span class="line"><span class="comment"> * value:填充值 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">        Arrays.fill(arr, <span class="number">1</span>); <span class="comment">// 全部填充为1</span></span><br><span class="line">        Arrays.fill(arr, <span class="number">0</span>, <span class="number">10</span>, <span class="number">5</span>); <span class="comment">// 填充[0,10)，填充值为5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="3、排序"><a href="#3、排序" class="headerlink" title="3、排序"></a>3、排序</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Arrays.sort(Object a[])</span></span><br><span class="line"><span class="comment"> * a:要排序的数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Arrays.sort(Object a[], int fromIndex, int toIndex)</span></span><br><span class="line"><span class="comment"> * a:要排序的数组</span></span><br><span class="line"><span class="comment"> * fromIndex:排序的起始位置</span></span><br><span class="line"><span class="comment"> * toIndex:排序的结束位置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> arr[] = &#123; <span class="number">5</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">8</span> &#125;;</span><br><span class="line">        Arrays.sort(arr); <span class="comment">// 数组排序</span></span><br><span class="line">        Arrays.sort(arr, <span class="number">0</span>, <span class="number">10</span>); <span class="comment">// 数组[0,10)排序</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="4、复制"><a href="#4、复制" class="headerlink" title="4、复制"></a>4、复制</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Object b[] = Arrays.copyOf(Object a[], int newLength)</span></span><br><span class="line"><span class="comment"> * a:要复制的数组</span></span><br><span class="line"><span class="comment"> * newLength:要复制后数组长度，如果&lt;a.length，复制前[0,newLength)；如果&gt;a.length，后面补初始值(整数补0；char补null；)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Object b[] = Arrays.copyOfRange(Object a[], int fromIndex, int toIndex)</span></span><br><span class="line"><span class="comment"> * a:要复制的数组</span></span><br><span class="line"><span class="comment"> * from:复制开始位置</span></span><br><span class="line"><span class="comment"> * to:复制结束位置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> arr[] = &#123; <span class="number">5</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">3</span>, <span class="number">8</span> &#125;;</span><br><span class="line">		<span class="keyword">int</span> arr2[] = Arrays.copyOf(arr,arr.length); <span class="comment">//复制arr数组</span></span><br><span class="line">		<span class="keyword">int</span> arr3[] = Arrays.copyOfRange(arr, <span class="number">0</span>, <span class="number">10</span>); <span class="comment">//复制arr[0,10)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="3、字符串操作"><a href="#3、字符串操作" class="headerlink" title="3、字符串操作"></a>3、字符串操作</h3><h4 id="1、查找"><a href="#1、查找" class="headerlink" title="1、查找"></a>1、查找</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * int idx = str.indexOf(String substr)</span></span><br><span class="line"><span class="comment"> * substr:要搜索的子串</span></span><br><span class="line"><span class="comment"> * idx:返回子串在str中第一次出现的位置，如果没有返回-1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * int idx = str.lastIndexOf(String substr)</span></span><br><span class="line"><span class="comment"> * substr:要搜索的子串</span></span><br><span class="line"><span class="comment"> * idx:返回子串在str中最后一次出现的位置，如果没有返回-1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * char ch = str.charAt(int index)</span></span><br><span class="line"><span class="comment"> * index:下标</span></span><br><span class="line"><span class="comment"> * ch:str中下标为index的字符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    <span class="keyword">int</span> firIdx = str.indexOf(<span class="string">"o"</span>);</span><br><span class="line">    <span class="keyword">int</span> lastIdx = str.lastIndexOf(<span class="string">"o"</span>);</span><br><span class="line">    <span class="keyword">char</span> ch = str.charAt(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="2、替换"><a href="#2、替换" class="headerlink" title="2、替换"></a>2、替换</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replace(char oldChar, char newChar) </span></span><br><span class="line"><span class="comment"> * oldChar:被替换的字符</span></span><br><span class="line"><span class="comment"> * newChar:替换的字符</span></span><br><span class="line"><span class="comment"> * newStr:替换所有匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replace(CharSequence target, CharSequence replacement) </span></span><br><span class="line"><span class="comment"> * target:被替换的字符串</span></span><br><span class="line"><span class="comment"> * replacement:替换的字符串</span></span><br><span class="line"><span class="comment"> * newStr:替换所有匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replaceAll(String regex, String replacement)</span></span><br><span class="line"><span class="comment"> * regex:正则表达式，或字符串</span></span><br><span class="line"><span class="comment"> * replacement:用于替换的字符串</span></span><br><span class="line"><span class="comment"> * newString:替换所有匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.replaceFirst(String regex, String replacement)</span></span><br><span class="line"><span class="comment"> * regex:正则表达式，或字符串</span></span><br><span class="line"><span class="comment"> * replacement:用于替换的字符串</span></span><br><span class="line"><span class="comment"> * newString:只替换第一个匹配位置后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    str = str.replace(<span class="string">'!'</span>, <span class="string">'.'</span>);</span><br><span class="line">    str = str.replace(<span class="string">"World"</span>, <span class="string">"Java"</span>);</span><br><span class="line">    str = str.replaceAll(<span class="string">"[A-Z]"</span>, <span class="string">"*"</span>);</span><br><span class="line">    str = str.replaceAll(<span class="string">"o"</span>, <span class="string">"*"</span>);</span><br><span class="line">    str = str.replaceFirst(<span class="string">"[A-Z]"</span>, <span class="string">"#"</span>);</span><br><span class="line">    str = str.replaceFirst(<span class="string">"l"</span>, <span class="string">"#"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="3、比较"><a href="#3、比较" class="headerlink" title="3、比较"></a>3、比较</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.equals(String str1)</span></span><br><span class="line"><span class="comment"> * str1:要比较的字符串</span></span><br><span class="line"><span class="comment"> * bool:比较结果，相等为true，不相等为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.equalsIgnoreCase(String str1)</span></span><br><span class="line"><span class="comment"> * str1:要比较的字符串</span></span><br><span class="line"><span class="comment"> * bool:忽略字母大小写的比较结果，相等为true，不相等为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.startWith(String prefix)</span></span><br><span class="line"><span class="comment"> * prefix:指作为前缀的字符</span></span><br><span class="line"><span class="comment"> * bool:比较结果，如果prefix是str的前缀则为true，否则为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.startWith(String prefix, int offset)</span></span><br><span class="line"><span class="comment"> * prefix:指作为前缀的字符</span></span><br><span class="line"><span class="comment"> * offset:从str的offset位置开始</span></span><br><span class="line"><span class="comment"> * bool:比较结果，如果prefix是str从offset开始的前缀则为true，否则为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.endWith(String suffix)</span></span><br><span class="line"><span class="comment"> * suffix:指作为后缀的字符</span></span><br><span class="line"><span class="comment"> * bool:比较结果，如果suffix是str的后缀则为true，否则为flase</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.toLowerCase();</span></span><br><span class="line"><span class="comment"> * newStr:大写字母全部替换为小写字母后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String newStr = str.toUpperCase();</span></span><br><span class="line"><span class="comment"> * newStr:小写字母全部替换为大写字母后的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    <span class="keyword">boolean</span> bool1 = str.equals(<span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool2 = str.equalsIgnoreCase(<span class="string">"hello world!"</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool3 = str.startsWith(<span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool4 = str.startsWith(<span class="string">"ello"</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">boolean</span> bool5 = str.endsWith(<span class="string">"World!"</span>);</span><br><span class="line">    str = str.toLowerCase();</span><br><span class="line">    str = str.toUpperCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="4、分割"><a href="#4、分割" class="headerlink" title="4、分割"></a>4、分割</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String[] subStrs = str.split(String sign)</span></span><br><span class="line"><span class="comment"> * sign:分隔符，可以使用正则表达式</span></span><br><span class="line"><span class="comment"> * subStrs:str分割后的字符串数组 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String[] subStrs = str.split(String sign, int limit)</span></span><br><span class="line"><span class="comment"> * sign:分隔符，可以使用正则表达式</span></span><br><span class="line"><span class="comment"> * limit:限制的分割份数</span></span><br><span class="line"><span class="comment"> * subStrs:str分割后的字符串数组 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello World!"</span>;</span><br><span class="line">    String strs[] = str.split(<span class="string">" "</span>);</span><br><span class="line">    String strs1[] = str.split(<span class="string">" "</span>, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="5、格式化"><a href="#5、格式化" class="headerlink" title="5、格式化"></a>5、格式化</h4><h5 id="常规转换符"><a href="#常规转换符" class="headerlink" title="常规转换符"></a>常规转换符</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String.format(String format,  Object... args)</span></span><br><span class="line"><span class="comment"> * format:格式化格式</span></span><br><span class="line"><span class="comment"> * args:要被格式化的数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(String.format(<span class="string">"%b、%B"</span>, <span class="number">1</span>==<span class="number">1</span>,<span class="number">1</span>==<span class="number">1</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%h、%H"</span>, <span class="string">"Hello"</span>,<span class="string">"Hello"</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%s、%S"</span>, <span class="string">"Hello"</span>,<span class="string">"Hello"</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%c、%C"</span>, <span class="string">'a'</span>,<span class="string">'a'</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%d"</span>, <span class="number">16</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%o"</span>, <span class="number">16</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%x、%X"</span>, <span class="number">16</span>,<span class="number">16</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%e %E"</span>, <span class="number">16.0</span>,<span class="number">16.0</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%a %A"</span>, <span class="number">16.0</span>,<span class="number">16.0</span>));</span><br><span class="line">    System.out.println(String.format(<span class="string">"%% %s"</span>,<span class="string">"Hello"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">转换符</th>
-<th align="left">说明</th>
-<th align="left">示例</th>
+<th style="text-align:left">转换符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:left">示例</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">%b、%B</td>
-<td align="left">结果被格式化为布尔类型</td>
-<td align="left">true、TRUE</td>
+<tbody>
+<tr>
+<td style="text-align:left">%b、%B</td>
+<td style="text-align:left">结果被格式化为布尔类型</td>
+<td style="text-align:left">true、TRUE</td>
 </tr>
 <tr>
-<td align="left">%h、%H</td>
-<td align="left">结果被格式化为散列码</td>
-<td align="left">42628b2、42628B2</td>
+<td style="text-align:left">%h、%H</td>
+<td style="text-align:left">结果被格式化为散列码</td>
+<td style="text-align:left">42628b2、42628B2</td>
 </tr>
 <tr>
-<td align="left">%s、%S</td>
-<td align="left">结果被格式化为字符串类型</td>
-<td align="left">Hello、HELLO</td>
+<td style="text-align:left">%s、%S</td>
+<td style="text-align:left">结果被格式化为字符串类型</td>
+<td style="text-align:left">Hello、HELLO</td>
 </tr>
 <tr>
-<td align="left">%c、%C</td>
-<td align="left">结果被格式化为字符类型</td>
-<td align="left">a、A</td>
+<td style="text-align:left">%c、%C</td>
+<td style="text-align:left">结果被格式化为字符类型</td>
+<td style="text-align:left">a、A</td>
 </tr>
 <tr>
-<td align="left">%d</td>
-<td align="left">结果被格式化为十进制整数</td>
-<td align="left">16</td>
+<td style="text-align:left">%d</td>
+<td style="text-align:left">结果被格式化为十进制整数</td>
+<td style="text-align:left">16</td>
 </tr>
 <tr>
-<td align="left">%o</td>
-<td align="left">结果被格式化为八进制整数</td>
-<td align="left">20</td>
+<td style="text-align:left">%o</td>
+<td style="text-align:left">结果被格式化为八进制整数</td>
+<td style="text-align:left">20</td>
 </tr>
 <tr>
-<td align="left">%x、%X</td>
-<td align="left">结果被格式化为十六进制整数</td>
-<td align="left">10、10</td>
+<td style="text-align:left">%x、%X</td>
+<td style="text-align:left">结果被格式化为十六进制整数</td>
+<td style="text-align:left">10、10</td>
 </tr>
 <tr>
-<td align="left">%e</td>
-<td align="left">结果被格式化为用计算机科学计数法表示的十进制数</td>
-<td align="left">1.600000e+01 1.600000E+01</td>
+<td style="text-align:left">%e</td>
+<td style="text-align:left">结果被格式化为用计算机科学计数法表示的十进制数</td>
+<td style="text-align:left">1.600000e+01 1.600000E+01</td>
 </tr>
 <tr>
-<td align="left">%a</td>
-<td align="left">结果被格式化为带有效位数和指数的十六进制浮点值</td>
-<td align="left">0x1.0p4 0X1.0P4</td>
+<td style="text-align:left">%a</td>
+<td style="text-align:left">结果被格式化为带有效位数和指数的十六进制浮点值</td>
+<td style="text-align:left">0x1.0p4 0X1.0P4</td>
 </tr>
 <tr>
-<td align="left">%%</td>
-<td align="left">结果为字面值 <code>%</code></td>
-<td align="left">% Hello</td>
+<td style="text-align:left">%%</td>
+<td style="text-align:left">结果为字面值 <code>%</code></td>
+<td style="text-align:left">% Hello</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h5 id="时间和日期格式转换符"><a href="#时间和日期格式转换符" class="headerlink" title="时间和日期格式转换符"></a>时间和日期格式转换符</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * String.format(String format,  Object... args)</span></span><br><span class="line"><span class="comment"> * format:格式化格式</span></span><br><span class="line"><span class="comment"> * args:要被格式化的数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Date data = <span class="keyword">new</span> Date();</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tH"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tI"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tk"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tl"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tM"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tS"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tL"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tN"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tp"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tz"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tZ"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%ts"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tQ"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tF"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tD"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tc"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tr"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tT"</span>, data));</span><br><span class="line">        System.out.println(String.format(<span class="string">"%tR"</span>, data));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">转换符</th>
-<th align="left">说明</th>
+<th style="text-align:left">转换符</th>
+<th style="text-align:left">说明</th>
 <th>示例</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">%tH</td>
-<td align="left">2位数字的24时制的小时（00~23）</td>
+<tbody>
+<tr>
+<td style="text-align:left">%tH</td>
+<td style="text-align:left">2位数字的24时制的小时（00~23）</td>
 <td>23</td>
 </tr>
 <tr>
-<td align="left">%tI</td>
-<td align="left">2位数字的12时制的小时（01~12）</td>
+<td style="text-align:left">%tI</td>
+<td style="text-align:left">2位数字的12时制的小时（01~12）</td>
 <td>05</td>
 </tr>
 <tr>
-<td align="left">%tk</td>
-<td align="left">2位数字的24时制的小时（0~23）</td>
+<td style="text-align:left">%tk</td>
+<td style="text-align:left">2位数字的24时制的小时（0~23）</td>
 <td>9</td>
 </tr>
 <tr>
-<td align="left">%tl</td>
-<td align="left">2位数字的12时制的小时（1~12）</td>
+<td style="text-align:left">%tl</td>
+<td style="text-align:left">2位数字的12时制的小时（1~12）</td>
 <td>6</td>
 </tr>
 <tr>
-<td align="left">%tM</td>
-<td align="left">2位数字的分钟（00~59）</td>
+<td style="text-align:left">%tM</td>
+<td style="text-align:left">2位数字的分钟（00~59）</td>
 <td>44</td>
 </tr>
 <tr>
-<td align="left">%tS</td>
-<td align="left">2位数字的秒数（00~60）</td>
+<td style="text-align:left">%tS</td>
+<td style="text-align:left">2位数字的秒数（00~60）</td>
 <td>52</td>
 </tr>
 <tr>
-<td align="left">%tL</td>
-<td align="left">3位数字的毫秒数（000~999）</td>
+<td style="text-align:left">%tL</td>
+<td style="text-align:left">3位数字的毫秒数（000~999）</td>
 <td>558</td>
 </tr>
 <tr>
-<td align="left">%tN</td>
-<td align="left">9为数字的微秒数（000000000~999999999）</td>
+<td style="text-align:left">%tN</td>
+<td style="text-align:left">9为数字的微秒数（000000000~999999999）</td>
 <td>558000000</td>
 </tr>
 <tr>
-<td align="left">%tp</td>
-<td align="left">制定语言环境上下午标记</td>
+<td style="text-align:left">%tp</td>
+<td style="text-align:left">制定语言环境上下午标记</td>
 <td>下午</td>
 </tr>
 <tr>
-<td align="left">%tz</td>
-<td align="left">相对于GMT RFC 82 格式的数字时区偏移量</td>
+<td style="text-align:left">%tz</td>
+<td style="text-align:left">相对于GMT RFC 82 格式的数字时区偏移量</td>
 <td>+0800</td>
 </tr>
 <tr>
-<td align="left">%tZ</td>
-<td align="left">时区缩写形式的字符串</td>
+<td style="text-align:left">%tZ</td>
+<td style="text-align:left">时区缩写形式的字符串</td>
 <td>CST</td>
 </tr>
 <tr>
-<td align="left">%ts</td>
-<td align="left">1970-01-01 00:00:00 到现在经过的秒数</td>
+<td style="text-align:left">%ts</td>
+<td style="text-align:left">1970-01-01 00:00:00 到现在经过的秒数</td>
 <td>1595951092</td>
 </tr>
 <tr>
-<td align="left">%tQ</td>
-<td align="left">1970-01-01 00:00:00 到现在经过的毫秒数</td>
+<td style="text-align:left">%tQ</td>
+<td style="text-align:left">1970-01-01 00:00:00 到现在经过的毫秒数</td>
 <td>1595951092558</td>
 </tr>
 <tr>
-<td align="left">%tF</td>
-<td align="left">“年-月-日”格式（4位年份）</td>
+<td style="text-align:left">%tF</td>
+<td style="text-align:left">“年-月-日”格式（4位年份）</td>
 <td>2020-07-28</td>
 </tr>
 <tr>
-<td align="left">%tD</td>
-<td align="left">“月/日/年”格式（2位年份）</td>
+<td style="text-align:left">%tD</td>
+<td style="text-align:left">“月/日/年”格式（2位年份）</td>
 <td>07/28/20</td>
 </tr>
 <tr>
-<td align="left">%tc</td>
-<td align="left">全部日期和时间信息</td>
+<td style="text-align:left">%tc</td>
+<td style="text-align:left">全部日期和时间信息</td>
 <td>周二 7月 28 23:44:52 CST 2020</td>
 </tr>
 <tr>
-<td align="left">%tr</td>
-<td align="left">“时:分:秒 PM(AM)”格式（12时制）</td>
+<td style="text-align:left">%tr</td>
+<td style="text-align:left">“时:分:秒 PM(AM)”格式（12时制）</td>
 <td>11:44:52 下午</td>
 </tr>
 <tr>
-<td align="left">%tT</td>
-<td align="left">“时:分:秒”格式（24时制）</td>
+<td style="text-align:left">%tT</td>
+<td style="text-align:left">“时:分:秒”格式（24时制）</td>
 <td>23:44:52</td>
 </tr>
 <tr>
-<td align="left">%tR</td>
-<td align="left">“时:分”格式（24时制）</td>
+<td style="text-align:left">%tR</td>
+<td style="text-align:left">“时:分”格式（24时制）</td>
 <td>23:44</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="6、StringBuilder"><a href="#6、StringBuilder" class="headerlink" title="6、StringBuilder"></a>6、StringBuilder</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * builder.append(Object obj)</span></span><br><span class="line"><span class="comment"> * obj:追加在builder末尾的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * builder.insert(int offset, Object obj)</span></span><br><span class="line"><span class="comment"> * offset:插入位置</span></span><br><span class="line"><span class="comment"> * obj:要插入的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* builder.delete(int start, int end)</span></span><br><span class="line"><span class="comment"> * start:开始位置（包含）</span></span><br><span class="line"><span class="comment"> * end:结束位置（不包含）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* builder.deleteCharAt(int index)</span></span><br><span class="line"><span class="comment"> * index:要删除字符的位置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    StringBuilder builder = <span class="keyword">new</span> StringBuilder(<span class="string">"Test"</span>);</span><br><span class="line">    <span class="comment">//在末尾添加</span></span><br><span class="line">    builder.append(<span class="string">"string"</span>);</span><br><span class="line">    builder.append((<span class="keyword">int</span>)<span class="number">10</span>);</span><br><span class="line">    builder.append((Boolean)<span class="keyword">true</span>);</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    System.out.println(builder);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//插入</span></span><br><span class="line">    builder.insert(<span class="number">2</span>, <span class="string">"123"</span>);</span><br><span class="line">    builder.insert(<span class="number">2</span>, (<span class="keyword">int</span>)<span class="number">999</span>);</span><br><span class="line">    builder.insert(<span class="number">2</span>, (CharSequence)<span class="string">"***"</span>);</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    System.out.println(builder);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    builder.delete(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">    builder.deleteCharAt(<span class="number">0</span>);</span><br><span class="line">    System.out.println(builder);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//转换</span></span><br><span class="line">    String str = builder.toString();</span><br><span class="line">    builder = <span class="keyword">new</span> StringBuilder(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h4 id="7、扩展：正则表达式"><a href="#7、扩展：正则表达式" class="headerlink" title="7、扩展：正则表达式"></a>7、扩展：正则表达式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * boolean bool = str.matches(String regex)</span></span><br><span class="line"><span class="comment"> * regex:正则表达式</span></span><br><span class="line"><span class="comment"> * bool:判断str是否符合正则表达式，符合则为true</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    String str = <span class="string">"Hello"</span>;</span><br><span class="line">    <span class="keyword">boolean</span> bool  = str.matches(<span class="string">"[A-Z][a-z]&#123;4&#125;"</span>);</span><br><span class="line">    System.out.println(bool);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <p>正则表达式中的元字符</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -707,7 +692,8 @@
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>.</td>
 <td><code>.</code></td>
 <td>代表任意一个字符</td>
@@ -775,7 +761,8 @@
 <tr>
 <td>\p{Punct}</td>
 <td><code>\\p{Punct}</code></td>
-<td>代表标点符号 <code>!@#$%^&amp;*()-=_+[]\{}|;:&#39;&quot;,&lt;.&gt;/?`~</code></td>
+<td>代表标点符号 ```!@#$%^&amp;*()-=_+[]\{}\</td>
+<td>;:’”,&lt;.&gt;/?`~```</td>
 </tr>
 <tr>
 <td>\p{Graph}</td>
@@ -797,8 +784,11 @@
 <td><code>\\p{Cntrl}</code></td>
 <td>代表控制字符<code>[\x00-\x1F\x7F]</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>正则表达式中的限定符</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -807,7 +797,8 @@
 <th>示例</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>?</td>
 <td>0次或1次</td>
 <td>A?</td>
@@ -837,8 +828,11 @@
 <td>出现 n~m 次</td>
 <td>A{2,6}</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>方括号中元字符含义</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -846,7 +840,8 @@
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>[abc]</code></td>
 <td>表示a、b或者c</td>
 </tr>
@@ -874,7 +869,9 @@
 <td><code>[a-z&amp;&amp;[^m-p]]</code></td>
 <td>除<code>m~p</code>以外<code>a~z</code>的所有字符</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
       
     </div>
@@ -966,9 +963,6 @@
       
           <h3 id="1、npm-安装插件速度慢"><a href="#1、npm-安装插件速度慢" class="headerlink" title="1、npm 安装插件速度慢"></a>1、npm 安装插件速度慢</h3><p>1、方法一：切换源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-
-
 <p>2、方法二：使用<code>cnpm</code></p>
 <p>执行完下列命令后，当要用到<code>npm</code>命令时就可以使用<code>cnpm</code>代替</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
@@ -1073,11 +1067,6 @@
 <p>可以使用<code>hexo n &quot;title&quot;</code>来新建一个页面。</p>
 <h4 id="3、本地测试"><a href="#3、本地测试" class="headerlink" title="3、本地测试"></a>3、本地测试</h4><p>在博客的根目录下执行命令，让其在本地运行。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 博客生成</span></span><br><span class="line"><span class="comment"># hexo g</span></span><br><span class="line">hexo generate </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在本地运行</span></span><br><span class="line"><span class="comment"># hexo s</span></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="2、在-GitHub-上发布"><a href="#2、在-GitHub-上发布" class="headerlink" title="2、在 GitHub 上发布"></a>2、在 GitHub 上发布</h3><h4 id="1、创建仓库"><a href="#1、创建仓库" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h4><p>仓库名称随意（网上的教程仓库名称都是用户名+github.io。随意名称的话，最后发布的时候改一下发布的仓库就可以了。）</p>
 <p>在仓库的设置中设置 GitHub Pages。</p>
 <div>
@@ -1107,12 +1096,8 @@
 
 <h4 id="4、修改博客的发布地址"><a href="#4、修改博客的发布地址" class="headerlink" title="4、修改博客的发布地址"></a>4、修改博客的发布地址</h4><p>修改博客根目录下的<code>_config.yml</code>文件</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://"用户名".github.io/"仓库名称"/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/"仓库名称"/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing 'index.html' from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing '.html' from permalinks</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:"用户名"/"仓库名称".git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h4 id="5、发布"><a href="#5、发布" class="headerlink" title="5、发布"></a>5、发布</h4><p>在博客的根目录下执行命令发布到 GitHub</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清理缓存</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># 博客生成</span></span><br><span class="line"><span class="comment"># hexo g</span></span><br><span class="line">hexo generate </span><br><span class="line"></span><br><span class="line"><span class="comment"># 在本地运行</span></span><br><span class="line"><span class="comment"># hexo d</span></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>在发布过程中遇到个小错误。。。。</p>
 <div align="left">
     <img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/发布-1.png" alt="发布-1" style="zoom:80%;">
@@ -1122,8 +1107,7 @@
 <p>执行<code>npm install --save hexo-deployer-git</code>来解决问题。</p>
 <h3 id="3、Hexo双线部署"><a href="#3、Hexo双线部署" class="headerlink" title="3、Hexo双线部署"></a>3、<code>Hexo</code>双线部署</h3><p>同时部署到 <code>GitHub Page</code> 和 <code>Gitee Pages</code> 。除了<code>Gitee Pages</code>还可以部署到<code>Coding Pages</code>，在部署到<code>Coding Pages</code>时宕机了好几次所以用了<code>Gitee Pages</code>。</p>
 <h4 id="1、创建仓库-1"><a href="#1、创建仓库-1" class="headerlink" title="1、创建仓库"></a>1、创建仓库</h4><p>新建仓库，仓库名称与你的用户名相同，就像<code>GitHub Pages</code>那样。</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.png" alt="Gitee创建仓库" style="zoom: 67%;">
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.png" alt="Gitee创建仓库" style="zoom: 67%;"></p>
 <h4 id="2、开启Gitee-Pages服务"><a href="#2、开启Gitee-Pages服务" class="headerlink" title="2、开启Gitee Pages服务"></a>2、开启<code>Gitee Pages</code>服务</h4><p>进入仓库开启<code>Gitee Pages</code>服务</p>
 <div align="left">
     <img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%BC%80%E5%90%AFGitee%20Pages%E6%9C%8D%E5%8A%A1-1.png" alt="开启Gitee Pages服务-1" style="zoom:67%;">
@@ -1134,34 +1118,21 @@
 
 
 <h4 id="3、添加SSH-1"><a href="#3、添加SSH-1" class="headerlink" title="3、添加SSH"></a>3、添加SSH</h4><p>进入<code>Gitee</code>的个人设置，添加<code>SSH</code>，与<code>Github</code>使用相同的<code>SSH</code>就可以。</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E6%B7%BB%E5%8A%A0SSH.png" alt="Gitee添加SSH" style="zoom:67%;">
-
-
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/Gitee%E6%B7%BB%E5%8A%A0SSH.png" alt="Gitee添加SSH" style="zoom:67%;"></p>
 <h4 id="5、修改Hexo配置文件"><a href="#5、修改Hexo配置文件" class="headerlink" title="5、修改Hexo配置文件"></a>5、修改Hexo配置文件</h4><p>修改<code>_config.yml</code>文件</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:504703038/504703038.github.io.git</span></span><br><span class="line">    <span class="attr">gitee:</span> <span class="string">git@gitee.com:Oort_t/Oort_t.git</span></span><br><span class="line">    <span class="comment"># coding: git@e.coding.net:oort/oort.coding.me.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="4、在百度收录网站"><a href="#4、在百度收录网站" class="headerlink" title="4、在百度收录网站"></a>4、在百度收录网站</h3><p>在百度收录网站，使得网站能够在百度搜得到。因为<code>GitHub</code>禁止了百度爬虫，所以要实现双线部署，让百度爬虫从<code>Gitee</code>收录。</p>
 <h4 id="0、查看网站是否被收录"><a href="#0、查看网站是否被收录" class="headerlink" title="0、查看网站是否被收录"></a>0、查看网站是否被收录</h4><p>输入 <code>site:域名</code> 来查看域名是否被搜索引擎收录</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E6%9F%A5%E7%9C%8B%E6%94%B6%E5%BD%95%E7%8A%B6%E5%86%B5.png" alt="查看收录状况" style="zoom:67%;">
-
-
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E6%9F%A5%E7%9C%8B%E6%94%B6%E5%BD%95%E7%8A%B6%E5%86%B5.png" alt="查看收录状况" style="zoom:67%;"></p>
 <h4 id="1、在百度资源平台添加网站"><a href="#1、在百度资源平台添加网站" class="headerlink" title="1、在百度资源平台添加网站"></a>1、在百度资源平台添加网站</h4><p><a href="https://ziyuan.baidu.com/site#/" target="_blank" rel="noopener">百度资源平台</a></p>
-<h5 id="1、添加网站"><a href="#1、添加网站" class="headerlink" title="1、添加网站"></a>1、添加网站</h5><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-1.png" alt="在百度资源平台添加网站-1" style="zoom:60%;">
-
+<h5 id="1、添加网站"><a href="#1、添加网站" class="headerlink" title="1、添加网站"></a>1、添加网站</h5><p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-1.png" alt="在百度资源平台添加网站-1" style="zoom:60%;"></p>
 <h5 id="2、验证"><a href="#2、验证" class="headerlink" title="2、验证"></a>2、验证</h5><p>验证使用<code>HTML</code>标签验证</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-2.png" alt="在百度资源平台添加网站-2" style="zoom:67%;">
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E5%9C%A8%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90%E5%B9%B3%E5%8F%B0%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99-2.png" alt="在百度资源平台添加网站-2" style="zoom:67%;"></p>
 <p>将验证标签<code>&lt;meta name=&quot;baidu-site-verification&quot; content=&quot;**********&quot; /&gt;</code>放到<code>./themes/next/layout/_partials/head/head.swing</code>文件的前几行</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">&lt;meta name=<span class="string">"baidu-site-verification"</span> content=<span class="string">"**********"</span> /&gt;</span><br></pre></td></tr></table></figure>
-
 <p>完成之后发布博客来完成验证。</p>
 <h4 id="2、提交百度搜索"><a href="#2、提交百度搜索" class="headerlink" title="2、提交百度搜索"></a>2、提交百度搜索</h4><h5 id="1、主动推送"><a href="#1、主动推送" class="headerlink" title="1、主动推送"></a>1、主动推送</h5><p>安装插件<code>npm install hexo-baidu-url-submit --save</code>，并在<code>_config.yml</code>中添加配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 百度推送</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">100</span>                  <span class="comment"># 提交最新的多少个链接</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">oort_t.gitee.io</span>     <span class="comment"># 在百度站长平台中添加的域名</span></span><br><span class="line">  <span class="attr">token:</span> <span class="string">****************</span>   <span class="comment"># 密钥</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span>      <span class="comment"># 文本文档的地址， 新链接会保存在此文本文档里</span></span><br></pre></td></tr></table></figure>
-
 <p>其中 <code>token</code>可以再链接提交中找到</p>
 <div align="left">
     <img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81-1.png" alt="主动推送-1" style="zoom:70%;">
@@ -1171,20 +1142,14 @@
 
 <p>更新<code>_config.yml</code>配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:504703038/504703038.github.io.git</span></span><br><span class="line">    <span class="attr">gitee:</span> <span class="string">git@gitee.com:Oort_t/Oort_t.git</span></span><br><span class="line">    <span class="comment"># coding: git@e.coding.net:oort/oort.coding.me.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span>   <span class="comment"># 百度主动推送</span></span><br></pre></td></tr></table></figure>
-
 <p>在执行<code>hexo d</code>部署时就会自动推送，成功推送的标志</p>
 <p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81-3.png" alt="主动推送-3"></p>
 <p><strong>注意</strong>：<code>_config.yml</code>中的<code>url</code>要与平台中添加的网站一致</p>
 <h5 id="2、自动推送"><a href="#2、自动推送" class="headerlink" title="2、自动推送"></a>2、自动推送</h5><p>将自动推送的代码放到<code>./themes/next/layout/_third-party/baidu-push.swing</code>文件中</p>
-<img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81.png" alt="自动推送" style="zoom:67%;">
-
+<p><img src="/2020/01/21/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E5%9C%A8GitHub%E5%8F%91%E5%B8%83/%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81.png" alt="自动推送" style="zoom:67%;"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.baidu_push %&#125;</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">		(function()&#123;</span><br><span class="line">		    <span class="keyword">var</span> bp = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">		    <span class="keyword">var</span> curProtocol = window.location.protocol.split(<span class="string">':'</span>)[<span class="number">0</span>];</span><br><span class="line">		    <span class="keyword">if</span> (curProtocol === <span class="string">'https'</span>) &#123;</span><br><span class="line">		        bp.src = <span class="string">'https://zz.bdstatic.com/linksubmit/push.js'</span>;</span><br><span class="line">		    &#125;</span><br><span class="line">		    <span class="keyword">else</span> &#123;</span><br><span class="line">		        bp.src = <span class="string">'http://push.zhanzhang.baidu.com/push.js'</span>;</span><br><span class="line">		    &#125;</span><br><span class="line">		    <span class="keyword">var</span> s = document.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</span><br><span class="line">		    s.parentNode.insertBefore(bp, s);</span><br><span class="line">		&#125;)();</span><br><span class="line">  	&lt;/script&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
 <p>更新<code>./themes/next/_config.yml</code>配置，将<code>baidu_push</code>设置为<code>true</code>(大约在<code>500</code>行左右)</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidu_push:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://blog.csdn.net/qq_36759224/article/details/100899489" target="_blank" rel="noopener">Hexo 博客提交百度、谷歌搜索引擎收录</a></p>
 
       
@@ -1368,7 +1333,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>279</span>
+              <span>323</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1388,14 +1353,14 @@
 
       
           <h4 id="1、通用"><a href="#1、通用" class="headerlink" title="1、通用"></a>1、通用</h4><h5 id="保存-amp-恢复"><a href="#保存-amp-恢复" class="headerlink" title="保存&amp;恢复"></a>保存&amp;恢复</h5><ul>
-<li><input checked disabled type="checkbox"> 切换文件时自动保存对上个文件的更改</li>
+<li>[x] 切换文件时自动保存对上个文件的更改</li>
 </ul>
 <h4 id="2、外观"><a href="#2、外观" class="headerlink" title="2、外观"></a>2、外观</h4><h5 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h5><p>自定义 16px</p>
 <h5 id="状态栏"><a href="#状态栏" class="headerlink" title="状态栏"></a>状态栏</h5><ul>
-<li><input checked disabled type="checkbox"> 显示状态栏</li>
+<li>[x] 显示状态栏</li>
 </ul>
 <h5 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h5><ul>
-<li><input checked disabled type="checkbox"> 侧边栏的大纲视图允许折叠和展开</li>
+<li>[x] 侧边栏的大纲视图允许折叠和展开</li>
 </ul>
 <h5 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h5><p><code>Night</code> 主题</p>
           <!--noindex-->
@@ -1890,7 +1855,6 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>

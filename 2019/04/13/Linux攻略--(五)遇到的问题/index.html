@@ -28,16 +28,16 @@
 <meta property="og:site_name" content="Oort.">
 <meta property="og:description" content="1、安装进程被占用12sudo rm &#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives&#x2F;locksudo rm &#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E8%A7%A6%E6%91%B8%E6%9D%BF%E5%8F%B3%E9%94%AE%E5%A4%B1%E7%81%B5.png">
-<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E4%BF%AE%E6%94%B9%E7%BB%88%E7%AB%AF%E6%BA%90%E4%BB%A3%E7%A0%81.png">
-<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E8%BD%AF%E4%BB%B6%E5%92%8C%E6%9B%B4%E6%96%B0%E9%80%89%E4%B8%AD%E6%BA%90%E4%BB%A3%E7%A0%81.png">
-<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98.png">
+<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94">
+<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94">
+<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94">
+<meta property="og:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94">
 <meta property="article:published_time" content="2019-04-13T15:53:34.000Z">
 <meta property="article:modified_time" content="2020-07-20T12:00:49.224Z">
 <meta property="article:author" content="Shifa Yang">
 <meta property="article:tag" content="Ubuntu Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E8%A7%A6%E6%91%B8%E6%9D%BF%E5%8F%B3%E9%94%AE%E5%A4%B1%E7%81%B5.png">
+<meta name="twitter:image" content="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94">
 
 <link rel="canonical" href="https://oort_t.gitee.io/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
 
@@ -134,11 +134,6 @@
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -267,87 +262,56 @@
 
       
         <h3 id="1、安装进程被占用"><a href="#1、安装进程被占用" class="headerlink" title="1、安装进程被占用"></a>1、安装进程被占用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/cache/apt/archives/lock</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br></pre></td></tr></table></figure>
-
 <a id="more"></a>
-
 <h3 id="2、触摸板右键失灵"><a href="#2、触摸板右键失灵" class="headerlink" title="2、触摸板右键失灵"></a>2、触摸板右键失灵</h3><p>在软件商店搜索并安装gnome-tweak</p>
-<p>启动后选择$$键盘和鼠标 -模拟鼠标点击-区域$$</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E8%A7%A6%E6%91%B8%E6%9D%BF%E5%8F%B3%E9%94%AE%E5%A4%B1%E7%81%B5.png" alt="触摸板右键失灵"></p>
+<p>启动后选择<script type="math/tex">键盘和鼠标 -模拟鼠标点击-区域</script></p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux攻略--(五" alt="触摸板右键失灵">遇到的问题/触摸板右键失灵.png)</p>
 <h3 id="3、Ubuntu-gnome-terminal-支持鼠标选择复制，右键粘贴"><a href="#3、Ubuntu-gnome-terminal-支持鼠标选择复制，右键粘贴" class="headerlink" title="3、Ubuntu gnome-terminal 支持鼠标选择复制，右键粘贴"></a>3、Ubuntu gnome-terminal 支持鼠标选择复制，右键粘贴</h3><p><strong>Ubuntu 系统支持选择复制，鼠标中间粘贴</strong>。</p>
 <hr>
 <p>下面的方法未尝试过</p>
 <p>1、下载gnome-terminal源代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get <span class="built_in">source</span> gnome-terminal</span><br></pre></td></tr></table></figure>
-
 <p>2、下载gnome-terminal的编译依赖库</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get build-dep gnome-terminal</span><br></pre></td></tr></table></figure>
-
 <p>3、修改源代码gnome-terminal/src/terminal-screen.c</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E4%BF%AE%E6%94%B9%E7%BB%88%E7%AB%AF%E6%BA%90%E4%BB%A3%E7%A0%81.png" alt="修改源代码"></p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux攻略--(五" alt="修改源代码">遇到的问题/修改终端源代码.png)</p>
 <p>下载源代码时可能出现＂您必须在 sources.list 中指定代码源(deb-src) URI＂的错误．</p>
 <p>解决方案：运行＂软件和更新＂选中源代码．</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E8%BD%AF%E4%BB%B6%E5%92%8C%E6%9B%B4%E6%96%B0%E9%80%89%E4%B8%AD%E6%BA%90%E4%BB%A3%E7%A0%81.png" alt="软件和更新选中源代码"></p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux攻略--(五" alt="软件和更新选中源代码">遇到的问题/软件和更新选中源代码.png)</p>
 <h3 id="4、Deep-in-QQ-乱码"><a href="#4、Deep-in-QQ-乱码" class="headerlink" title="4、Deep-in QQ 乱码"></a>4、Deep-in QQ 乱码</h3><p>1、下载Windows的<a href="./simsun.ttc">simsun.ttc</a>字体</p>
 <p>2、将字体放入 $~/.deepinwine/Deepin-QQ/drive_c/windows/Fonts$ 目录下</p>
 <p>3、在该目录下编写文件zh.reg</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line">&quot;Arial&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Arial CE,238&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Arial CYR,204&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Arial Greek,161&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Arial TUR,162&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Courier New&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CE,238&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CYR,204&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Courier New Greek,161&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Courier New TUR,162&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;FixedSys&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Helv&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Helvetica&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;MS Sans Serif&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg 2&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;System&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Tahoma&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Times&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CE,238&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CYR,204&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman Greek,161&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman TUR,162&quot;&#x3D;&quot;simsun&quot;</span><br><span class="line">&quot;Tms Rmn&quot;&#x3D;&quot;simsun&quot;</span><br></pre></td></tr></table></figure>
-
 <p>4、注册</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deepin-wine regedit zh.reg</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="5、WPS字体缺失"><a href="#5、WPS字体缺失" class="headerlink" title="5、WPS字体缺失"></a>5、WPS字体缺失</h3><p>1、<a href="./wps_symbol_fonts.zip">下载字体</a></p>
 <p>2、将字体文件copy到字体目录下并修改权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -r wps_symbol_fonts /usr/share/fonts/</span><br><span class="line"><span class="built_in">cd</span> /usr/share/fonts/ </span><br><span class="line">sudo chmod 755 wps_symbol_fonts</span><br><span class="line"><span class="built_in">cd</span> /usr/share/fonts/wps_symbol_fonts</span><br><span class="line">sudo chmod 644 *</span><br></pre></td></tr></table></figure>
-
 <p>3、生成缓存配置信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/fonts/wps_symbol_fonts</span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo mkfontscale</span><br><span class="line"><span class="built_in">fc</span>-cache</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="6、Firefox安装Flash插件"><a href="#6、Firefox安装Flash插件" class="headerlink" title="6、Firefox安装Flash插件"></a>6、Firefox安装Flash插件</h3><p>1、<a href="https://get.adobe.com/cn/flashplayer/" target="_blank" rel="noopener">官网</a>下载 <code>.tar.gz</code>文件</p>
 <p>2、将文件解压并将<code>usr</code>文件复制到<code>/usr</code>目录下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -r usr/* /usr</span><br></pre></td></tr></table></figure>
-
 <p>3、将<code>libflashplayer.so</code>文件复制到Firefox插件目录下，并修改权限</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp libflashplayer.so /usr/lib/mozilla/plugins</span><br><span class="line">sudo chmod 755 libflashplayer.so</span><br></pre></td></tr></table></figure>
-
 <p>4、重启Firefox</p>
 <h3 id="7、百度网盘打不开"><a href="#7、百度网盘打不开" class="headerlink" title="7、百度网盘打不开"></a>7、百度网盘打不开</h3><p>百度网盘卡在加载界面</p>
-<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98.png" alt="百度网盘"></p>
+<p><img src="/2019/04/13/Linux%E6%94%BB%E7%95%A5--(%E4%BA%94)%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/Linux攻略--(五" alt="百度网盘">遇到的问题/百度网盘.png)</p>
 <p>删掉<code>~/baidunetdisk</code>文件夹就可以啦</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r baidunetdisk</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="8、Ubuntu经常提示遇到系统错误"><a href="#8、Ubuntu经常提示遇到系统错误" class="headerlink" title="8、Ubuntu经常提示遇到系统错误"></a>8、Ubuntu经常提示遇到系统错误</h3><p>如果觉得<code>Ubuntu</code>经常提示遇到系统错误很烦人，可以关闭提示。</p>
 <p>1、安装<code>gksu</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gksu</span><br></pre></td></tr></table></figure>
-
 <p><code>Ubuntu18.04</code>没有<code>gksu</code>可以执行下列命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> gksu=<span class="string">'pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'</span></span><br></pre></td></tr></table></figure>
-
 <p>2、修改文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gksu gedit /etc/default/apport</span><br></pre></td></tr></table></figure>
-
 <p>将文件中的<code>enabled</code>的值修改为0。</p>
 <h3 id="9、Deepin-QQ-显示不了图片"><a href="#9、Deepin-QQ-显示不了图片" class="headerlink" title="9、Deepin QQ 显示不了图片"></a>9、Deepin QQ 显示不了图片</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改引导文件</span></span><br><span class="line">sudo gedit /etc/default/grub</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把其中的 GRUB_CMDLINE_LINUX_DEFAULT="quiet spalsh"修改为  </span></span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"ipv6.disable=1 quiet splash"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新引导文件</span></span><br><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="10、MySQL登录失败"><a href="#10、MySQL登录失败" class="headerlink" title="10、MySQL登录失败"></a>10、MySQL登录失败</h3><p>登录时提示Access denied。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~$ mysql -u root -p</span><br><span class="line">Enter password: </span><br><span class="line">ERROR 1698 (28000): Access denied <span class="keyword">for</span> user <span class="string">'root'</span>@<span class="string">'localhost'</span></span><br></pre></td></tr></table></figure>
-
 <p>解决方案：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用超级权限登录mysql,密码随意</span></span><br><span class="line">sudo mysql -u root -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在mysql中执行下列命令</span></span><br><span class="line">mysql&gt; select user, plugin from mysql.user;</span><br><span class="line">mysql&gt; update mysql.user <span class="built_in">set</span> authentication_string=PASSWORD(<span class="string">'新密码'</span>), plugin=<span class="string">'mysql_native_password'</span> <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">mysql&gt; flush privileges;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">sudo service mysql stop</span><br><span class="line">sudo service mysql start</span><br><span class="line"><span class="comment"># 登录mysql 使用刚刚新设的密码</span></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
 <h3 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h3><p><a href="https://blog.csdn.net/zmken497300/article/details/77531982" target="_blank" rel="noopener">Ubuntu16.04安装wps并解决系统缺失字体问题</a></p>
 <p><a href="https://blog.csdn.net/qq_37806908/article/details/104389641" target="_blank" rel="noopener">deepin QQ/TIM显示不了图片的解决方法</a></p>
 
@@ -457,7 +421,6 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>

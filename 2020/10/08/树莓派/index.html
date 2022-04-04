@@ -163,11 +163,6 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
 
   </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
-
-  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
@@ -295,18 +290,15 @@
       
         <h1 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h1><h2 id="1、相关设备信息"><a href="#1、相关设备信息" class="headerlink" title="1、相关设备信息"></a>1、相关设备信息</h2><p><code>Raspberry Pi : 4B(2G)</code><br><code>TF卡 : 32G</code><br><code>电源 : 5.1V/3A</code></p>
 <a id="more"></a>
-
 <h2 id="2、系统安装"><a href="#2、系统安装" class="headerlink" title="2、系统安装"></a>2、系统安装</h2><h3 id="1、系统映像下载"><a href="#1、系统映像下载" class="headerlink" title="1、系统映像下载"></a>1、系统映像下载</h3><p>在 <a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">官网下载地址</a> 下载 <code>Raspberry Pi OS</code></p>
 <p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-1.png" alt="系统镜像下载-1"></p>
 <p>选择含推荐软件的桌面版</p>
 <p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD-2.png" alt="系统镜像下载-2"></p>
 <p>下载完成后解压 <code>zip</code> 文件得到 后缀名为 <code>img</code> 的系统映像文件</p>
 <h3 id="2、将映像写入TF卡"><a href="#2、将映像写入TF卡" class="headerlink" title="2、将映像写入TF卡"></a>2、将映像写入TF卡</h3><p>首先将TF卡格式化</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/TF%E5%8D%A1%E6%A0%BC%E5%BC%8F%E5%8C%96.png" alt="TF卡格式化" style="zoom:50%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/TF%E5%8D%A1%E6%A0%BC%E5%BC%8F%E5%8C%96.png" alt="TF卡格式化" style="zoom:50%;"></p>
 <p>使用 <code>Win32DiskImager</code> 工具将映像写入TF卡(<a href="./win32diskimager-1.0.0-install.exe">Win32DiskImager下载</a>)</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png" alt="映像写入" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png" alt="映像写入" style="zoom:67%;"></p>
 <p>完成后TF卡会有两个分区</p>
 <p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5%E5%AE%8C%E6%88%90.png" alt="映像写入完成"></p>
 <p>系统默认关闭了 <code>SSH</code> 连接，想要使用 <code>SSH</code> 需要在 <code>boot</code> 分区中新建空白文件 <code>ssh</code> (<strong>注意：没有后缀名</strong>) </p>
@@ -319,138 +311,85 @@
 </ul>
 <h4 id="1、准备工作"><a href="#1、准备工作" class="headerlink" title="1、准备工作"></a>1、准备工作</h4><p>将之前准备好的TF卡插入树莓派并接通电源，给树莓派连接网络(让PC与树莓派处于同一局域网内)。</p>
 <h4 id="2、获取树莓派IP"><a href="#2、获取树莓派IP" class="headerlink" title="2、获取树莓派IP"></a>2、获取树莓派IP</h4><p>使用 <code>Advanced IP Scanner</code> 扫描IP地址，找到树莓派的地址</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/IP%E6%89%AB%E6%8F%8F.png" alt="IP扫描" style="zoom: 67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/IP%E6%89%AB%E6%8F%8F.png" alt="IP扫描" style="zoom: 67%;"></p>
 <p>当成功使用PuTTY连接到树莓派后就可以给树莓派分配静态IP地址，之后就不需要再扫描IP地址了</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 vi 编辑文件，增加下列配置项</span></span><br><span class="line">sudo vi /etc/dhcpcd.conf</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 制定接口 eth0 //有线</span></span><br><span class="line"><span class="comment"># interface eth0</span></span><br><span class="line"><span class="comment"># 指定接口 wlan0 //无线</span></span><br><span class="line">interface wlan0</span><br><span class="line"><span class="comment"># 指定静态IP，/24表示子网掩码为 255.255.255.0</span></span><br><span class="line">static ip_address=192.168.1.150/24</span><br><span class="line"><span class="comment"># 路由器/网关IP地址</span></span><br><span class="line">static routers=192.168.1.1</span><br><span class="line"><span class="comment"># 手动自定义DNS服务器</span></span><br><span class="line">static domain_name_servers=114.114.114.114</span><br></pre></td></tr></table></figure>
-
 <p>也可以再使用 <code>VNC</code> 连接树莓派后，右键点击 <code>WLAN</code> 图标选择网络设置</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-1.png" alt="分配静态IP-1" style="zoom:67%;">
-
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-2.png" alt="分配静态IP-2" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-1.png" alt="分配静态IP-1" style="zoom:67%;"></p>
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%88%86%E9%85%8D%E9%9D%99%E6%80%81IP-2.png" alt="分配静态IP-2" style="zoom:67%;"></p>
 <p>配置完后重启树莓派</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h4 id="3、使用PuTTY连接树莓派"><a href="#3、使用PuTTY连接树莓派" class="headerlink" title="3、使用PuTTY连接树莓派"></a>3、使用PuTTY连接树莓派</h4><p>使用 <code>PuTTY</code> 连接树莓派，<del>如果不确定那个是树莓派的IP地址就挨个尝试一下。。。。。</del></p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="连接树莓派-1" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="连接树莓派-1" style="zoom:67%;"></p>
 <p>如果连接成功会提示你输入登录用户名以及密码</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-2.png" alt="连接树莓派-2" style="zoom: 67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-2.png" alt="连接树莓派-2" style="zoom: 67%;"></p>
 <p>登录账号及密码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 树莓派默认用户名及密码</span><br><span class="line">username: pi</span><br><span class="line">password: raspberry</span><br></pre></td></tr></table></figure>
-
 <p>连接成功界面</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-3.png" alt="连接树莓派-3" style="zoom: 67%;">
-
-
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE-3.png" alt="连接树莓派-3" style="zoom: 67%;"></p>
 <h4 id="4、使用远程桌面访问树莓派"><a href="#4、使用远程桌面访问树莓派" class="headerlink" title="4、使用远程桌面访问树莓派"></a>4、使用远程桌面访问树莓派</h4><p>先使用 <code>PuTTY</code> 连接树莓派安装 <code>xrdp</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xrdp</span><br></pre></td></tr></table></figure>
-
 <p><em>可能因为网络原因需要切换源</em> </p>
 <p>切换为国内源</p>
 <p>编辑 <code>sources.list</code> 注释或删除原有的源添加新的源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 不习惯vi可以用nano</span></span><br><span class="line">sudo nano /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 最后更新一下 apt-get </span></span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-
 <p>常用源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 中国科学技术大学</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 阿里云</span></span><br><span class="line">deb http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.aliyun.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清华大学</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华中科技大学</span></span><br><span class="line">deb http://mirrors.hustunique.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.hustunique.com/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 华南农业大学</span></span><br><span class="line">deb http://mirrors.scau.edu.cn/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.scau.edu.cn/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 大连东软信息学院</span></span><br><span class="line">deb http://mirrors.neusoft.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.neusoft.edu.cn/raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重庆大学</span></span><br><span class="line">deb http://mirrors.cqu.edu.cn/Raspbian/raspbian/ stretch main contrib non-free</span><br><span class="line">deb-src http://mirrors.cqu.edu.cn/Raspbian/raspbian/ stretch main contrib non-free</span><br></pre></td></tr></table></figure>
-
-
-
 <p>运行 <code>xrdp</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xrdp</span><br></pre></td></tr></table></figure>
-
 <p>在 <code>PC</code> 上启动 <em>远程桌面连接</em> </p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-1.png" alt="远程桌面连接-1" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-1.png" alt="远程桌面连接-1" style="zoom:67%;"></p>
 <p>输入密码</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-2.png" alt="远程桌面连接-2" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-2.png" alt="远程桌面连接-2" style="zoom:67%;"></p>
 <p>成功连接到树莓派</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-3.png" alt="远程桌面连接-3" style="zoom:67%;">
-
-
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5-3.png" alt="远程桌面连接-3" style="zoom:67%;"></p>
 <h4 id="5、使用VNC访问树莓派"><a href="#5、使用VNC访问树莓派" class="headerlink" title="5、使用VNC访问树莓派"></a>5、使用VNC访问树莓派</h4><p>1、开启树莓派VNC功能</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
-<div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-1.png" alt="开启树莓派VNC功能-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-2.png" alt="开启树莓派VNC功能-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-3.png" alt="开启树莓派VNC功能-3" style="zoom:50%;">
-</div><div style="clear:both;">
-
-
-
+<p><div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-1.png" alt="开启树莓派VNC功能-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-2.png" alt="开启树莓派VNC功能-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E5%BC%80%E5%90%AF%E6%A0%91%E8%8E%93%E6%B4%BEVNC%E5%8A%9F%E8%83%BD-3.png" alt="开启树莓派VNC功能-3" style="zoom:50%;">
+</div><div style="clear:both;"></div></p>
 <p>2、连接树莓派</p>
 <p>输入树莓派IP地址进行连接，输入账号密码登录</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BD%BF%E7%94%A8VNC%E8%AE%BF%E9%97%AE%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="使用VNC访问树莓派-1" style="zoom:67%;">
-
-
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BD%BF%E7%94%A8VNC%E8%AE%BF%E9%97%AE%E6%A0%91%E8%8E%93%E6%B4%BE-1.png" alt="使用VNC访问树莓派-1" style="zoom:67%;"></p>
 <p>3、遇到的问题</p>
 <p><code>VNC Viewer</code> 无法显示界面</p>
 <p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%95%8C%E9%9D%A2%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA.png" alt="界面无法显示"></p>
 <p>解决方法：修改树莓派的分辨率</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-
-<div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-1.png" alt="修改分辨率-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-2.png" alt="修改分辨率-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-3.png" alt="修改分辨率-3" style="zoom:50%;">
-</div><div style="clear:both;">
-
+<p><div align="left"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-1.png" alt="修改分辨率-1" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-2.png" alt="修改分辨率-2" style="zoom:50%;"><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E4%BF%AE%E6%94%B9%E5%88%86%E8%BE%A8%E7%8E%87-3.png" alt="修改分辨率-3" style="zoom:50%;">
+</div><div style="clear:both;"></div></p>
 <p>重启树莓派</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="4、备份与还原"><a href="#4、备份与还原" class="headerlink" title="4、备份与还原"></a>4、备份与还原</h2><h3 id="1、备份"><a href="#1、备份" class="headerlink" title="1、备份"></a>1、备份</h3><p>1、调整TF卡中系统分区容量，使其没有空闲空间</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%B0%83%E6%95%B4%E5%88%86%E5%8C%BA%E5%AE%B9%E9%87%8F.png" alt="调整分区容量" style="zoom: 50%;">
-
-
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E8%B0%83%E6%95%B4%E5%88%86%E5%8C%BA%E5%AE%B9%E9%87%8F.png" alt="调整分区容量" style="zoom: 50%;"></p>
 <p>2、使用 <code>Win32DiskImager</code> 从TF卡中读取并生成镜像</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%94%9F%E6%88%90%E9%95%9C%E5%83%8F.png" alt="生成镜像" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%94%9F%E6%88%90%E9%95%9C%E5%83%8F.png" alt="生成镜像" style="zoom:67%;"></p>
 <p>3、最后不要忘了将分区容量调整回原始大小</p>
 <h3 id="2、还原"><a href="#2、还原" class="headerlink" title="2、还原"></a>2、还原</h3><p>1、使用 <code>Win32DiskImager</code> 工具将映像写入TF卡</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png" alt="映像写入" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%98%A0%E5%83%8F%E5%86%99%E5%85%A5.png" alt="映像写入" style="zoom:67%;"></p>
 <p>2、使用分区工具调整系统分区容量</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9.png" alt="系统分区扩容" style="zoom:50%;">
-
-
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA%E6%89%A9%E5%AE%B9.png" alt="系统分区扩容" style="zoom:50%;"></p>
 <h2 id="5、开机后的一些配置"><a href="#5、开机后的一些配置" class="headerlink" title="5、开机后的一些配置"></a>5、开机后的一些配置</h2><h3 id="1、启用root用户"><a href="#1、启用root用户" class="headerlink" title="1、启用root用户"></a>1、启用root用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改root用户密码</span></span><br><span class="line">sudo passwd root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解锁root用户</span></span><br><span class="line">sudo passwd --unlock root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到root用户</span></span><br><span class="line">su root</span><br></pre></td></tr></table></figure>
-
 <p>如果使用ssh无法登录root用户，修改<code>/etc/ssh/sshd_config</code>配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改/etc/ssh/sshd_config</span></span><br><span class="line">sudo nano /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 按照下图进行修改</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改完成后重启ssh服务</span></span><br><span class="line">service ssh restart</span><br></pre></td></tr></table></figure>
-
 <p>修改前：</p>
 <blockquote>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20210921211331704.png" alt="image-20210921211331704" style="zoom:67%;">
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20210921211331704.png" alt="image-20210921211331704" style="zoom:67%;"></p>
 </blockquote>
 <p>修改后：</p>
 <blockquote>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20210921211542949.png" alt="image-20210921211542949" style="zoom: 67%;">
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20210921211542949.png" alt="image-20210921211542949" style="zoom: 67%;"></p>
 </blockquote>
 <h2 id="6、连接摄像头（PiCamera）"><a href="#6、连接摄像头（PiCamera）" class="headerlink" title="6、连接摄像头（PiCamera）"></a>6、连接摄像头（PiCamera）</h2><h3 id="1、树莓派连接摄像头"><a href="#1、树莓派连接摄像头" class="headerlink" title="1、树莓派连接摄像头"></a>1、树莓派连接摄像头</h3><p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/14270006-ee9c11ce9603c542.png" alt="树莓派连接摄像头"></p>
 <h3 id="2、修改树莓派设置"><a href="#2、修改树莓派设置" class="headerlink" title="2、修改树莓派设置"></a>2、修改树莓派设置</h3><p>修改树莓派设置开启摄像头</p>
 <p>打开树莓派配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
-
 <p>选择Interfacing Options选项</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20211010192632122.png" alt="image-20211010192632122" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20211010192632122.png" alt="image-20211010192632122" style="zoom:67%;"></p>
 <p>选择P1 Camera开启树莓派摄像头</p>
-<img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20211010192748906.png" alt="image-20211010192748906" style="zoom:67%;">
-
+<p><img src="/2020/10/08/%E6%A0%91%E8%8E%93%E6%B4%BE/image-20211010192748906.png" alt="image-20211010192748906" style="zoom:67%;"></p>
 <h3 id="3、命令行控制摄像头"><a href="#3、命令行控制摄像头" class="headerlink" title="3、命令行控制摄像头"></a>3、命令行控制摄像头</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># raspistill命令可以保存静态照片</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># raspivid命令可以录制视频</span></span><br></pre></td></tr></table></figure>
 
-</div></div>
     </div>
 
     
@@ -557,7 +496,6 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>

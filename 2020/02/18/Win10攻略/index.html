@@ -139,11 +139,6 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
 
   </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
-
-  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
@@ -271,54 +266,35 @@
       
         <h2 id="1、关闭离开模式"><a href="#1、关闭离开模式" class="headerlink" title="1、关闭离开模式"></a>1、关闭离开模式</h2><p>1、打开注册表</p>
 <p><code>Windows+R</code>打开运行，输入<code>regedit</code>打开注册表</p>
-<img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-1.png" alt="打开注册表-1" style="zoom:60%;">
-
+<p><img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-1.png" alt="打开注册表-1" style="zoom:60%;"></p>
 <a id="more"></a>
-
 <p>2、找到注册表位置</p>
 <p>在注册表的地址栏输入<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power</code></p>
 <p>，并从中找到<code>AwayModeEnabled</code>键值，并将值改为0。</p>
-<div>
+<p><div>
     <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-2.png" alt="打开注册表-2" style="zoom:50%;float:left;border:solid 1px 000;">
     <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E6%89%93%E5%BC%80%E6%B3%A8%E5%86%8C%E8%A1%A8-3.png" alt="打开注册表-3" style="zoom:55%;float:left;border:solid 1px 000;">
-</div><div style="clear:both;">
-
-
-
-
-
-
-
-
+</div><div style="clear:both;"></div></p>
 <h2 id="2、设置输入法热键"><a href="#2、设置输入法热键" class="headerlink" title="2、设置输入法热键"></a>2、设置输入法热键</h2><p>在设置中打开高级键盘设置，点击<code>输入语言热键</code>进行设置</p>
-<div>
+<p><div>
     <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE-1.png" alt="切换输入法快捷键设置-1" style="zoom:50%;float:left;border:solid 1px 000;">
     <img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE-2.png" alt="切换输入法快捷键设置-2" style="zoom:50%;float:left;border:solid 1px 000;">
-</div><div style="clear:both;">
-
-
+</div><div style="clear:both;"></div></p>
 <h2 id="3、控制台输出带颜色的字符"><a href="#3、控制台输出带颜色的字符" class="headerlink" title="3、控制台输出带颜色的字符"></a>3、控制台输出带颜色的字符</h2><p>1、安装<code>ANSI</code>转义序列支持</p>
 <p><a href="https://github.com/adoxa/ansicon/releases" target="_blank" rel="noopener">下载地址</a>（<em>如果下载不下来，可以点击<a href="./ansi189-bin.zip">这里</a>下载</em>）</p>
 <p>下载后将<code>x64</code>文件夹解压到<code>C:\Windows\System32</code>(或者其他已经添加环境变量的路径)，到<code>x64</code>文件夹内执行下列命令完成安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;ansicon.exe -i</span><br><span class="line">.&#x2F;ansicon.exe -l</span><br></pre></td></tr></table></figure>
-
 <p>2、输出格式</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：\<span class="number">033</span>[显示方式;前景色;背景色m</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">前景色            背景色           颜色</span><br><span class="line">---------------------------------------</span><br><span class="line">30                40              黑色</span><br><span class="line">31                 41              红色</span><br><span class="line">32                42              绿色</span><br><span class="line">33                43              黃色</span><br><span class="line">34                44              蓝色</span><br><span class="line">35                45              紫红色</span><br><span class="line">36                46              青蓝色</span><br><span class="line">37                47              白色</span><br><span class="line"></span><br><span class="line">显示方式           意义</span><br><span class="line">-------------------------</span><br><span class="line">0                终端默认设置</span><br><span class="line">1                高亮显示</span><br><span class="line">4                使用下划线</span><br><span class="line">5                闪烁</span><br><span class="line">7                反白显示</span><br><span class="line">8                不可见</span><br></pre></td></tr></table></figure>
-
 <p>例如</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python</span></span><br><span class="line">print(<span class="string">"\033[1;31;40m带颜色的字符\033[0m"</span>)  </span><br><span class="line">print(<span class="string">"\033[0;31m%s\033[0m"</span> % <span class="string">"带颜色的字符"</span>)</span><br><span class="line">print(<span class="string">'\033[1;31;42m 带颜色的字符 \033[0m'</span>)</span><br></pre></td></tr></table></figure>
-
 <p>效果</p>
-<img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%B8%A6%E9%A2%9C%E8%89%B2%E8%BE%93%E5%87%BA.png" alt="带颜色输出" style="zoom: 80%;">
-
-
-
+<p><img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/%E5%B8%A6%E9%A2%9C%E8%89%B2%E8%BE%93%E5%87%BA.png" alt="带颜色输出" style="zoom: 80%;"></p>
 <h2 id="4、截图"><a href="#4、截图" class="headerlink" title="4、截图"></a>4、截图</h2><p>Win10自带截图工具，快捷键<code>Win + Shift + s</code></p>
 <p><img src="/2020/02/18/Win10%E6%94%BB%E7%95%A5/image-20210925134931170.png" alt="Win10截图工具"></p>
 <h2 id="0、参考"><a href="#0、参考" class="headerlink" title="0、参考"></a>0、参考</h2><p><a href="https://cloud.tencent.com/developer/article/1142372" target="_blank" rel="noopener">控制台输出颜色控制</a></p>
-</div></div>
+
     </div>
 
     
@@ -425,7 +401,6 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>

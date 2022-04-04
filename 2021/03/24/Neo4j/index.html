@@ -141,11 +141,6 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">22</span></a>
 
   </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">19</span></a>
-
-  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">36</span></a>
@@ -252,7 +247,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -284,15 +279,13 @@
 
 <p>将 <code>dbms.connectors.default_listen_address=0.0.0.0</code> 取消注释即可进行远程访问</p>
 <p>远程访问Neo4j管理页面，使用浏览器访问 <code>http://设备IP:7474</code></p></div></div></div>
-
 <a id="more"></a>
-
 <h3 id="2、管理页面"><a href="#2、管理页面" class="headerlink" title="2、管理页面"></a>2、管理页面</h3><p>浏览器访问 <code>http://localhost:7474</code> ，默认账号密码为 <code>neo4j</code> 。</p>
 <p><img src="/2021/03/24/Neo4j/%E7%AE%A1%E7%90%86%E9%A1%B5%E9%9D%A2%E7%99%BB%E5%BD%95.png" alt="管理页面登录"></p>
 <h3 id="3、连接数据库"><a href="#3、连接数据库" class="headerlink" title="3、连接数据库"></a>3、连接数据库</h3><p><code>Neo4j</code> 的默认连接 <code>url</code> 为 <code>neo4j://localhost:7687</code></p>
 <h3 id="4、基本操作"><a href="#4、基本操作" class="headerlink" title="4、基本操作"></a>4、基本操作</h3><h4 id="1、增"><a href="#1、增" class="headerlink" title="1、增"></a>1、增</h4><p><strong>创建一个没有属性的节点</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE (&lt;node-name&gt;:&lt;label-name&gt;)</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -300,27 +293,29 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CREATE</td>
 <td>Neo4j CQL 命令</td>
 </tr>
 <tr>
-<td>&lt;node-name&gt;</td>
+<td>\<node-name\></node-name\></td>
 <td>要创建的节点名称</td>
 </tr>
 <tr>
-<td>&lt;label-name&gt;</td>
+<td>\<label-name\></label-name\></td>
 <td>节点标签名称</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><em>示例1-1：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE (emp:Employee)</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B1-1%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-1.png" alt="示例1-1运行结果-1"></p>
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B1-1%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-2.png" alt="示例1-1运行结果-2"></p>
 <p><strong>创建一个带有属性的节点</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE (</span><br><span class="line">   &lt;node-name&gt;:&lt;label-name&gt;</span><br><span class="line">   &#123; 	</span><br><span class="line">      &lt;Property1-name&gt;:&lt;Property1-Value&gt;</span><br><span class="line">      ........</span><br><span class="line">      &lt;Propertyn-name&gt;:&lt;Propertyn-Value&gt;</span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -328,31 +323,33 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>&lt;node-name&gt;</td>
+<tbody>
+<tr>
+<td>\<node-name\></node-name\></td>
 <td>要创建的节点名称</td>
 </tr>
 <tr>
-<td>&lt;label-name&gt;</td>
+<td>\<label-name\></label-name\></td>
 <td>节点标签名称</td>
 </tr>
 <tr>
-<td>&lt;Property1-name&gt;…&lt;Propertyn-name&gt;</td>
+<td>\<Property1-name\>…\<Propertyn-name\></Propertyn-name\></Property1-name\></td>
 <td>节点属性的名称（属性是键值对）</td>
 </tr>
 <tr>
-<td>&lt;Property1-value&gt;…&lt;Propertyn-value&gt;</td>
+<td>\<Property1-value\>…\<Propertyn-value\></Propertyn-value\></Property1-value\></td>
 <td>节点属性的值（属性是键值对）</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><em>示例1-2：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE (</span><br><span class="line">    emp:Employee</span><br><span class="line">    &#123;</span><br><span class="line">    	id:123,</span><br><span class="line">    	name:&quot;Lokesh&quot;,</span><br><span class="line">    	sal:35000,</span><br><span class="line">    	deptno:10</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B1-2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-1.png" alt="示例1-2运行结果-1"></p>
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B1-2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-2.png" alt="示例1-2运行结果-2"></p>
 <p><strong>创建有多个标签的节点</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE (&lt;node-name&gt;:&lt;label-name1&gt;:&lt;label-name2&gt;.....:&lt;label-namen&gt;)</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -360,27 +357,29 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CREATE 创建</td>
 <td>Neo4j CQL 命令</td>
 </tr>
 <tr>
-<td>&lt;node-name&gt;</td>
+<td>\<node-name\></node-name\></td>
 <td>节点名称</td>
 </tr>
 <tr>
-<td>&lt;label-name1&gt;…&lt;label-namen&gt;</td>
+<td>\<label-name1\>…\<label-namen\></label-namen\></label-name1\></td>
 <td>节点的标签名称列表</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><em>示例1-3：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE (e:Employee:Person)</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B1-3%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-1.png" alt="示例1-3运行结果-1"></p>
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B1-3%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C-2.png" alt="示例1-3运行结果-2"></p>
 <h4 id="2、查"><a href="#2、查" class="headerlink" title="2、查"></a>2、查</h4><p><strong>按标签名称查询并返回查询到的节点的属性值</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MATCH </span><br><span class="line">(</span><br><span class="line">   &lt;node-name&gt;:&lt;label-name&gt;</span><br><span class="line">)</span><br><span class="line">RETURN</span><br><span class="line">   &lt;node-name&gt;.&lt;property1-name&gt;,</span><br><span class="line">   ...</span><br><span class="line">   &lt;node-name&gt;.&lt;propertyn-name&gt;</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -388,16 +387,17 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>MATCH</td>
 <td>Neo4j CQL 命令</td>
 </tr>
 <tr>
-<td>&lt;node-name&gt;</td>
+<td>\<node-name\></node-name\></td>
 <td>命名查询得到的节点</td>
 </tr>
 <tr>
-<td>&lt;label-name&gt;</td>
+<td>\<label-name\></label-name\></td>
 <td>要查询节点的标签名称</td>
 </tr>
 <tr>
@@ -405,17 +405,18 @@
 <td>Neo4j CQL 命令</td>
 </tr>
 <tr>
-<td>&lt;Property1-name&gt;…&lt;Propertyn-name&gt;</td>
+<td>\<Property1-name\>…\<Propertyn-name\></Propertyn-name\></Property1-name\></td>
 <td>节点的属性的名称</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><em>示例2-1：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MATCH </span><br><span class="line">(</span><br><span class="line">    node:Employee</span><br><span class="line">)</span><br><span class="line">RETURN </span><br><span class="line">	node.id,</span><br><span class="line">	node.name</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B2-1-%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="示例2-1-运行结果"></p>
 <p><strong>按节点属性查询并返回查询到的节点</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MATCH (</span><br><span class="line">    &lt;node-name&gt;</span><br><span class="line">)</span><br><span class="line">WHERE (</span><br><span class="line">	&lt;node-name&gt;.&lt;Property1-name&gt; &#x3D; &lt;Property1-Value&gt; AND</span><br><span class="line">    ...</span><br><span class="line">    &lt;node-name&gt;.&lt;Propertyn-name&gt; &#x3D; &lt;Propertyn-Value&gt;</span><br><span class="line">)</span><br><span class="line">RETURN </span><br><span class="line">	&lt;node-name&gt;</span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -423,7 +424,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>WHERE</td>
 <td>Neo4j CQL 命令</td>
 </tr>
@@ -431,8 +433,11 @@
 <td>AND</td>
 <td>Neo4j CQL 中的布尔运算符</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>Neo4j CQL 中的布尔运算符</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -440,7 +445,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>AND</td>
 <td>布尔运算符 <code>且</code></td>
 </tr>
@@ -456,8 +462,11 @@
 <td>XOR</td>
 <td>布尔运算符 <code>异或</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><strong>Neo4j CQL 中的比较运算符</strong></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -465,7 +474,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>=</td>
 <td>比较运算符 <code>等于</code></td>
 </tr>
@@ -489,10 +499,11 @@
 <td>&gt;=</td>
 <td>比较运算符 <code>大于等于</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p><em>示例2-2：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MATCH (</span><br><span class="line">	node</span><br><span class="line">)</span><br><span class="line">WHERE (</span><br><span class="line">	node.name&#x3D;&#39;Lokesh&#39;</span><br><span class="line">)</span><br><span class="line">RETURN</span><br><span class="line">	node</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2021/03/24/Neo4j/%E7%A4%BA%E4%BE%8B2-2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="示例2-2运行结果"></p>
 <h4 id="3、删"><a href="#3、删" class="headerlink" title="3、删"></a>3、删</h4><p><strong>使用 <code>DELETE</code> 删除数据</strong></p>
 <h4 id="4、改"><a href="#4、改" class="headerlink" title="4、改"></a>4、改</h4><!-- flag of hidden posts -->
@@ -592,7 +603,6 @@
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
-          
         <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
